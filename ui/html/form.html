@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title>FORMS</title>
+        <style type="text/css">
+
+        input[type="text"], input[type="email"]{
+            border: 2px solid green;
+            border-radius: 4px;
+            height: 25px;
+        }
+        input[type=submit]{
+             background: blue;
+        }
+        fieldset{
+            border-color: aquamarine;
+            border: 2px solid;
+            border-radius: 4px;
+            width: 40%;
+            margin: 0 0 0 10px;
+            float: left;
+        }
+        fieldset legend{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        label{
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+        }
+        nav ul li a{
+            color: rgb(201, 235, 163);
+        }
+        nav ul li a:hover{
+            color: brown;
+        }
+        nav ul li a:visited{
+            color: rgb(233, 120, 101);
+        }
+        </style>
+    </head>
+    <body bgcolor="blueviolet" font-family="Arial">
+        <div>
+            <section>
+                <nav>
+                    <ul>
+                    <li><a href="https://www.w3schools.com/" target="blank">Home</a></li>
+                    <li> <a href="https://www.bing.com/images/search?view=detailV2&ccid=KPB6FLcZ&id=D47610052B928DD18B88D424C5905B729CAC7CF9&thid=OIP.KPB6FLcZoo-NKfED612ZjAHaK5&mediaurl=http%3a%2f%2fimages1.wikia.nocookie.net%2f__cb20090903145510%2fbatman%2fimages%2ff%2ff9%2fHeath_Ledger_as_the_Joker.JPG&exph=1234&expw=838&q=joker&simid=608053130473769646&selectedIndex=6&ajaxhist=0">Aboutus</a></li>
+                    <li> <a href="https://www.facebook.com/">Contactus</a></li>
+                   </ul>
+
+                </nav>
+            </section>
+        </div>
+        <fieldset><legend> <p align="center">User Details</p></legend>
+            <form name="userDetails" method="POST" action="" >
+        <table border="0.5">
+            
+                <tbody>
+                    <tr>
+                        <th>
+                           <lable> FIRST NAME </lable>
+                        </th>
+                        <td>
+                            <input type="text" name="firstname" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            LAST NAME 
+                        </th>
+                        <td>
+                            <input type="text" name="lastname" />
+                        </td>
+                    </tr>
+                    <tr>
+                            <th>
+                                Email
+                            </th>
+                            <td>
+                                <input type="email" name="email" />
+                            </td>
+                        </tr>
+                        <tr>
+                                <th>
+                                  Phone
+                                </th>
+                                <td>
+                                    <input type="number" name="number" max="9999999999" min="1000000000"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <th>
+                                        Time
+                                    </th>
+                                    <td>
+                                        <input type="time" name="time" />
+                                    </td>
+                                </tr>
+                            <tr>
+                                    <th>
+                                            <label for="dob">   DOB </label>
+                                    </th>
+                                    <td>
+                                        <input type="date" name="dob" />
+                                    </td>
+                                </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Save" formaction="GET" />
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>FIELDS</legend>
+            <em>
+                hello
+            </em>
+            <bdo dir="rtl">HELLO HOW ARE YOU</bdo>
+            <hr color="yellow" />
+            <blockquote>THE POOR DIES!,WHO CARES</blockquote>
+            <blockquote>WE LOVE  <3@IBM</blockquote>
+            <code>
+                for( int i=0; i &lt 9; i++ )  <br />
+                cout&lt&lt i; <br/>
+             </code>
+        
+    </fieldset>
+
+    </body>
+</html>
