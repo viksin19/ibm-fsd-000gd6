@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Time Table </title>
+        <script type="text/javascript" src="ass.js"></script>
+        <style>
+            body{
+                background-color: brown;
+                color: #F9F781;
+                }
+                .emp-input-spacing{
+            border: 1px solid;
+        }
+     fieldset{
+         width: 40%;
+         height:60%;
+     }
+     fieldset legend{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: aqua;
+}
+        </style>
+    </head>
+    <body>
+
+        <div>
+        <fieldset><legend>Enter Trainer</legend>
+           Name : <input type="text" id="tname" class="emp-input emp-input-spacing" placeholder="Trainer Name"/><br>
+           Email : <input type="email" id="temail" class="emp-input emp-input-spacing" placeholder="Trainer Email"/><br>
+            Subject: <br>
+            <input type="checkbox" id="sub1" name="sub" value="Maths">Maths<br>
+            <input type="checkbox"  id="sub2" name="sub" value="English">English<br>
+            <input type="checkbox" id="sub3"  name="sub" value="Physics">Physics<br>
+            <input type="checkbox" id="sub4" name="sub" value="Biology">Biology<br>
+            <input type="checkbox" id="sub5"name="sub" value="CS">CS<br>
+            <input type="checkbox" id="sub6" name="sub" value="Sports">Sports<br>
+            <input type="button" onclick="savet()" value="SAVE" class="emp-input-spacing" />
+        </fieldset>
+    </div>
+    <div>
+        <fieldset><legend>Allocate Class</legend>
+          Class : <select id="classkey" class="emp-input-spacing" >
+                <option value="">-select-</option>
+                <option value="C1">Class1</option>
+                <option value="C2">Class2</option>
+            </select>
+           Slot :<select id="slotkey" class="emp-input-spacing">
+                    <option value="">-select-</option>
+                    <option value="P1">10-11</option>
+                    <option value="P2">11-12</option>
+                    <option value="P3">12-1</option>
+                    <option value="P4">2-3</option>
+                    <option value="P5">3-4</option>
+                    <option value="P6">4-5</option>
+                </select>
+                Subject: <select id="subkey" class="emp-input-spacing" onchange="showtrainer()">
+                        <option value="">-select-</option>
+                        <option value="Maths">Maths</option>
+                        <option value="English">English</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Biology">Biology</option>
+                        <option value="CS">CS</option>
+                        <option value="Sports">Sports</option>
+                    </select>
+                    Trainer : <select id="tid"   onchange="saveallocation()" >
+
+                    </select>
+                </fieldset>
+    </div>
+
+    <div>
+        <fieldset><legend>TIME TABLE</legend>
+        
+            <select id="ckey" class="emp-input-spacing" onchange="showtimetable()">
+                    <option value="">-select-</option>
+                    <option value="C1">Class1</option>
+                    <option value="C2">Class2</option>
+                </select>
+                <table border='1.0'>
+                   <thead> <tr>
+                        <th>Time</th>
+                        <th>10-11</th>
+                        <th>11-12</th>
+                        <th>12-1</th>
+                        <th>Lunch Time</th>
+                        <th>2-3</th>
+                        <th>3-4</th>
+                        <th>4-5</th>
+                    </tr>
+                </thead> 
+                <tbody id="tt>">
+
+                </tbody>
+                </table>
+        
+        </fieldset>
+    </div>
+    </body>
+</html>
