@@ -151,13 +151,14 @@ let bg = `<h3>${document.getElementById('bg').value}</h3>`
    document.getElementById('bgv').innerHTML = bg;
 
 //    image
-let str = document.getElementById("img").value;
-var src = str.substring(12, );
+let str = document.getElementById("img").files[0];
+    var src = window.URL.createObjectURL(str);
+//var src = str.substring(12, );
 console.log(src);
-let im = `<img src="${src}" class="jai" alt="" >`
+//let im = `<img src="${src}" class="jai" alt="" >`
         document.getElementById('img').style.display = "none";
         document.getElementById('imgv').style.display = "block";
-        document.getElementById('imgv').innerHTML = im;
+        document.getElementById('imgv').src = src;
 }
 
 </script>
