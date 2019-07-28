@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Driving Lisence</title>
+
+<!-- bootstrap -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> -->
+
+<style>
+
+.first {
+    background-color: rgb(207, 51, 51);
+    height: 23%;
+    width: 100%;
+}
+.ashok img{
+    height: 130px;
+    padding-left: 190%;
+    padding-top: 3%;
+}
+.IDL{
+    padding-top: 2%;
+    padding-left: 30%;
+}
+
+.chip {
+    height: 170px;
+    width: 55%;
+    padding-left: 30%;
+    padding-top: 12%;
+}
+.name {
+    padding-top: 10%;
+    padding-left: 30%
+}
+.fname {
+    padding-top: 10%;
+    padding-left: 30%
+}
+
+.r1 {
+    padding-top: 6%;
+    padding-left: 14%
+}
+.r2 {
+        padding-top: -2%;
+    padding-left: 14%;
+    
+}
+.DL {
+    padding-top: 3%;
+    padding-left: 20%;
+}
+.jai {
+    width: 70%;
+    height: 75%;
+}
+.edit {
+    padding-left: 96%;
+}
+.pen{
+    height: 20px;
+}
+</style>
+
+<!-- script -->
+<script>
+
+// edit
+function edit(){
+// name
+document.getElementById('uname').style.display = "none";
+document.getElementById('name').style.display = "block";
+
+// father name
+document.getElementById('father').style.display = "none";
+document.getElementById('fname').style.display = "block";
+
+// Date of Issue
+document.getElementById('DOIV').style.display = "none";
+document.getElementById('DOI').style.display = "block";
+
+// valid till
+document.getElementById('vtv').style.display = "none";
+document.getElementById('vt').style.display = "block";
+
+// Date of Birth
+document.getElementById('DOBV').style.display = "none";
+document.getElementById('DOB').style.display = "block";
+
+// Blood Group
+document.getElementById('bgv').style.display = "none";
+document.getElementById('bg').style.display = "block";
+
+// image
+document.getElementById('imgv').style.display = "none";
+document.getElementById('img').style.display = "block";
+
+}
+
+
+// save
+function save(){
+
+    // name
+   let name = `<h3>${document.getElementById('name').value}</h3>`
+   document.getElementById('name').style.display= "none";
+   document.getElementById('uname').style.display = "block";
+   document.getElementById('uname').innerHTML = name;
+
+//    father
+let fname = `<h3>${document.getElementById('fname').value}</h3>`
+   document.getElementById('fname').style.display= "none";
+   document.getElementById('father').style.display = "block";
+   document.getElementById('father').innerHTML = fname;
+
+//    DOI
+let doi = `<h3>${document.getElementById('DOI').value}</h3>`
+   document.getElementById('DOI').style.display= "none";
+   document.getElementById('DOIV').style.display = "block";
+   document.getElementById('DOIV').innerHTML = doi;
+
+//    valid till
+let validity = `<h3>${document.getElementById('vt').value}</h3>`
+   document.getElementById('vt').style.display= "none";
+   document.getElementById('vtv').style.display = "block";
+   document.getElementById('vtv').innerHTML = validity;
+
+//    date of birth 
+let dob = `<h3>${document.getElementById('DOB').value}</h3>`
+   document.getElementById('DOB').style.display= "none";
+   document.getElementById('DOBV').style.display = "block";
+   document.getElementById('DOBV').innerHTML = dob;
+
+//    Blood Group
+let bg = `<h3>${document.getElementById('bg').value}</h3>`
+   document.getElementById('bg').style.display= "none";
+   document.getElementById('bgv').style.display = "block";
+   document.getElementById('bgv').innerHTML = bg;
+
+//    image
+let str = document.getElementById("img").value;
+var src = str.substring(12, );
+console.log(src);
+let im = `<img src="${src}" class="jai" alt="" >`
+        document.getElementById('img').style.display = "none";
+        document.getElementById('imgv').style.display = "block";
+        document.getElementById('imgv').innerHTML = im;
+}
+
+</script>
+
+</head>
+<body>
+
+
+         <div class="row  first">
+            <div class="col-1 ashok">
+                <img src="ashok.jpg" class="bg-brown" alt="">
+            </div>    
+        <div class="col-10 tex-center IDL">
+            <h1>Indian Driving Licence</h1>
+        </div>  
+         </div>
+         <div class="row edit">
+                <button class="bg-success" id="save" onclick="save()"><i class="fa fa-check" aria-hidden="true"></i></button>            
+                <button class="bg-primary" id="edit" onclick="edit()"><i class="fa fa-pencil pen" aria-hidden="true"></i></button>
+        </div>         
+
+         <div class="row DL">
+             <h3>UP65 2019000120196</h3>
+         </div>
+
+         <div class="row">
+          <div class="col-4">
+            <div class="row">
+                <img src="chip.png" class="chip" alt="">
+            </div>
+            <div class="row">
+                <div class="row form-group name">
+                   <label for="name"><h3 >Name  :</h3></label>
+                    <input type="text" class="form control w-100" id="name" placeholder="Enter Name" style="display: none;" />
+                    <label id="uname"><h3>Vikram Singh</h3></label> 
+                </div>
+                <div class="row form-group fname">
+                    <label for="fname"><h3>Father's Name :</h3></label>
+                    <input type="text" class="form control w-100" id="fname" placeholder="Enter Father's Name" style="display: none;" />
+                    <label id="father"><h3>Ravindra Kumar Singh</h3></label>
+                </div>
+               
+            </div>
+
+          </div>
+          <div class="col-8">
+
+            <div class="row r1">
+          <div class="col-3 form-group ">
+            
+              <label for="DOI"><h4>Date of Issue  :</h4></label>
+              <input type="text" class="form control w-100" id="DOI" placeholder="Date Of Issue" style="display: none;" />
+              <label id="DOIV"><h4>12/01/2019</h4></label>
+          </div>
+            <div class="col-3 form-group">
+              <label for="DOB"><h4>Date of Birth  :</h4></label>
+              <input type="text" class="form control w-100" id="DOB" placeholder="Date Of birth" style="display: none;" />
+              <label id="DOBV"><h4>12/01/1996</h4></label>
+            </div>
+            <div class="col-1">
+
+            </div>
+            <div class="col-3 form-group">
+                     <form action="/action_page.php"> 
+                        <input type="file" name="pic" id="img" accept="image/*" style="display: none;" />
+               <label id="imgv"><img src="jai.JPG" class="jai" alt=""></label>
+               <!-- <label id="show"></label> -->
+            </div>
+          </div>
+            
+          <div class="row r2">
+               <div class="col-3 form-group">
+            <label for="vt"><h4>Valid Till :</h4></label>
+            <input type="text" class="form control w-100" id="vt" placeholder="Valid Till" style="display: none;" />
+            <label id="vtv"><h4>31/12/2030</h4></label>
+            </div>
+            <div class="col-3 form-group">
+                <label for="bg"><h4>Blood Group :</h4></label>
+                <input type="text" class="form control w-100" id="bg" placeholder="Blood Group" style="display: none;" />
+                 <label id="bgv"><h3>O+</h3></label>
+            </div>
+            </div>
+
+          </div>
+
+
+
+
+
+         </div>
+
+    
+
+
+
+
+</body>
+</html>
