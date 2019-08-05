@@ -1,0 +1,20 @@
+db.createUser ({
+    user :  "jai",
+    pwd :    "12196",
+    roles: [
+        {
+            role: "readOnly" , db: "ibm_fsd" }, "readWriteAnyDatabase"
+        
+    ]
+});
+
+db.createRole({
+    role: "readOnly",
+    privileges : [
+        { resource : { db : "ibm_fsd" , collection : "users" }, 
+          actions: ["find"]
+        }
+                 ],
+     roles: []
+
+});
