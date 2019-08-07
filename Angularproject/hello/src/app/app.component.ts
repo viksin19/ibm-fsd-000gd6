@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hello';
+  _msg = "Yes";
+
+  empdetails:any
+
+  getdetails($event){
+    this.empdetails = $event;
+  }
 }

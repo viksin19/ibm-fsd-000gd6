@@ -1,0 +1,37 @@
+<p>employee works!</p>
+<br>
+<b>You are IBMer : {{message}} </b>
+<br>
+<strong>{{emp | json}}</strong>
+<br>
+<br>
+<br>
+<p>
+__________________________________________________________________________________________________________________________________________________
+</p>
+<div>
+         <b style="height:170px; text-align: center; padding-top: 3%;">Users : {{usercount}} (Active: {{activecount}} , Inactive: {{inactivecount}})</b>
+         <input type="button" (click)= "show()" value="show user" />
+</div><br>
+<p>
+ _________________________________________________________________________________________________________________________________________________
+</p>
+<br>
+<div>
+        <table style="width: 70%; text-align:center; padding-left:5%;">
+                <tr border="1.0">
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th><input type="button" (click)= "add()" value="Add user" /></th>
+                </tr>
+                <tr *ngFor="let us of user">
+                    <td>{{us.id}}</td>
+                    <td>{{us.name}}</td>
+                    <td>{{us.age}}</td>
+                    <td><input type="button" (click)= "delete(us.id,us.status)" value="Remove" /></td>
+                </tr>
+            </table>
+</div>
+
+

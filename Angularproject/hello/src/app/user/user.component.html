@@ -1,0 +1,29 @@
+
+<div><h1 style="padding-left: 35%; color:blue;">{{message}}</h1></div>
+<div><img src={{url}} style="width:98%; height: 700px; padding-left: 1%; padding-top: 1%; background-attachment: fixed;" /></div>
+<div *ngIf="showtable; then yes else no"></div>
+    <ng-template #yes>
+    <table style="width: 70%; text-align:center; padding-left:5%;">
+        <tr border="1.0">
+            <th>id</th>
+            <th>Name</th>
+        </tr>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+        </tr>
+    </table>
+</ng-template>
+
+<ng-template #no>
+    <h1>There is no Data</h1>
+</ng-template>
+
+<div>
+<span *ngFor="let u of users">
+    {{u}}
+    &nbsp;
+    &nbsp;
+</span>
+</div>
+
