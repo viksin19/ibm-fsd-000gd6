@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<router-outlet>
+  <nav style="padding-left: 48%; padding-top: 2%;">
+    <a [routerLink]="['/home']">Home</a><br>
+    <a [routerLink]="['/users']">Users</a><br>
+    <a [routerLink]="['/edit']">Edit</a><br>
+    <a [routerLink]="['/aboutus','11']">About Us</a>
+  </nav>
+</router-outlet>
