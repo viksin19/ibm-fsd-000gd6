@@ -8,6 +8,8 @@ import { QueryparamsComponent } from './queryparams/queryparams.component';
 import { AddComponent } from './project/add/add.component';
 import { DeleteComponent } from './project/delete/delete.component';
 import { ModifyComponent } from './project/modify/modify.component';
+import { ShowComponent } from './project/show/show.component';
+
 
 
 const routes: Routes = [{
@@ -45,8 +47,12 @@ const routes: Routes = [{
       component: ModifyComponent
     },
     {
+      path: 'show',
+      component: ShowComponent
+    },
+    {
       path: '',
-      component: AddComponent
+      component: ShowComponent
     }
   ]
 }

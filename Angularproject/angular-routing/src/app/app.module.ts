@@ -9,7 +9,6 @@ import { UsersComponent } from './users/users.component';
 import { EditComponent } from './edit/edit.component';
 import { QueryparamsComponent } from './queryparams/queryparams.component';
 import { ProjectModule } from './project/project.module';
-
 @NgModule({
   declarations: [
     AppComponent,

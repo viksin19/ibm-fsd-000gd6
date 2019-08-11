@@ -6,10 +6,12 @@
 </div>
 
 <router-outlet>
-  <nav style="padding-left: 48%; padding-top: 2%;">
-    <a [routerLink]="['/home']">Home</a><br>
-    <a [routerLink]="['/users']">Users</a><br>
-    <a [routerLink]="['/edit']">Edit</a><br>
-    <a [routerLink]="['/aboutus','11']">About Us</a>
+  <div style="padding-left: 45%; padding-top: 2%;">
+  <nav>
+    <button class="btn btn-primary text-white"><a [routerLink]="['/project/show']" class="text-white">show</a></button> &nbsp; &nbsp; &nbsp;
+    <button class="btn btn-success text-white" ><a [routerLink]="['/project/add']" class="text-white">Add</a></button> &nbsp; &nbsp; &nbsp;
+    <a [routerLink]="['/project/modify']"></a>
+    <a [routerLink]="['/aboutus','11']"></a>
   </nav>
+</div>
 </router-outlet>

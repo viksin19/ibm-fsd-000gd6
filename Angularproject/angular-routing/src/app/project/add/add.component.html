@@ -1,1 +1,9 @@
-<p>add works!</p>
+<fieldset>
+    <div class="form-group">
+    <form  #addForm="ngForm"  (submit)="addProject(addForm.value)" style="padding-left: 43%; padding-top: 3%; color:deepskyblue;" >
+        <input type="number" placeholder="Project ID"  name="Pid"   ngModel /><br>
+        <input type="text"   placeholder="Project Name"  name="Pname" ngModel /><br>
+        <input type="submit" class="btn btn-success" value="Add" />
+    </form>
+</div>
+</fieldset>

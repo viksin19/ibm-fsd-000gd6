@@ -4,21 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProjectserviceService {
-projects:Projects[]
+projects:Projects[]=[]
   constructor() { }
-
-  // get user
-  getproject(){
-    return this.projects ;
-  }
-
 
   //  add user
 add(data){
-this.projects.push({
-  Pid:data.id,
-  Pname:data.name});
+this.projects.push(data);
+  // console.log(this.projects)
 }
+
+
+getproject(){
+  console.log(this.projects);
+  return this.projects ;
+}
+
 // delete user
 delete(id){
   for( var k=0; k < this.projects.length ; k++){
@@ -28,19 +28,26 @@ delete(id){
   }
 }
 // modify user
-modify(id,name){
+modify(data){
 
-  this.projects.forEach(p=>{
-    if(p.Pid == id){
-      p.Pid = id;
-      p.Pname = name;
+  for(var i=0; i<this.projects.length; i++){
+
+    if(this.projects[i].Pid == data.Pid){
+      
+      this.projects[i].Pname = data.Pname;
     }
+  }
+  
+}
+findUserById(_id){
+  return this.projects.find(u=>{
+    return u.Pid == _id
   })
 }
 
 }
 
-interface Projects {
+export interface Projects {
 Pid:number
 Pname:string
 }

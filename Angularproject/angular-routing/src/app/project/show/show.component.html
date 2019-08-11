@@ -1,0 +1,19 @@
+<fieldset>
+<div style="padding-left: 41%; padding-top: 3%;">
+    <table   style="padding-left: 40%;">
+        <tr style="color: darkviolet;">
+            <th>Project ID</th>    &nbsp;
+            <th>Project Name</th>  &nbsp;
+            <th>Delete</th> &nbsp;
+            <th>Edit</th> &nbsp;
+        </tr>
+        <tr *ngFor="let pj of projects">
+            <td>{{pj.Pid}}</td> &nbsp;
+            <td>{{pj.Pname}}</td> &nbsp;
+            <td><input type="button"  class="btn btn-danger" value="Delete" (click)="delete(pj.Pid)" /></td> &nbsp;
+            <td><input type="button" class="btn btn-primary" value="Edit" (click)="edit(pj)" /></td> &nbsp;
+        </tr>
+    </table>
+</div>
+
+</fieldset>
