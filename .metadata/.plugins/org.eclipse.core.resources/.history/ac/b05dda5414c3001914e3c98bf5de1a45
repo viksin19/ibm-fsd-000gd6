@@ -1,0 +1,9 @@
+package JDBV_20;
+
+import employee.Employee;
+
+public interface Employeeservice {
+	
+	public void createEmployee(Employee employee);
+  
+}

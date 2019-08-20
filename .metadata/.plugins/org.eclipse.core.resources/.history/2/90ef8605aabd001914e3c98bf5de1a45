@@ -1,0 +1,39 @@
+package array;
+import java.util.Arrays;
+
+public class ArrayMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrayDemo array = new ArrayDemo();
+		array.creatArray(26);
+		char[] arr = array.getArray();
+		
+		for(char c:arr) {
+			System.out.print(c+"\t");
+		}
+		
+		
+		int arraynew[]= {
+				100,1,-20,30,0
+		};
+		System.out.println(" ");
+		Arrays.sort(arraynew);
+		
+		for(int i:arraynew) {
+			System.out.println(i+" ");
+		}
+		System.out.println("In Descending Order");
+		
+		for(int i=arraynew.length-1;i>=0;i--) {
+			System.out.println(arraynew[i]+" ");
+		}
+		
+       
+		int k=3;
+		
+		array.searcelement(k, arraynew);
+	}
+
+}

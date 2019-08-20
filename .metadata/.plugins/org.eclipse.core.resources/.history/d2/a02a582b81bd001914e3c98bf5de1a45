@@ -1,0 +1,17 @@
+package model.example;
+
+public class Modelmain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Model model = new Line(0,30);
+		Model model1= new Line(5,33);
+		
+		System.out.println("Is Greater : "+model.isGreater(model, model1));
+		System.out.println("Is Less    : "+model.isLess(model, model1));
+		System.out.println("Is Equal   : "+model.isEqual(model, model1));
+
+	}
+
+}

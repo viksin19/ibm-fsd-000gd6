@@ -1,0 +1,16 @@
+package innerouter;
+
+public class Tester1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Model model = new Model();
+		model.modelmethod();
+		Model.Square square = model.new Square();
+		square.area(10, 6);
+
+
+	}
+	
+
+}

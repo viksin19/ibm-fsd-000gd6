@@ -1,0 +1,19 @@
+package comm.product;
+
+public class Electronics extends Product {
+private int manufacturingYear;
+
+public Electronics() {
+
+}
+
+public Electronics(int manufacturingYear) {
+	super(1000);
+	this.manufacturingYear = manufacturingYear;
+}
+
+public String getDetails() {
+	return "|| Manufacturing Year"+manufacturingYear+super.getDetails();
+}
+
+}

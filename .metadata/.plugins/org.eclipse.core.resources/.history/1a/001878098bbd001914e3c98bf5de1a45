@@ -1,0 +1,6 @@
+package example.interfac;
+
+public class Monkey implements LivingThings {
+	
+
+}

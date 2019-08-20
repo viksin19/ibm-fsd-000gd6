@@ -1,0 +1,39 @@
+package JDBV_20;
+
+import java.util.Scanner;
+
+public class Employeemain {
+
+	public static void main(String[] args) {
+
+		int choice = 0;
+		do {
+			System.out.println("*** Welcome To Employee Database ***");
+			System.out.println("  1. Add     Employee ");
+			System.out.println("  2. Display Employee ");
+			System.out.println("  3. Remove  Employee ");
+			System.out.println("  4. Update  Employee ");
+			System.out.println("  5. Clear   Screen ");
+			System.out.print(" Select Your Choice : ");
+			Scanner scanner = new Scanner(System.in);
+			choice = scanner.nextInt();
+			switch(choice) {
+			case 1: break;
+			case 2: break;
+			case 3: break;
+			case 4: break;
+			case 5: 
+				System.exit(0);
+				break;
+			default:
+				System.out.println(" Invalid Choice !!!");
+				break;
+			}
+			
+			
+		}while(choice!=0);
+		
+
+	}
+
+}

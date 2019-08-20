@@ -1,0 +1,23 @@
+package array;
+
+public class MainStack {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[]= {};
+		
+	    int stack_size=6;
+		
+		Stackarray stack = new Stackarray(6,arr);
+		stack.pushelement(1);
+		stack.pushelement(20);
+		stack.pushelement(4);
+		stack.pushelement(50);
+		stack.popelement();
+		
+		
+		
+
+	}
+
+}

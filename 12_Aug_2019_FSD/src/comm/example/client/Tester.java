@@ -13,6 +13,7 @@ public class Tester {
 		myDate.createDate(12,1,2020);
 		 date = myDate.getDetails();
 		System.out.println(date);
+		
 
 	}
 

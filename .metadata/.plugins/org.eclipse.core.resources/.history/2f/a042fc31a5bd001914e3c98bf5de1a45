@@ -1,0 +1,18 @@
+package array;
+
+public class ArrayMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrayDemo array = new ArrayDemo();
+		array.creatArray(26);
+		char[] arr = array.getArray();
+		
+		for(char c:arr) {
+			System.out.print(c+"||");
+		}
+
+	}
+
+}

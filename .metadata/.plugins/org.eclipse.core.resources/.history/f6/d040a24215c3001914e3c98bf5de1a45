@@ -1,0 +1,21 @@
+package JDBV_20;
+
+import java.util.List;
+
+import employee.Employee;
+
+public class Employeeserviceimpl implements Employeeservice {
+      private Employeedao dao= null;
+	@Override
+	public void createEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Employee> getAllEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

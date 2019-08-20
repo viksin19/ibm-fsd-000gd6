@@ -1,0 +1,35 @@
+package array;
+import java.util.Arrays;
+
+public class ArrayMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrayDemo array = new ArrayDemo();
+		array.creatArray(26);
+		char[] arr = array.getArray();
+		
+		for(char c:arr) {
+			System.out.print(c+"\t");
+		}
+		
+		
+		int arraynew[]= {
+				100,1,-20,30,0
+		};
+		System.out.println(" ");
+		Arrays.sort(arraynew);
+		
+		for(int i:arraynew) {
+			System.out.println(i+" ");
+		}
+         
+		for(int k:arraynew) {
+			if(k==5) {
+				System.out.println("Element found");
+			}
+		}
+	}
+
+}

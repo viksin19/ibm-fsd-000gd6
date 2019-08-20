@@ -1,0 +1,15 @@
+package array;
+
+public class MainStack {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[]= {};
+		
+	    int stack_size=6;
+		
+		Stackarray stack = new Stackarray(6,arr);
+
+	}
+
+}

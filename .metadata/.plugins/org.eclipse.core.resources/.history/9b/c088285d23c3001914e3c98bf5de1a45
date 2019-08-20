@@ -1,0 +1,63 @@
+package JDBV_20;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Scanner;
+
+import employee.Employee;
+
+public class Employeemain {
+
+	public static void main(String[] args) throws SQLException {
+    Employeeservice service = new Employeeserviceimpl();
+		int choice = 0;
+		do {
+			System.out.println("*** Welcome To Employee Database ***");
+			System.out.println("  1. Add     Employee ");
+			System.out.println("  2. Display Employee ");
+			System.out.println("  3. Remove  Employee ");
+			System.out.println("  4. Update  Employee ");
+			System.out.println("  5. Clear   Screen ");
+			System.out.print(" Select Your Choice : ");
+			Scanner scanner = new Scanner(System.in);
+			choice = scanner.nextInt();
+			switch(choice) {
+			case 1: 
+				System.out.print("Employee ID : ");
+				int id = scanner.nextInt();
+				System.out.println("Employee First Name : ");
+				String Firstname = scanner.next();
+				System.out.println("Employee Last Name : ");
+				String Lastname = scanner.next();
+				System.out.println("Employee email : ");
+				String email = scanner.next();
+				
+				service.createEmployee(new Employee(id,Firstname,Lastname,email));
+				break;
+			case 2: 
+				List<Employee> list = service.getAllEmployees();
+				for(Employee e:list) {
+					System.out.printf("%d\t%s\t%s\t%s",e.getId(),e.getFirstname(),e.getLastname(),e.getEmail());;
+				}
+				break;
+			case 3: 
+				
+				break;
+			case 4: 
+				
+				break;
+			case 5: 
+				System.exit(0);
+				break;
+			default:
+				System.out.println(" Invalid Choice !!!");
+				break;
+			}
+			
+			
+		}while(choice!=0);
+		
+
+	}
+
+}
