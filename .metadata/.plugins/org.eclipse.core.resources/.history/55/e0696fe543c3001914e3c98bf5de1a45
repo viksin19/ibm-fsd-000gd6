@@ -1,0 +1,11 @@
+package syncThread;
+
+public class syncmain {
+   private static MyStack mystack = new MyStack(); 
+	public static void main(String[] args) {
+		ProducerStack producer = new ProducerStack(mystack);
+		ConsumerStack consumer = new 
+
+	}
+
+}

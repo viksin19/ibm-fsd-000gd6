@@ -1,0 +1,26 @@
+package syncThread;
+
+public class MyStack {
+	private static int index = -1;
+    private static final int MAX=26;
+	char[] product = new char[MAX];
+	public synchronized void push(char item) throws InterruptedException {
+		if(index == MAX-1) {
+			System.out.println("Producer is full...");
+			notify();
+		}else {
+		product[++index]=item; 
+		   wait();
+		   }
+	}
+	
+	public synchronized void pop() throws InterruptedException {
+		if(index== -1) {
+			System.out.println("Consumer is Empty...");
+			notify();
+		}else {
+			System.out.println("pop: "+product[index--]);
+			wait();
+		}
+	}
+}

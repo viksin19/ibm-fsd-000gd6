@@ -1,0 +1,10 @@
+package syncThread;
+
+public class syncmain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

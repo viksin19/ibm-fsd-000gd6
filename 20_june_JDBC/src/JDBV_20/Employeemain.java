@@ -17,7 +17,7 @@ public class Employeemain {
 			System.out.println("  2. Display Employee ");
 			System.out.println("  3. Remove  Employee ");
 			System.out.println("  4. Update  Employee ");
-			System.out.println("  5. Clear   Screen ");
+			System.out.println("  5. Exit  ");
 			System.out.print(" Select Your Choice : ");
 			Scanner scanner = new Scanner(System.in);
 			choice = scanner.nextInt();
@@ -43,9 +43,13 @@ public class Employeemain {
 			case 3: 
 				System.out.print("Enter the Employee Id : ");
 				int did = scanner.nextInt();
-				
+				service.deleteEmployee(did);
 				break;
-			case 4: 
+			case 4:
+				System.out.print("Enter the Employee Id to update Information : ");
+				int uid = scanner.nextInt();
+				System.out.println("Select The Field you want to update :");
+				
 				
 				break;
 			case 5: 

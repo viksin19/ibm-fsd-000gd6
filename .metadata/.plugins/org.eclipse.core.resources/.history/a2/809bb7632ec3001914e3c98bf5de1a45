@@ -1,0 +1,27 @@
+package threaddemo;
+
+public class MythreadDemo1 implements Runnable {
+public static void main(String[] args) {
+	MythreadDemo1 mythread = new MythreadDemo1();
+	Thread t1 = new Thread(mythread);
+	Thread t2 = new Thread(mythread);
+	t1.start();
+	t2.start();
+}
+
+@Override
+public void run() {
+	
+	try {
+
+		for(int i=0;i<16;i++) {
+			System.out.print(i+" >> ");
+			if(i==10) {
+				Thread.sleep(5000);
+			}
+		}
+	}catch(Exception e) {
+		
+	}
+}
+}

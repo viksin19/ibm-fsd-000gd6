@@ -26,4 +26,10 @@ public class Employeeserviceimpl implements Employeeservice {
 		return dao.getAllEmployees();
 	}
 
+	@Override
+	public void deleteEmployee(int id) {
+	  dao.deleteEmployee(id);
+		
+	}
+
 }

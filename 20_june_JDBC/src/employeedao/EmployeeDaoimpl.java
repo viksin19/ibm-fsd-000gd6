@@ -67,9 +67,11 @@ public class EmployeeDaoimpl implements EmployeeDao {
 	@Override
 	public void deleteEmployee(int did) {
 		try {
-			pStatement = connection.prepareStatement("delete from employee where id = ?");
+			pStatement = connection.prepareStatement("delete from employee where Id = ?");
 			pStatement.setInt(1,did);
+			pStatement.executeUpdate();
 		}catch(SQLException e){
+			e.printStackTrace();
 		}finally {
 		}
 			
