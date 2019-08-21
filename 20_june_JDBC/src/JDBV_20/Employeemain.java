@@ -50,7 +50,6 @@ public class Employeemain {
 				int uid = scanner.nextInt();
 				System.out.println("Select The Field you want to update :");
 				
-				
 				break;
 			case 5: 
 				System.exit(0);

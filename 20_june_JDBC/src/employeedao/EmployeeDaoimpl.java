@@ -76,6 +76,23 @@ public class EmployeeDaoimpl implements EmployeeDao {
 		}
 			
 		}
+
+	@Override
+	public boolean searchemployee(int id) {
+		try {
+			pStatement = connection.prepareStatement("select Id from employee where Id = ?");
+			pStatement.setInt(1,id);
+			resultSet = pStatement.executeQuery();
+			if(resultSet.next()) {
+			return true;}else {
+				return false;
+			}
+		}catch(SQLException e){
+		
+		}finally {
+		}
+		return false;
+	}
 		
 	
 		

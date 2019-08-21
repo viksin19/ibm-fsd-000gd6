@@ -32,4 +32,10 @@ public class Employeeserviceimpl implements Employeeservice {
 		
 	}
 
+	@Override
+	public boolean searchemployee(int id) {
+		
+		return dao.searchemployee(id);
+	}
+
 }
