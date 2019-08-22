@@ -35,6 +35,8 @@ public class MyEmployeeFrame extends JFrame {
 	private JLabel lblFindById;
 	private JTextField textField_5;
 	private JButton btnSearch;
+	private JButton btnDisplay;
+	private JButton btnCommomnTable;
 
 	/**
 	 * Launch the application.
@@ -166,6 +168,34 @@ public class MyEmployeeFrame extends JFrame {
 		});
 		btnSearch.setBounds(255, 229, 89, 23);
 		contentPane.add(btnSearch);
+		
+		btnDisplay = new JButton("Display ");
+		btnDisplay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new Myframe2();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnDisplay.setBounds(300, 48, 89, 23);
+		contentPane.add(btnDisplay);
+		
+		btnCommomnTable = new JButton("Commomn Table");
+		btnCommomnTable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new Commonframe();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnCommomnTable.setBounds(300, 99, 89, 23);
+		contentPane.add(btnCommomnTable);
 	}
 
 }
