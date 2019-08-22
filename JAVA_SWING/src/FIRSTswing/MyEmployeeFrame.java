@@ -106,7 +106,7 @@ public class MyEmployeeFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					 Employeeservice service = new Employeeserviceimpl();
-					 service.createEmployee(new Employee(Integer.parseInt(textField.getText()),textField_1.getText(),textField_2.getText(),textField_3.getText()));
+					 service.createEmployee(new Employee(Integer.parseInt(textField.getText()),textField_1.getText(),textField_2.getText()));
 				      JOptionPane.showMessageDialog(contentPane, "ADDED..");
 				}catch(SQLException e) {
 					e.printStackTrace();
