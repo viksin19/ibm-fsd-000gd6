@@ -31,12 +31,12 @@ public class Employeemain {
 				String lastname = scanner.next();
 				System.out.print("Employee email : ");
 				String email = scanner.next();
-				service.createEmployee(new Employee(id,firstname,lastname,email));
+				service.createEmployee(new Employee(id,firstname,email));
 				break;
 			   case 2: 
 				List<Employee> list = service.getAllEmployees();
 				for(Employee e:list) {
-					System.out.printf("%d\t%s\t%s\t%s",e.getId(),e.getFirstname(),e.getLastname(),e.getEmail());
+					System.out.printf("%d\t%s\t%s\t%s",e.getId(),e.getFirstname(),e.getEmail());
 					System.out.println("");
 				}
 				break;

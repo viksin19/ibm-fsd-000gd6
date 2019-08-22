@@ -31,11 +31,10 @@ public class EmployeeDaoimpl implements EmployeeDao {
 	@Override
 	public void createEmployee(Employee employee) {
 		try{
-			pStatement = connection.prepareStatement("insert into employee values(?,?,?,?)");
+			pStatement = connection.prepareStatement("insert into emplyoees values(?,?,?)");
 			pStatement.setInt(1,employee.getId());
 			pStatement.setString(2,employee.getFirstname());
-			pStatement.setString(3,employee.getLastname());
-			pStatement.setString(4,employee.getEmail());
+			pStatement.setString(3,employee.getEmail());
 			pStatement.executeUpdate();
 			
 		}catch(SQLException e){
@@ -53,10 +52,10 @@ public class EmployeeDaoimpl implements EmployeeDao {
 		
 		try {
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery("select * from employee");
+			resultSet = statement.executeQuery("select * from emplyoees");
 			
 			while (resultSet.next()) {
-				 list.add(new Employee(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4)));
+				 list.add(new Employee(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3)));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -67,7 +66,7 @@ public class EmployeeDaoimpl implements EmployeeDao {
 	@Override
 	public void deleteEmployee(int did) {
 		try {
-			pStatement = connection.prepareStatement("delete from employee where Id = ?");
+			pStatement = connection.prepareStatement("delete from emplyoees where Id = ?");
 			pStatement.setInt(1,did);
 			pStatement.executeUpdate();
 		}catch(SQLException e){
@@ -80,7 +79,7 @@ public class EmployeeDaoimpl implements EmployeeDao {
 	@Override
 	public boolean searchemployee(int id) {
 		try {
-			pStatement = connection.prepareStatement("select Id from employee where Id = ?");
+			pStatement = connection.prepareStatement("select Id from emplyoees where Id = ?");
 			pStatement.setInt(1,id);
 			resultSet = pStatement.executeQuery();
 			if(resultSet.next()) {

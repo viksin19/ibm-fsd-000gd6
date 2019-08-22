@@ -4,16 +4,16 @@ public class Employee implements Serializable {
 	
 	private int id;
 	private String firstname;
-	private String lastname;
+	
 	private String email;
 	public Employee() {
 		super();
 	}
-	public Employee(int id, String firstname, String lastname, String email) {
+	public Employee(int id, String firstname, String email) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
-		this.lastname = lastname;
+		
 		this.email = email;
 	}
 	public int getId() {
@@ -28,12 +28,8 @@ public class Employee implements Serializable {
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+	
+	
 	public String getEmail() {
 		return email;
 	}
