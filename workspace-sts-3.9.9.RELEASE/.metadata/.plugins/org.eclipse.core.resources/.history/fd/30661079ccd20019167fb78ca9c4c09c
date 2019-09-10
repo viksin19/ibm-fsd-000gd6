@@ -1,0 +1,5 @@
+package comm.bean.controller;
+
+public class CustomerController {
+
+}

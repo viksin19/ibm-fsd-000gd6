@@ -1,0 +1,86 @@
+package comm.bean.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import comm.bean.service.CustomerService;
+import comm.customer.entity.Customer;
+
+@Controller
+@RequestMapping("/customer")
+public class CustomerController {
+	@Autowired
+	private CustomerService customerservice;
+	
+	@GetMapping("/list")
+	public String listcustomer(Model model) {
+		List<Customer> customers = customerservice.getCustomer();
+		model.addAttribute("customer",customers);
+		return "list-customer";
+	}
+	
+	@GetMapping("/showform")
+	public String showform(Model model) {
+		
+		Customer customer = new Customer();
+		model.addAttribute("customer",customer);
+		return "form";
+	}
+	@GetMapping("/searchform")
+	public String searchform() {
+		return "search";
+	}
+	
+	@PostMapping("/saveCustomer")
+	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
+		customerservice.savecustomer(customer);
+		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("/deletecustomer")
+	public String deletecustomer(HttpServletRequest request ) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		customerservice.deletecustomer(id);
+		
+		return "redirect:/customer/list";
+	}
+	@GetMapping("/find")
+	public String findcustomer(HttpServletRequest request , Model model) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Customer customer = customerservice.find(id);
+		model.addAttribute("customer",customer);
+		return "update";
+	}
+	@GetMapping("/searchcustomer")
+	public String searchcustomer(HttpServletRequest request , Model model) {
+		    String searchby = request.getParameter("searchby");
+		    String searchkey = request.getParameter("searchkey");
+		    List<Customer> list;
+		    if(searchby=="firstname") {
+		    	list = customerservice.searchbyfname(searchkey);
+		    }else if(searchby=="lastname") {
+		    	list = customerservice.searchbylname(searchkey);
+		    }else if(searchby=="email") {
+		    	list = customerservice.searchbyemail(searchkey);
+		    }
+		    model.addAttribute("customer",list);
+		return "searchresult";
+	}
+	
+	
+	@PostMapping("/updateCustomer")
+	public String updateCustomer(@ModelAttribute("customer") Customer customer) {
+		customerservice.update(customer);
+		return "redirect:/customer/list";
+	}
+
+}

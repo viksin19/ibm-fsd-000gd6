@@ -1,0 +1,18 @@
+package practise_08_09_2019.configuration.bean;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class StudentBean {
+@Value("10")
+ int id;
+@Value("name of std")
+ String name;
+public StudentBean(int id, String name) {
+	super();
+	this.id = id;
+	this.name = name;
+}
+ 
+}

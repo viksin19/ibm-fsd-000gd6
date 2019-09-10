@@ -1,0 +1,12 @@
+package comm.bean.DAO;
+
+import comm.customer.entity.Customer;
+
+public class CustomerDaoImpl implements CustomerDao {
+
+	public void createCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,6 @@
+package practise_08_09_2019.model;
+
+public class Student {
+  private int id;
+  private String name;
+}

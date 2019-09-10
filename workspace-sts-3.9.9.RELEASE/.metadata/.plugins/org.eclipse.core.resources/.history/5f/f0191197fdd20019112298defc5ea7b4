@@ -1,0 +1,5 @@
+package comm.rest.Domain;
+
+public class Todo {
+
+}

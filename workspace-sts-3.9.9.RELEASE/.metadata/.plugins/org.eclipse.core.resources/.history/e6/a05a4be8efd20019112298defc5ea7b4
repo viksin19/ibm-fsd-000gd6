@@ -1,0 +1,12 @@
+package comm.bean.service;
+import java.util.List;
+
+import comm.customer.entity.*;
+public interface CustomerService {
+public List<Customer> getCustomer();
+public void savecustomer(Customer customer);
+public void deletecustomer(int id);
+public void update(int id);
+
+public Customer find(int id);
+}

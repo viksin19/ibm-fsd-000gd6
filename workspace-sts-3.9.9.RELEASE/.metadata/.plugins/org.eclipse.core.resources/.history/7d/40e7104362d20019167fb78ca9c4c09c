@@ -1,0 +1,15 @@
+package practise_08_09_2019.model;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class StudentMain {
+ 
+	public static void main(String[] args)
+	{
+	BeanFactory context = new ClassPathXmlApplicationContext("bean.xml");
+	Student sObj = context.getBean("theStudent",Student.class);
+	System.out.println(sObj.getId());
+	System.out.println(sObj.getName());
+	}
+}

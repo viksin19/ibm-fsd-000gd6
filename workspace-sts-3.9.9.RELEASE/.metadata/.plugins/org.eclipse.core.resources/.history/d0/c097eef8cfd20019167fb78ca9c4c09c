@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="container">
+<div id="content">
+
+<input type="button" value="add customer" 
+onclick="window.location.href='showform';return false;" 
+class="add-button"  />
+
+<table>
+<tr>
+<th>FirstNAme</th>
+<th>LAstName</th>
+<th>Email</th>
+</tr>
+
+<c:forEach var="cust" items="${customer}">
+<tr>
+<td>${cust.firstname}</td>
+<td>${cust.lastname}</td>
+<td>${cust.email}</td>
+</tr>
+</c:forEach>
+
+</table>
+
+</div>
+</div>
+</body>
+</html>

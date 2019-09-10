@@ -1,0 +1,60 @@
+package comm.bean.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import comm.bean.service.CustomerService;
+import comm.customer.entity.Customer;
+
+@Controller
+@RequestMapping("/customer")
+public class CustomerController {
+	@Autowired
+	private CustomerService customerservice;
+	
+	@GetMapping("/list")
+	public String listcustomer(Model model) {
+		List<Customer> customers = customerservice.getCustomer();
+		model.addAttribute("customer",customers);
+		return "list-customer";
+	}
+	
+	@GetMapping("/showform")
+	public String showform(Model model) {
+		
+		Customer customer = new Customer();
+		model.addAttribute("customer",customer);
+		return "form";
+	}
+	
+	@PostMapping("/saveCustomer")
+	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
+		customerservice.savecustomer(customer);
+		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("/deletecustomer")
+	public String deletecustomer(HttpServletRequest request ) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		customerservice.deletecustomer(id);
+		
+		return "redirect:/customer/list";
+	}
+	@GetMapping("update")
+	public String update(HttpServletRequest request , Model model) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Customer cust = customerservice.update(id);
+		model.addAttribute("customer",cust);
+		return "form";
+	}
+
+}
