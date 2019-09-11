@@ -1,0 +1,52 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/")
+public class Controller {
+ @Autowired
+ private Studentservice serviceobj;
+ 
+ 
+ @GetMapping("/students")
+ public List<Student> getallStudent(){
+	 
+	 List<Student> students = serviceobj.getStudents();
+	return students ;
+ }
+ @GetMapping("/students/{id}")
+ public Student findbyid(@PathVariable int id) {
+	 Student std = serviceobj.findById(id);
+	 return std;
+ }
+@PostMapping("/students")
+public String addStudent(@RequestBody Student std) {
+	std.setId(0);
+	serviceobj.createStudent(std);
+	return "added";	
+}
+@PutMapping("/students")
+public String update(@RequestBody Student student) {
+	
+	serviceobj.updateStudent(student);
+	return "updated";
+}
+@DeleteMapping("/students/{id}")
+public String deleteStudent(@PathVariable int id) {
+	
+	serviceobj.deleteStudent(id);
+	
+	return "deleted";
+}
+}

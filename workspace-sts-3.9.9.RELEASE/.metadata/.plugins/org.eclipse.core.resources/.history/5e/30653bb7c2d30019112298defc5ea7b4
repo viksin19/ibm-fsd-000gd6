@@ -1,0 +1,11 @@
+package com.example.demo;
+
+public class StudentserviceImpl implements Studentservice {
+
+	@Override
+	public void createStudent(Student student) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

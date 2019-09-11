@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Sep 10 12:10:50 IST 2019
+org.eclipse.jst.j2ee.server\:/binary\:C\:\\Users\\B4ibmjava03\\.m2\\repository\\org\\springframework\\spring-web\\5.1.9.RELEASE\\spring-web-5.1.9.RELEASE.jar=E\:\\Java SW\\spring-tool-suite-3.9.9.RELEASE-e4.12.0-win32-x86_64\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Spring_10_09_2019\\WEB-INF\\lib\\spring-web-5.1.9.RELEASE.jar
+org.eclipse.jst.j2ee.server\:Spring_10_09_2019=E\:\\Java SW\\spring-tool-suite-3.9.9.RELEASE-e4.12.0-win32-x86_64\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Spring_10_09_2019

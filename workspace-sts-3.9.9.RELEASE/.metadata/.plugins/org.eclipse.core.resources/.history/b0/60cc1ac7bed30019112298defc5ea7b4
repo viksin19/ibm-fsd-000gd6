@@ -1,0 +1,11 @@
+package com.example.demo;
+
+public class StudentDaoImpl implements StudentDao {
+
+	@Override
+	public void createStudent(Student student) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
