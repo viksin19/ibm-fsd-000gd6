@@ -1,0 +1,37 @@
+package com.example.demo.Loder;
+
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+import com.example.demo.Repo.FlightRepo;
+import com.example.demo.Repo.PassengerRepo;
+import com.example.demo.Repo.ReservationRepo;
+
+@Component
+public class Loder implements ApplicationListener<ContextRefreshedEvent>{
+
+	private FlightRepo flightrepo;
+	private PassengerRepo passengerrepo;
+	private ReservationRepo reservationrepo;
+	public Loder(FlightRepo flightrepo, PassengerRepo passengerrepo, ReservationRepo reservationrepo) {
+		super();
+		this.flightrepo = flightrepo;
+		this.passengerrepo = passengerrepo;
+		this.reservationrepo = reservationrepo;
+	}
+	public Loder() {
+		super();
+	}
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		// TODO Auto-generated method stub
+		init();
+	}
+	private void init() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}

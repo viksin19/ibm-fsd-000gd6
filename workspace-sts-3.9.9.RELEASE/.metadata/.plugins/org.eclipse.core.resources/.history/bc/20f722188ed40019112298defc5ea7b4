@@ -1,0 +1,66 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.Entity.Flight;
+import com.example.demo.Repo.FlightRepo;
+import com.example.demo.Repo.PassengerRepo;
+
+@Controller
+@RequestMapping("/flight")
+public class FlightController {
+	
+	private FlightRepo flightRepo;
+     @Autowired
+	public FlightController(FlightRepo flightRepo) {
+		super();
+		this.flightRepo = flightRepo;
+	}
+     
+     @RequestMapping("/list")
+     public String showFlightList(Model model) {
+    	 model.addAttribute("flights",flightRepo.findAll());
+    	 return "flight_list";
+    	 
+     }
+     @GetMapping("/delete")
+     Public String delFlight(@PathVariable int id, Model model) {
+    	  
+    	 
+    	 return "redirect:/flight/list";
+     }
+     
+     
+     @GetMapping("/showform")
+     public String displayform(Model model) {
+    	 Flight flight = new Flight();
+    	 model.addAttribute("flight", flight);
+    	 
+    	 return "showForm";
+     }
+     @PostMapping("/save")
+     public String saveFlight(@ModelAttribute("flight") Flight theflight) {
+    	 
+    	 flightRepo.save(theflight);
+    	 return"redirect:/flight/list";
+     }
+     @GetMapping("/update/{id}")
+     public String updateFlight(@PathVariable int id ,Model model ) {
+    	 
+    	 model.addAttribute("flight", flightRepo.findById(id));
+    	 return "showForm";
+     }
+     
+     
+    
+
+}

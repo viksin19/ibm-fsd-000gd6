@@ -1,0 +1,13 @@
+package com.example.demo.Model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Book {
+	
+	private Long id;
+	private String title;
+	private String isbn;
+	private Publisher publisher;
+
+}
