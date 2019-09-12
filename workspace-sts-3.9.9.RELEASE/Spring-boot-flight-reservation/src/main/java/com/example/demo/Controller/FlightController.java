@@ -39,10 +39,6 @@ public class FlightController {
     	 
      }
      
-     
- 
-     
-     
      @GetMapping("/showform")
      public String displayform(Model model) {
     	 Flight flight = new Flight();

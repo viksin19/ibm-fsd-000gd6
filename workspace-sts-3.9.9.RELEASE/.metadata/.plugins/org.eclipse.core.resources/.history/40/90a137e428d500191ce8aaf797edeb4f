@@ -1,0 +1,39 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.Repo.IngredientRepo;
+import com.example.demo.Repo.NoteDescRepo;
+import com.example.demo.Repo.RecipeRepo;
+
+@Controller
+@RequestMapping("/recipe")
+public class FoodController {
+	
+	RecipeRepo recipeRepo;
+	IngredientRepo ingredientRepo;
+	NoteDescRepo noteRepo;
+	@Autowired
+	public FoodController(RecipeRepo recipeRepo, IngredientRepo ingredientRepo, NoteDescRepo noteRepo) {
+		super();
+		this.recipeRepo = recipeRepo;
+		this.ingredientRepo = ingredientRepo;
+		this.noteRepo = noteRepo;
+	}
+	
+	@GetMapping("/list")
+	public String showrecipeList(Model model) {
+		
+		model.addAttribute("recipes", recipeRepo.findAll());
+		
+		return "recipe_list";
+	}
+	
+	
+	
+
+}

@@ -2,11 +2,14 @@ package com.example.demo.Entity;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
@@ -18,7 +21,9 @@ public class Passenger {
 	private String firstname;
 	private String lastname;
 	private String email;
-	@ManyToMany(mappedBy ="passengers")
+	
+	@JoinTable(name = "flight_passenger",joinColumns = @JoinColumn(name ="passenger_id" ),
+	inverseJoinColumns = @JoinColumn(name="flight_id"))
 	private Set<Flight> flights = new HashSet<Flight>();
 	
 	@OneToOne
@@ -38,6 +43,7 @@ public class Passenger {
 		this.lastname = lastname;
 		this.email = email;
 		this.flights = flights;
+	
 	}
 	public Passenger(String firstname, String lastname, String email, Set<Flight> flights,
 			Reservation reservation) {

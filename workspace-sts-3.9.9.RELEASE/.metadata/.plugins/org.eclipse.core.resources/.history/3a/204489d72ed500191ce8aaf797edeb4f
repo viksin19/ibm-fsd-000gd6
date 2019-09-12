@@ -1,0 +1,36 @@
+package com.example.demo.Entity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class NoteDesc {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String recipe_note;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getRecipe_note() {
+		return recipe_note;
+	}
+	public void setRecipe_note(String recipe_note) {
+		this.recipe_note = recipe_note;
+	}
+	
+	public NoteDesc() {
+		super();
+	}
+	
+
+	
+
+}

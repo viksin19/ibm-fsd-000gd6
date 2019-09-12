@@ -20,9 +20,8 @@ public class Flight {
 	private String airline;
 	private String source;
 	private String destination;
-	@ManyToMany
-	@JoinTable(name = "flight_passenger",joinColumns = @JoinColumn(name ="flight_id" ),
-	inverseJoinColumns = @JoinColumn(name="passenger_id"))
+	
+	@ManyToMany(mappedBy ="flights")
 	private Set<Passenger> passengers = new HashSet<Passenger>();
 	public Flight(String airline, String source, String destination) {
 		super();

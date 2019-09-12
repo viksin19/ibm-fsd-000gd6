@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8" />
+<title>first thymeleaf page</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+     <br>
+     <br>
+     <br>
+    
+	<h1>Recipe Description</h1>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">#ID</th>
+				<th scope="col">Name</th>
+				<th scope="col">Cook_Time</th>
+				<th scope="col">Prep_Time</th>
+				<th scope="col">Source</th>
+				<th scope="col">Difficulty</th>	
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				
+				<td th:text="${recipe.id}">123</td>
+				<td th:text="${recipe.description}">Spring in Action</td>
+				<td th:text="${recipe.cook_time}">123</td>
+				<td th:text="${recipe.prep_time}">123</td>
+				<td th:text="${recipe.source_url}">123</td>
+				<td th:text="${recipe.difficulty_level}">123</td>
+				
+			</tr>
+	</table>
+	<br>
+	<br>
+	<br>
+	<h3>Recipe Ingredients</h3>
+	<table class="table">
+	<thead class="thead-dark">
+	<tr>
+	<th>#Id</th>
+	<th>Amount</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="ingredient : ${recipes.ingredients}">
+	<td th:text="${ingredient.id}">123</td>
+	<td th:text="${ingredient.amount}">123</td>
+	<td th:text="${ingredient.description}">123</td>
+
+	</tr>
+	
+	
+	</tbody>
+	</table>
+	</div>
+</body>
+</html>

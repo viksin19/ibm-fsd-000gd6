@@ -1,0 +1,100 @@
+package com.example.demo.Controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.expression.Lists;
+
+import com.example.demo.Entity.Flight;
+import com.example.demo.Repo.FlightRepo;
+import com.example.demo.Repo.PassengerRepo;
+
+@Controller
+@RequestMapping("/flight")
+public class FlightController {
+	
+	private FlightRepo flightRepo;
+     @Autowired
+	public FlightController(FlightRepo flightRepo) {
+		super();
+		this.flightRepo = flightRepo;
+	}
+     
+     @RequestMapping("/list")
+     public String showFlightList(Model model) {
+    	 model.addAttribute("flights",flightRepo.findAll());
+    	 return "flight_list";
+    	 
+     }
+     
+     
+ 
+     
+     
+     @GetMapping("/showform")
+     public String displayform(Model model) {
+    	 Flight flight = new Flight();
+    	 model.addAttribute("flight", flight);
+    	 
+    	 return "showForm";
+     }
+     @GetMapping("/searchflightform")
+     public String searchform(Model model) {
+    	 Flight flight = new Flight();
+    	 model.addAttribute("flight", flight);
+    	 return "searchform";
+     }
+     @PostMapping("/search")
+     public String searchresult(@ModelAttribute("flight") Flight sflight , Model model) {
+    	 List<Flight> flights =  (List<Flight>)flightRepo.findAll();
+    	 System.out.println(flights);
+    	 List<Flight> rflight = new ArrayList<Flight>();
+    	 for(Flight e:flights) {
+    		 
+    		 if(e.getSource().equals(sflight.getSource()) && e.getDestination().equals(sflight.getDestination())) {
+    			 rflight.add(e);
+    		 }
+    	 }
+    	 
+    	 model.addAttribute("flights", rflight);
+    	 return "searchresultlist";
+     }
+     @PostMapping("/save")
+     public String saveFlight(@ModelAttribute("flight") Flight theflight) {
+    	 
+    	 flightRepo.save(theflight);
+    	 return"redirect:/flight/list";
+     }
+     @PostMapping("/update")
+     public String updateFlight(@RequestParam("flightId") int id, Model model ) {
+    	 
+    	 model.addAttribute("flight", flightRepo.findById(id));
+    	 return "showForm";
+     }
+     @PostMapping("/delete")
+ 	public String delete(@RequestParam("flightId") int theId) {
+ 		
+ 		// delete the employee
+ 		flightRepo.deleteById(theId);
+ 		
+ 		// redirect to /employees/list
+ 		return "redirect:/flight/list";
+ 		
+ 	}
+     
+     
+    
+
+}
