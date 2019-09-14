@@ -1,0 +1,7 @@
+package com.example.demo.Loder;
+
+import org.springframework.context.ApplicationListener;
+
+public class Loder implements ApplicationListener<E> {
+
+}

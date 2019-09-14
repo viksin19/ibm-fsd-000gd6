@@ -1,0 +1,8 @@
+package comm.bean.DAO;
+
+import comm.customer.entity.Customer;
+
+public interface CustomerDao {
+
+	public void createCustomer(Customer customer);
+}

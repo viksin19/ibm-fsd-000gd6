@@ -1,0 +1,6 @@
+package example.interfac;
+
+public interface LivingThings {
+	public static final static String NAME="LIVING THINGS";
+
+}

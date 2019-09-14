@@ -1,0 +1,5 @@
+package comm.practice;
+
+public class ContractualEmployee extends Employee {
+
+}

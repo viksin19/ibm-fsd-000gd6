@@ -1,0 +1,5 @@
+package myconnection;
+
+public class Factory {
+
+}

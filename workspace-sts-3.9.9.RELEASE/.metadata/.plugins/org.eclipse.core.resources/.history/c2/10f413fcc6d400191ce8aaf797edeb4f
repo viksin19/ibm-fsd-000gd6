@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+
+				
+				<th scope="col">#ID</th>
+				<th scope="col">FirstName</th>
+				<th scope="col">LastName</th>
+				<th scope="col">Email</th>
+				<th scope="col">Flight_Airline</th>
+				<th scope="col">DepartureCity</th>
+				<th scope="col">ArrivalCity</th>
+				<th scope="col">Reservati#Id</th>
+				
+				
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="passenger : ${passengers}">
+			     
+			     <td th:text="${passenger.id}">123</td>
+			     <td th:text="${passenger.firstname}">123</td>
+			     <td th:text="${passenger.lastname}">123</td>
+			     <td th:text="${passenger.email}">123</td>
+			     
+				
+				<td th:text="${passenger.flights.airline}">123</td>
+				<td th:text="${passenger.flights.source}">Spring in Action</td>
+				<td th:text="${passenger.flights.destination}">Spring in Action</td>
+				
+				<td th:text="${passenger.reservation.id}">Spring in Action</td>
+				
+				
+			</tr>
+	</table>
+	<h5><a th:href="@{/flight/list}" class="btn btn-primary">Back to Flight List</a></h5>
+</div>
+
+</body>
+</html>

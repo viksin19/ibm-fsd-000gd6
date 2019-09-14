@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="#"  th:action="@{/passenger/save}" th:object="${passenger}" method="POST">
+<input type="hidden" th:field="${passenger.id}" />
+<input th:field="${passenger.firstname}" class="form-control mb-4 col-4" placeholder="First Name" />
+<input th:field="${passenger.lastname}" class="form-control mb-4 col-4" placeholder="Last Name" />
+<input th:field="${passenger.email}" class="form-control mb-4 col-4" placeholder="Email" />
+<input type="hidden" th:field="${passenger.flights}" />
+<input type="submit" class="btn btn-success" value="submit" />
+</form>
+</body>
+</html>

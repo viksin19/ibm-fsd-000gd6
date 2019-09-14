@@ -1,0 +1,11 @@
+package example.interfac;
+
+public class Dog implements LivingThings {
+
+	@Override
+	public void walk() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

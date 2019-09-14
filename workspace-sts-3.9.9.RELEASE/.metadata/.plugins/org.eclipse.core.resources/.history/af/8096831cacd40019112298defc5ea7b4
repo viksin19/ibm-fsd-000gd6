@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8" />
+<title>first thymeleaf page</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+     <br>
+     <br>
+     <br>
+     <a th:href="@{/flight/showform}" class="btn btn-info mb-3">Add Flight</a>
+	<h1>flight List</h1>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+
+				
+				<th scope="col">#ID</th>
+				<th scope="col">TITLE</th>
+				<th scope="col">Source</th>
+				<th scope="col">Destination</th>
+				<th scope="col">Update</th>
+				<th scope="col">Delete</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="flight : ${flights}">
+				
+				<td th:text="${flight.id}">123</td>
+				<td th:text="${flight.airline}">Spring in Action</td>
+				<td th:text="${flight.source}">Spring in Action</td>
+				<td th:text="${flight.destination}">Spring in Action</td>
+				<td><input type="button" class="btn btn-danger" value="Update" 
+                onclick="window.location.href='update?id=${flight.id}'; return false;" /></td>
+				<td><input type="button" class="btn btn-danger" value="Delete" 
+                 onclick="window.location.href='delete?id=${flight.id}'; return false;" /> </td>
+				
+				
+			</tr>
+	</table>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+package comm.customer.entity;
+
+import java.util.List;
+
+import comm.bean.service.CustomerService;
+
+public class CustomerserviceImpl implements CustomerService {
+
+	public List<Customer> getCustomer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void savecustomer(Customer customer) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

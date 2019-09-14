@@ -1,0 +1,26 @@
+package comm.bean.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import comm.customer.entity.Customer;
+@Service
+public class CustomerserviceImpl implements CustomerService {
+
+	@Autowired
+	private CusomerDao customerdao;
+	
+	@Override
+	public List<Customer> getCustomer() {
+		// TODO Auto-generated method stub
+		return customerdao.getCustomer();
+	}
+
+	public void savecustomer(Customer customer) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

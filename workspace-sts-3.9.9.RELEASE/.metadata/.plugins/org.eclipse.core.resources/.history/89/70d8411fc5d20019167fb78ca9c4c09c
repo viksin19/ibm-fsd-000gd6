@@ -1,0 +1,44 @@
+package comm.bean.DAO;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.mysql.cj.Session;
+import com.mysql.cj.xdevapi.SessionFactory;
+
+import comm.customer.entity.Customer;
+@Repository
+public class CustomerDaoImpl implements CustomerDao {
+     @Autowired
+	private SessionFactory sessionfactory;
+	private Session session;
+	
+	public CustomerDaoImpl() {
+		super();
+	}
+     @PostConstruct
+     public void createSession() {
+    	 session = sessionfactory.openSession();
+     }
+	public CustomerDaoImpl(SessionFactory sessionfactory) {
+		super();
+		this.sessionfactory = sessionfactory;
+	}
+
+	public SessionFactory getSessionfactory() {
+		return sessionfactory;
+	}
+	public void setSessionfactory(SessionFactory sessionfactory) {
+		this.sessionfactory = sessionfactory;
+	}
+	
+	@Transactional
+	public void createCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		session.saveOrUpdate(customer);
+	}
+
+}

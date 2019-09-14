@@ -1,0 +1,16 @@
+package comm.product;
+
+public class Productmain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Product p = null;
+		Electronics elec = new Electronics();
+		elec = new Television("Sony",2000);
+		System.out.println(elec.getDetails());
+		
+
+	}
+
+}

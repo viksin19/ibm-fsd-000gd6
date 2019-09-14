@@ -1,0 +1,5 @@
+package example.interfac;
+
+public interface LivingThings {
+
+}

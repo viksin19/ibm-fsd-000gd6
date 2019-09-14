@@ -1,0 +1,7 @@
+package com.example.demo.Repo;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface NoteDescRepo extends CrudRepository<T, ID> {
+
+}

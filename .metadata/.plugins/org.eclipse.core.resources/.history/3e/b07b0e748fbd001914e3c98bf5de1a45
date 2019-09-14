@@ -1,0 +1,21 @@
+package example.interfac;
+
+public class Monkey implements LivingThings {
+ 
+	private String name;
+	
+	public Monkey(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public void walk() {
+		// TODO Auto-generated method stub
+       System.out.println("Monkey "+getName()+"can walk");
+	}
+
+}

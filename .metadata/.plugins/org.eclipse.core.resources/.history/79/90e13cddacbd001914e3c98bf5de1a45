@@ -1,0 +1,22 @@
+package array;
+import java.io.*;
+import java.util.*;
+public class Stackarray {
+   
+	private int arr[];
+	private static int stacksize;
+	private static int top=0;
+	
+	
+	public Stackarray(int s,int a[]) {
+	stacksize = s;
+	arr = a;
+	}
+
+
+	public void pushelement(int ele) {
+		
+		
+		
+	}
+}

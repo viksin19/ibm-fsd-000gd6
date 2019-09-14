@@ -1,0 +1,7 @@
+package com.example.demo.Bootstrap;
+
+import org.springframework.context.ApplicationListener;
+
+public class DevJpa implements ApplicationListener<E> {
+
+}

@@ -1,0 +1,23 @@
+package syncThread;
+
+public class ProducerStack implements Runnable {
+    private MyStack mystack;
+    
+	public ProducerStack(MyStack mystack) {
+		super();
+		this.mystack = mystack;
+	}
+
+	@Override
+	public void run() {
+		for (int i=0;i<26;i++) {
+			try {
+				mystack.push((char)((char)i+1));
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+}

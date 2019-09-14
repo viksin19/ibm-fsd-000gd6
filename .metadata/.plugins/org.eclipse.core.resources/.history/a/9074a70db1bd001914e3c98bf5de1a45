@@ -1,0 +1,5 @@
+package array;
+import java.util.Stack;
+public class Mystack {
+private Stack stack;
+}

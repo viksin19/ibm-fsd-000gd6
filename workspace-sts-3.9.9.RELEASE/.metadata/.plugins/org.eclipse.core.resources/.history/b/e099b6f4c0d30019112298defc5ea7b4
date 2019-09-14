@@ -1,0 +1,35 @@
+package com.example.demo;
+
+import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
+
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Repository
+public class StudentDaoImpl implements StudentDao {
+         
+	private EntityManager em;
+	private Session session;
+	@Autowired
+	public StudentDaoImpl(EntityManager em) {
+		super();
+		this.em = em;
+	}
+	
+	public StudentDaoImpl() {
+		super();
+		session =em.unwrap(Session.class);
+	}
+
+	@Override
+	@Transactional
+	public void createStudent(Student student) {
+		// TODO Auto-generated method stub
+		session.save(student); 
+
+	}
+
+}

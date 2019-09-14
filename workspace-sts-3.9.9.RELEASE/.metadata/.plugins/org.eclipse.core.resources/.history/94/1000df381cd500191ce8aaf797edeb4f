@@ -1,0 +1,67 @@
+package com.example.demo.Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Ingredient {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private float amount;
+	private String description;
+	
+	@ManyToMany(mappedBy = "ingredients")
+	private List<Recipe> recipes = new ArrayList<Recipe>();
+
+	public Ingredient() {
+		super();
+	}
+
+	public Ingredient(float amount, String description, List<Recipe> recipes) {
+		super();
+		this.amount = amount;
+		this.description = description;
+		this.recipes = recipes;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+	
+}

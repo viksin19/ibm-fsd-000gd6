@@ -1,0 +1,22 @@
+package employee;
+import java.io.Serializable;
+public class Employee implements Serializable {
+	
+	private int id;
+	private String firstname;
+	private String lastname;
+	private String email;
+	public Employee() {
+		super();
+	}
+	public Employee(int id, String firstname, String lastname, String email) {
+		super();
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+	}
+	
+	
+
+}

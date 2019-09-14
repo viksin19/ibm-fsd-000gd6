@@ -1,0 +1,12 @@
+package com.example.demo.Entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Recipe {
+	private int id;
+	private int cook_time;
+	private int prep_time;
+	private String source_url;
+	private String difficulty_level;
+}

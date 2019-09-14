@@ -1,0 +1,5 @@
+package comm.bean.service;
+
+public interface CustomerService {
+
+}

@@ -1,0 +1,40 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.Entity.Passenger;
+import com.example.demo.Repo.FlightRepo;
+import com.example.demo.Repo.PassengerRepo;
+
+@Controller
+@RequestMapping("/passenger")
+public class PassengerController {
+	
+	
+	private PassengerRepo passengerRepo;
+	private FlightRepo flightRepo;
+	@Autowired
+	public PassengerController(PassengerRepo passengerRepo, FlightRepo flightrepo) {
+		super();
+		this.passengerRepo = passengerRepo;
+		this.flightRepo = flightrepo;
+	}
+	
+	@PostMapping("/book")
+	public String bookform(@RequestParam("flightid") int id, Model model) {
+		
+		Passenger passenger = new Passenger();
+		passengerRepo.get
+		model.addAttribute("passenger", ) );
+		
+		return "passengerform";
+	}
+	
+	
+
+}

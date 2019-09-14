@@ -1,0 +1,5 @@
+package comm.bean.DAO;
+
+public interface CustomerDao {
+
+}

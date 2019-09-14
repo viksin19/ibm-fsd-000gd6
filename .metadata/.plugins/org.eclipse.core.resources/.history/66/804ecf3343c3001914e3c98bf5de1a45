@@ -1,0 +1,21 @@
+package syncThread;
+
+public class ConsumerStack implements Runnable {
+	
+	private MyStack mystack;
+
+	public ConsumerStack(MyStack mystack) {
+		super();
+		this.mystack = mystack;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			mystack.pop();
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

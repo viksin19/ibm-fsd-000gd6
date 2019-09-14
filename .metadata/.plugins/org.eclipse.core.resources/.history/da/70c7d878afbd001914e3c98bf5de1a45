@@ -1,0 +1,39 @@
+package array;
+
+public class Stackarray {
+   
+	private int arr[]= {};
+	private static int stacksize;
+	private static int top;
+	
+	
+	public Stackarray(int s) {
+	this.stacksize = s;
+	top=-1;
+	}
+
+
+	public void pushelement(int ele) {
+		if(top==stacksize-1) {
+			System.out.println("Stack Overflow");
+			
+		}else {
+			this.arr[++top]=ele;
+		}
+	}
+	
+	public void popelement() {
+		if(top<0) {
+			System.out.println("Stack UnderFlow");
+		}else {
+			System.out.println(" Element Poped : "+this.arr[top--]);
+		}
+	}
+	
+	public void show() {
+		System.out.println("Stack Element");
+		for(int a:this.arr) {
+			System.out.println(a+" ");
+		}
+	}
+}

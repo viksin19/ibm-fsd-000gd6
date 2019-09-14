@@ -1,0 +1,25 @@
+package comm.product;
+
+public class Product {
+	private static int productcount;
+	private int currentrate;
+	static {
+		productcount = 0;
+	}
+	public Product() {
+		productcount++;
+	}
+	public Product(int currentrate) {
+		
+		this.currentrate = currentrate;
+	}
+	
+	public static int getproductcount() {
+		return productcount;
+	}
+	public String getDetails() {
+		return " ||CurrentRate : "+currentrate;
+	}
+	
+
+}

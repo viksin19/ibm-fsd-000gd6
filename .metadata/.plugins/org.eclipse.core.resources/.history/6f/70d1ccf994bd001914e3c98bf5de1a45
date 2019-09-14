@@ -1,0 +1,35 @@
+package meassagingexample;
+
+public class Meassaging {
+
+	private String meassage;
+    private static Meassaging message;
+    
+    
+	private Meassaging() {
+		
+	}
+
+
+	private Meassaging(String meassage) {
+	
+		this.meassage = meassage;
+	}
+	
+	public static Meassaging createobject() {
+		if(message == null) {
+			
+			message = new Meassaging();
+		}
+		return message;
+	}
+	
+	public static Meassaging createobject(String mess) {
+		if(message == null) {
+			
+			message = new Meassaging(mess);
+		}
+		return message;
+	}
+	
+}

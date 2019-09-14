@@ -1,0 +1,30 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.Repo.FlightRepo;
+import com.example.demo.Repo.PassengerRepo;
+
+@Controller
+@RequestMapping("/flight")
+public class FlightController {
+	
+	private FlightRepo flightRepo;
+     @Autowired
+	public FlightController(FlightRepo flightRepo) {
+		super();
+		this.flightRepo = flightRepo;
+	}
+     
+     @RequestMapping("/list")
+     public String showFlightList(Model model) {
+    	 model.addAttribute("flights",flightRepo.findAll());
+    	 return "flight_list";
+    	 
+     }
+     
+
+}
