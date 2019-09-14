@@ -7,12 +7,12 @@
 h1 {
     color: azure;
     text-decoration-color: aqua;
-    padding-left: 37%;
+    padding-left: 35%;
     height: 70px;
 }
 h3 {
     color: rgb(176, 247, 134);
-    padding-left: 42%;
+    padding-left: 41%;
 
 }
 .content{
@@ -21,6 +21,6 @@ h3 {
 }
 .route{
     padding-top: 3%;
-    padding-left: 46%;
+    padding-left: 45%;
     height: 60px;
 }

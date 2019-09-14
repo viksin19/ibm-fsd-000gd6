@@ -1,0 +1,24 @@
+.serchform{
+    padding-left: 9%;
+    padding-top: 4%;
+}
+.row2{
+   padding-left: 1%;   padding-top: 1%;
+}
+
+.date{
+    width: 50%;
+    height: 60px;
+}
+.passenger{
+    padding-left: 2%;
+}
+.searchbutton{
+    padding-left: 40%;
+    padding-top: 2%;
+
+}
+.btn-lg{
+    width: 28%;
+    height: 50px;
+}

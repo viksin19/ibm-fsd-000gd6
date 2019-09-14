@@ -1,1 +1,63 @@
-<p>flightsearch works!</p>
+<div class="img">
+    <div class="row serchform">
+<div class="row form-group">
+        <div class="col-5">
+            <div class="from">
+                <label for="inputState"><h3>From</h3></label>
+                    <select id="inputcityFrom" class="form-control form-control-lg">
+                        <option selected value="DEL">DELHI(DEL)</option>
+                        <option value="BLR" >BENGALURU(BLR)</option>
+                        <option value="BOM" >MUMBAI(BOM)</option>
+                        <option value="VNS" >VARANASI(VNS)</option>
+                    </select>
+                </div>       
+    </div>
+    <div class="col-5">
+        <div class="to">
+            <label for="inputcityTO"><h3>To</h3></label>
+                    <select id="inputcityTO" class="form-control form-control-lg">
+                        <option selected value="DEL">DELHI(DEL)</option>
+                        <option value="BLR" >BENGALURU(BLR)</option>
+                        <option value="BOM" >MUMBAI(BOM)</option>
+                        <option value="VNS" >VARANASI(VNS)</option>
+                     </select>
+         </div>
+ </div>
+ <div class="row form-group row2">
+ 
+                                
+                                        <div class="col-3 date">
+                                        <label for="departuredate"><h4>Departure</h4></label>
+                                        <input type="datetime-local" class="form-control-lg" id="Dateofdeparture" value="2019-08-13" />
+                                        </div> &nbsp;
+                                       
+                                  
+                                    <div class="col-2 date">  
+                                    <label for="returndate"><h4>Return Date</h4></label>
+                                    <input type="datetime-local" class="form-control-lg" id="DateofReturn" value="2019-08-13" />
+                                    </div>
+                                    <div class="col-1">
+
+                                    </div>
+                                    <div class="col-2 passenger">
+                                    <label for="nopassenger"><h4>Passengers</h4></label>
+                                    <input type="number" value="Passengers" placeholder="passengers" id="NumberofPassenger" class="form-control-lg passenger" />
+                                    </div>
+                                    &nbsp;
+
+                                    <div class="col-2 class">
+                                    <label for="classtype"><h4>Class</h4></label>
+                                    <select id="class" class="form-control form-control-lg">
+                                            <option selected value="Economic">Economic</option>
+                                            <option value="Bussiness" >Bussiness</option>
+                                            <option value="Pre-Economic" >Pre-Economic</option>
+                                           
+                                     </select>
+                                    </div>
+</div>
+</div>
+</div>
+<div class="row searchbutton">
+    <input type="button" value="Search" class="btn btn-success btn-lg" (click)="searchresult()" />
+</div>
+</div>
