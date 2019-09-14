@@ -1,0 +1,75 @@
+package com.example.demo.Controller;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.Entity.Recipe;
+import com.example.demo.Repo.IngredientRepo;
+import com.example.demo.Repo.NoteDescRepo;
+import com.example.demo.Repo.RecipeRepo;
+
+@Controller
+@RequestMapping("/recipe")
+public class FoodController {
+	
+	RecipeRepo recipeRepo;
+	IngredientRepo ingredientRepo;
+	NoteDescRepo noteRepo;
+	@Autowired
+	public FoodController(RecipeRepo recipeRepo, IngredientRepo ingredientRepo, NoteDescRepo noteRepo) {
+		super();
+		this.recipeRepo = recipeRepo;
+		this.ingredientRepo = ingredientRepo;
+		this.noteRepo = noteRepo;
+	}
+	
+	@RequestMapping("/list")
+	public String showrecipeList(Model model) {
+		
+		model.addAttribute("recipes", recipeRepo.findAll());
+		
+		return "recipe_list";
+	}
+	@PostMapping("/view")
+	public String viewRecipeIngredient(@RequestParam("Id") int id, Model model) {
+		
+		Optional<Recipe> recipe = recipeRepo.findById(id);
+		if(recipe.isPresent()) {
+			model.addAttribute("recipe", recipe.get());
+		}
+		
+		return "view_ingrediants";
+	}
+	@GetMapping("/showform")
+	public String showForm(Model model) {
+		Recipe recipe = new Recipe();
+		model.addAttribute("flight", recipe);
+		return "showRecipeForm";
+	}
+	 @PostMapping("/update")
+     public String updateFlight(@RequestParam("Id") int id, Model model ) {
+    	 
+    	 model.addAttribute("recipe", recipeRepo.findById(id));
+    	 return "showRecipeForm";
+     }
+     @PostMapping("/delete")
+ 	public String delete(@RequestParam("Id") int theId) {
+ 		
+ 		// delete the employee
+ 		recipeRepo.deleteById(theId);
+ 		
+ 		// redirect to /employees/list
+ 		return "redirect:/recipe/list";
+ 		
+ 	}
+	
+	
+
+}
