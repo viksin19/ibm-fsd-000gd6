@@ -1,0 +1,19 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.example.demo.Repo.UserRepo;
+
+@Controller
+public class UserController {
+
+	private UserRepo userRepo;
+
+	@Autowired
+	public UserController(UserRepo userRepo) {
+		super();
+		this.userRepo = userRepo;
+	}
+
+}

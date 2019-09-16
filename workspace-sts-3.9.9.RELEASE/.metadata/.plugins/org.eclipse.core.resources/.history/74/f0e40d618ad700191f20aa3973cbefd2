@@ -1,0 +1,11 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.example.demo.Repo.UserRepo;
+
+@Controller
+public class UserController {
+
+	private UserRepo userRepo;
+}

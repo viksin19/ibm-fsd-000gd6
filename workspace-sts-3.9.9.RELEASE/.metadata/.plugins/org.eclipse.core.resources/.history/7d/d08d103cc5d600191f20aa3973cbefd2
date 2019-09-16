@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8" />
+<title>first thymeleaf page</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div>
+		
+		<div id="loginbox" style="margin-top: 50px;"
+			class="mainbox col-md-3 col-md-offset-2 col-sm-6 col-sm-offset-2">
+			
+			<div class="panel panel-info">
+
+				<div class="panel-heading">
+					<div class="panel-title">Sign In</div>
+				</div>
+
+				<div style="padding-top: 30px" class="panel-body">
+
+					<!-- Login Form -->
+					<form action="#"  th:action="@{/authenticateTheUser}"
+						  method="POST">
+ 
+ <input type="text" name="username"  class="form-control mb-4 col-4" placeholder="username">
+ <input type="password" name="password"  class="form-control mb-4 col-4" placeholder="password">
+
+ 
+  <input type="submit" class="btn btn-primary" value="Submit"> 
+</form>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

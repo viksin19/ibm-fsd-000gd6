@@ -1,0 +1,35 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringSoccerAuthenticationApplication {
+
+	 @Bean
+	    public WebSecurityConfigurerAdapter webSecurityConfig(DataSource dataSource) {
+	        return new WebSecurityConfigurerAdapter() {
+	            @Override
+	            protected void configure(HttpSecurity http) throws Exception {
+	                http.authorizeRequests().antMatchers("/h2/**").permitAll()
+	                .antMatchers("/").hasAnyRole("ADMIN","USER").
+	                and().
+	                    formLogin();
+	                http.csrf().disable();
+	                http.headers().frameOptions().disable();
+	               
+	            }
+
+	            @Override
+	            protected void configure(AuthenticationManagerBuilder builder) throws Exception {
+	                builder.jdbcAuthentication()
+	                       .passwordEncoder(new BCryptPasswordEncoder())
+	                       .dataSource(dataSource);
+	            }
+	        };
+	    }
+	public static void main(String[] args) {
+		SpringApplication.run(SpringSoccerAuthenticationApplication.class, args);
+	}
+
+}

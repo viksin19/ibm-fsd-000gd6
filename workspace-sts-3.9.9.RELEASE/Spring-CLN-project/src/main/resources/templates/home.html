@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8" />
+<title>Soccer Home</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-5">
+<form action="#" th:action="@{user/save}" th:object="${user}" method="post">
+
+<input type="hidden" th:field="${user.id}" />
+<input th:field="${user.uname}" class="form-control mb-4 col-4" placeholder="User-Name" />
+<input th:field="${user.password}" class="form-control mb-4 col-4" placeholder="Password" />
+<input th:field="${user.age}" class="form-control mb-4 col-4" placeholder="Age" />
+<input th:field="${user.mobile}" class="form-control mb-4 col-4" placeholder="Mobile" />
+<input th:field="${user.email}" class="form-control mb-4 col-4" placeholder="Email" />
+<input type="submit" class="btn btn-success" value="submit" />
+
+</form>
+
+</div>
+<div class="col-1">
+</div>
+<div class="col-5">
+
+<form action="#" th:action="@{admin/validate}" th:object="${user}" method="post">
+
+<input th:field="${user.uname}" class="form-control mb-4 col-4" placeholder="User-name" />
+<input th:field="${user.password}" class="form-control mb-4 col-4" placeholder="Password" />
+<input type="submit" class="btn btn-success" value="submit" />
+</form>
+
+</div>
+</div>
+</div>
+</body>
+</html>

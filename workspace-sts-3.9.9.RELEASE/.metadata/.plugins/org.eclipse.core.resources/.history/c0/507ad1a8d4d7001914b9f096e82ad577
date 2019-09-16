@@ -1,0 +1,98 @@
+package com.example.demo.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String uname;
+	private String password;
+	private int age;
+	private long mobile;
+	private String email;
+	@OneToMany
+	private List<Booking> bookings;
+	public User() {
+		super();
+	}
+	public User(String uname, String password, int age, long mobile, String email) {
+		super();
+		this.uname = uname;
+		this.password = password;
+		this.age = age;
+		this.mobile = mobile;
+		this.email = email;
+	}
+	
+	public User(String fname, String lname, int age, long mobile, String email, List<Booking> booking) {
+		super();
+		this.uname = fname;
+		this.password = lname;
+		this.age = age;
+		this.mobile = mobile;
+		this.email = email;
+		this.bookings = booking;
+	}
+	public List<Booking> getBooking() {
+		return bookings;
+	}
+	public void setBooking(List<Booking> booking) {
+		this.bookings = booking;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFname() {
+		return uname;
+	}
+	
+	public String getUname() {
+		return uname;
+	}
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public long getMobile() {
+		return mobile;
+	}
+	public void setMobile(long mobile) {
+		this.mobile = mobile;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+    
+	
+}

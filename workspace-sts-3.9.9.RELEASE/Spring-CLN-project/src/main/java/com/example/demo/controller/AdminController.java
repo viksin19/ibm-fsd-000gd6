@@ -1,0 +1,64 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.Repo.UserRepo;
+import com.example.demo.entity.Admin;
+import com.example.demo.entity.User;
+import com.example.demo.entity.Repo.AdminRepo;
+
+@Controller
+@RequestMapping("/")
+public class AdminController {
+	
+	private AdminRepo adminrepo;
+	private UserRepo  userrepo;
+	
+	@Autowired
+	public AdminController(AdminRepo adminrepo, UserRepo userrepo) {
+		super();
+		this.adminrepo = adminrepo;
+		this.userrepo = userrepo;
+	}
+
+	@RequestMapping("/")
+	public String homepage(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		return "home";
+	}
+	
+	@PostMapping("admin/validate")
+	public String validateuser(@ModelAttribute("user") User user,Model model) {
+	
+		List<Admin> admins = (List<Admin>) adminrepo.findAll();
+		for(Admin a:admins) {
+			if(a.getUname().equals(user.getUname()) &&  a.getPassword().equals(user.getPassword())){
+				
+				return "admin";
+			}
+		}
+		
+		List<User> users = (List<User>) userrepo.findAll();
+		for(User u:users) {
+			
+			if(u.getUname().equals(user.getUname()) && u.getPassword().equals(user.getPassword())) {
+				
+				model.addAttribute("user",u);
+				return "redirect: /movie/usermovielist";
+			}
+			
+		}
+		
+		return "redirect:/";
+		
+	}
+
+}

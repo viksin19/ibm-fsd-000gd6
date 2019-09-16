@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+
+<form action="#" th:action="@{/user/update}" th:object="${user}" method="GET">
+            
+			<input type="submit" class="btn btn-success btn-lg"
+				value="View-Users">
+		</form>
+
+		<form action="#" th:action="@{/movie/userview}" method="GET">
+			<input type="submit" class="btn btn-success btn-lg"
+				value="View-Movie">
+		</form>
+
+</div>
+</body>
+</html>

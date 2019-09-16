@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8" />
+<title>Soccer Home</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<div class="row">
+<hr>
+<div class="text-info" style="margin-right: 5px;"><h3>Welcome to Soccer League Home</h3></div>
+</div>
+<hr>
+<br>
+<br>
+<div class="row">
+<div class="container">
+<hr>
+<div class="row">
+<hr>
+<div class="col-1"></div>
+<div class="col-4">
+<form action="#" th:action="@{/soccer/view}" method="GET">
+<input type="submit" class="btn btn-success btn-lg" value="View-leagues">
+</form>
+</div>
+<div class="col-1"></div>
+<div class="col-4">
+<form action="#" th:action="@{/soccer/showform}" method="GET">
+<input type="submit" class="btn btn-success btn-lg" value="ADD-leagues">
+</form>
+</div>
+
+<hr>
+</div>
+<hr>
+<form action="#" th:action="@{/logout}" method="POST" >
+<input type="submit"  class="btn btn-warning" value="Logout" />
+</form>
+</div>
+</div>
+</body>
+</html>

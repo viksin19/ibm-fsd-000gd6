@@ -25,13 +25,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.ibm_fsd.Spring_security_basic"/>
 			<item value="com.fsd.FSD_09_09_2019"/>
 			<item value="com.fsd.practise_08_09_2019"/>
 		</list>
 		<list key="groupId">
+			<item value="com.ibm-fsd"/>
 			<item value="com.fsd"/>
 		</list>
 		<list key="artifactId">
+			<item value="Spring-security-basic"/>
 			<item value="FSD_09_09_2019"/>
 			<item value="practise_08_09_2019"/>
 		</list>
