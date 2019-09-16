@@ -1,0 +1,10 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/viksin19/ibm-fsd-000gd6
+  application:
+    name: my-server
