@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +35,7 @@ public class User {
 		this.lname = lname;
 		this.email = email;
 		this.password = password;
+		this.user_id=Integer.parseInt(UUID.randomUUID().toString());
 	}
 	public int getId() {
 		return id;

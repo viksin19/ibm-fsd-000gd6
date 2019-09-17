@@ -16,6 +16,11 @@ import com.example.demo.Model.Gallery;
 public class GalleryController {
 	@Autowired
 	RestTemplate resttemplate;
+	
+	@RequestMapping("/")
+	public String status() {
+		return "okk";
+	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/{id}")
 	public Gallery getgallery(@PathVariable int id) {

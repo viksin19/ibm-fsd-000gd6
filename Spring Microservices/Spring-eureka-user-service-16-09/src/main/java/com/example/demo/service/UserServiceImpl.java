@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -24,6 +26,55 @@ public class UserServiceImpl implements UserService {
 		usersRepository.save(user);
 		UserDto userdto = mapper.map(user, UserDto.class);
 		return userdto;
+	}
+
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		usersRepository.deleteById(id);
+		
+	}
+
+
+	@Override
+	public UserDto update(User user) {
+		ModelMapper mapper = new ModelMapper();
+		User userdetail = mapper.map(user, User.class);
+		usersRepository.save(userdetail);
+		UserDto userdto= mapper.map(userdetail, UserDto.class);
+		return userdto;
+	}
+
+
+	@Override
+	public List<User> findall() {
+		// TODO Auto-generated method stub
+		List<User> users = (List<User>) usersRepository.findAll();
+		return users;
+	}
+
+
+	@Override
+	public User findById(int id) {
+		// TODO Auto-generated method stub
+		
+		return usersRepository.findById(id).get();
+	}
+
+
+	@Override
+	public List<User> findBylname(String lname) {
+		// TODO Auto-generated method stub
+		return usersRepository.findBylname(lname);
+	}
+
+
+	@Override
+	public void updateuser(User user) {
+		// TODO Auto-generated method stub
+		usersRepository.save(user);
+		
 	}
 
 }
