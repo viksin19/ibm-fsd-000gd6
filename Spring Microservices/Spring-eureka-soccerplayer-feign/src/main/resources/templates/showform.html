@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+body{
+background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/07/Cool-Soccer-HD-Backgrounds.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+width: 100%;
+	height: 800px;
+}
+</style>
+</head>
+<body>
+<br>
+<div class="container">
+
+<form action="#"  th:action="@{/saveplayer}" th:object="${player}" method="POST">
+<input type="hidden" th:field="${player.id}" />
+<input th:field="${player.fname}" class="form-control mb-4 col-4" placeholder="First-Name" />
+<input th:field="${player.lname}" class="form-control mb-4 col-4" placeholder="Last-Name" />
+<input th:field="${player.noOfmatchesPlayed}" class="form-control mb-4 col-4" placeholder="No. of Match" />
+<input th:field="${player.country}" class="form-control mb-4 col-4" placeholder="Country" />
+<input type="submit" class="btn btn-success" value="submit" />
+</form>
+
+</div>
+
+</body>
+</html>
