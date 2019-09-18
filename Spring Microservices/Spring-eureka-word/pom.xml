@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.test</groupId>
-	<artifactId>commmon-eureka-server</artifactId>
+	<artifactId>lab-7-word-server</artifactId>
 	<version>1</version>
 	<packaging>jar</packaging>
 
-	<name>common-eureka-server</name>
-	<description>Eureka server suitable for use with most course labs</description>
+	<name>lab-7-word-server</name>
+	<description>Example microservice which serves up individual, random words for a give part of speech.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,21 +28,43 @@
 	to show Maven where the Spring Cloud dependencies are. -->
     <dependencyManagement>
         <dependencies>
-	        <dependency>
-	            <groupId>org.springframework.cloud</groupId>
-	            <artifactId>spring-cloud-dependencies</artifactId>
-	            <version>Finchley.RELEASE</version>
-	            <type>pom</type>
-	            <scope>import</scope>
-	        </dependency>            
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
+    
 	<dependencies>
+	
+		<!-- Needed since 1.0.2 -->
+		<dependency>
+        	<groupId>org.springframework.cloud</groupId>
+        	<artifactId>spring-cloud-starter-config</artifactId>
+    	</dependency>
+    		
 	    <dependency>
 	        <groupId>org.springframework.cloud</groupId>
-	        <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+	        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 	    </dependency>
+	
+	    <dependency>
+	        <groupId>org.springframework.cloud</groupId>
+	        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+	    </dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
