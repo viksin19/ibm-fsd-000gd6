@@ -20,4 +20,5 @@ public class RabbitMqService {
     public void sendMessage(Product product) {
         amqpTemplate.convertAndSend(EXCHANGE, ROUTING_KEY, product);
     }
+
 }
