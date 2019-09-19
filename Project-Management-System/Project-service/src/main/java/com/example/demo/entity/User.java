@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,10 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.scheduling.config.Task;
 
 @Entity
@@ -28,20 +32,15 @@ public class User {
 	private String email;
 	private String img;
 	private String udomain;
-
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	private Task task;
+    
+		
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Project current_project;
 	
-	@ManyToMany
-	@JoinTable(name = "project_user",
-	joinColumns = @JoinColumn(name="user_id" ),
-	inverseJoinColumns = @JoinColumn(name="project_id"))
-	private List<Project> previous_projects = new ArrayList<Project>();
+	private String previous_project;
 
-	
-
-	public User(String username, String ulocation, String avialability, String email, String img, String udomain) {
+	public User(String username, String ulocation, String avialability, String email, String img, String udomain,
+			String previous_project) {
 		super();
 		this.username = username;
 		this.ulocation = ulocation;
@@ -49,14 +48,7 @@ public class User {
 		this.email = email;
 		this.img = img;
 		this.udomain = udomain;
-	}
-
-	public String getUdomain() {
-		return udomain;
-	}
-
-	public void setUdomain(String udomain) {
-		this.udomain = udomain;
+		this.previous_project = previous_project;
 	}
 
 	public User() {
@@ -111,43 +103,31 @@ public class User {
 		this.img = img;
 	}
 
-	public Task getTask() {
-		return task;
+	public String getUdomain() {
+		return udomain;
 	}
 
-	public void setTask(Task task) {
-		this.task = task;
+	public void setUdomain(String udomain) {
+		this.udomain = udomain;
 	}
 
-	public List<Project> getPrevious_ptoject() {
-		return previous_projects;
+	public Project getCurrent_project() {
+		return current_project;
 	}
 
-	public void setPrevious_ptoject(List<Project> previous_ptoject) {
-		this.previous_projects = previous_ptoject;
+	public void setCurrent_project(Project current_project) {
+		this.current_project = current_project;
 	}
 
-	public User(String username, String ulocation, String avialability, String email, String img, Task task) {
-		super();
-		this.username = username;
-		this.ulocation = ulocation;
-		this.avialability = avialability;
-		this.email = email;
-		this.img = img;
-		this.task = task;
+	public String getPrevious_project() {
+		return previous_project;
 	}
 
-	public User(String username, String ulocation, String avialability, String email, String img, Task task,
-			List<Project> previous_ptoject) {
-		super();
-		this.username = username;
-		this.ulocation = ulocation;
-		this.avialability = avialability;
-		this.email = email;
-		this.img = img;
-		this.task = task;
-		this.previous_projects = previous_ptoject;
+	public void setPrevious_project(String previous_project) {
+		this.previous_project = previous_project;
 	}
+
 	
+
 	
 }

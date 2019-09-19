@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,8 +16,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 public class Project {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -23,14 +29,16 @@ public class Project {
 	private String plocation;
 	private Date start_date;
 	private Date end_date;
-
 	private String pmanager;
-	
-	@ManyToMany(mappedBy = "previous_projects")
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.NO_ACTION)
+	@JoinColumn(name = "user_id", nullable = false)
 	private List<User> users = new ArrayList<User>();
 
-	@OneToMany
-	@JoinColumn(name = )
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "task_id" , nullable = false)
 	private List<Task> tasks = new ArrayList<Task>();
 
 	public Project(String pname, String plocation, Date start_date, Date end_date, String pmanager) {
