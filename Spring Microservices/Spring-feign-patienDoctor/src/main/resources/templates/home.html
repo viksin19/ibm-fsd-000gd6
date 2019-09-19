@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8" />
+<title>first thymeleaf page</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+.text{
+margin-left: 410px;
+color: black;
+}
+body{
+background-image: url("https://www.pixelstalk.net/wp-content/uploads/images1/Download-now-Medical-HD-Wallpaper-1080p.jpg");
+background-attachment: fixed;
+background-repeat: no-repeat;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<br>
+<hr>
+<div class="row">
+<h2 class="text" style="align-content: center;"> Welcome TO Home !!</h2>
+</div>
+<hr>
+<br>
+<br>
+
+<div class="row">
+<div class="col-1">
+</div>
+
+<div class="col-5 form-group">
+<form action="#" th:action="@{/fetchbydesiese}" method="POST">
+						<input type="text" name="desiese" class="form-control form-control-lg text-center" placeholder="Find Patient By Desiese" />
+						<br><button type="submit" class="btn btn-info btn-lg">search-Patient</button>
+					</form>
+</div>
+
+<div class="col-5">
+<form action="#" th:action="@{/doctor}" method="POST">
+						<input type="text" class="form-control form-control-lg text-center" name="speciality" placeholder="Search Doctor" />
+						<br><button type="submit" class="btn btn-warning btn-lg">search-Doctor</button>
+					</form>
+</div>
+<br>
+<br>
+<div class="row">
+
+<div class="col-6"></div>
+<div class="col-4">
+<form action="#" th:action="@{/showform}" method="GET">
+									
+									<button type="submit" class="btn btn-success btn-md">
+										Book-Appointment</button>
+
+								</form>
+</div>
+</div>
+</div>
+<hr>
+</div>
+</body>
+</html>

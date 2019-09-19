@@ -7,4 +7,6 @@ import com.example.demo.entity.Doctor;
 public interface DoctorService {
 
 	public List<Doctor> findBySpeciality(String speciality);
+
+	public Doctor findById(int id);
 }

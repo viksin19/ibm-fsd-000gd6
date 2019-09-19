@@ -14,4 +14,6 @@ public interface DoctorInterface {
 
 	@RequestMapping(value = "/findbyspeciality", method = RequestMethod.GET)
 	public List<Doctor> findDoctor(@RequestParam("speciality") String speciality);
+    @RequestMapping(value = "/findbyid", method = RequestMethod.GET)
+	public Doctor findbyid(@RequestParam("id") int id);
 }

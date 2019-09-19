@@ -17,5 +17,10 @@ public class DoctorServiceImpl implements DoctorService {
 		// TODO Auto-generated method stub
 		return (List<Doctor>) doctor.findByspeciality(speciality);
 	}
+	@Override
+	public Doctor findById(int id) {
+		// TODO Auto-generated method stub
+		return doctor.findById(id).get();
+	}
 
 }

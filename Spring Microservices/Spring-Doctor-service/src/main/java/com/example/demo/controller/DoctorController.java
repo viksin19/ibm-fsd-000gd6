@@ -26,5 +26,10 @@ public class DoctorController {
 		
 		return ResponseEntity.ok(service.findBySpeciality(speciality));
 	}
+	
+	@GetMapping("/findbyid")
+	public ResponseEntity<Doctor> findById(@RequestParam("id")int id){
+		return ResponseEntity.ok(service.findById(id));
+	}
  
 }

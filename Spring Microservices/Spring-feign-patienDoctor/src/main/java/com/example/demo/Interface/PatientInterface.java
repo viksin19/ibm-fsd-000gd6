@@ -15,5 +15,9 @@ public interface PatientInterface {
 
 	@RequestMapping(value = "/findbydesiese", method = RequestMethod.GET)
 	public List<Patient> findPatient(@RequestParam("desiese") String desiese);
+    @RequestMapping(value = "/savepatient", method = RequestMethod.POST)
+	public Patient savepatient(Patient pobj);
+    @RequestMapping(value = "/findbyid", method = RequestMethod.GET)
+	public Patient findbyid(@RequestParam("id") int sessionid);
 
 }

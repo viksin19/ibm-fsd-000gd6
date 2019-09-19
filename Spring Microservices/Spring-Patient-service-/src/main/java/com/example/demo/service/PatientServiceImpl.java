@@ -10,11 +10,23 @@ import com.example.demo.repo.PatientRepo;
 @Service
 public class PatientServiceImpl implements PatientService {
     @Autowired
-	private PatientRepo patient;
+	private PatientRepo patientrepo;
 	@Override
 	public List<Patient> findByDesiese(String desiese) {
 		// TODO Auto-generated method stub
-		return patient.findBydesiese(desiese);
+		return patientrepo.findBydesiese(desiese);
 	}
-
+	@Override
+	public Patient savethepatient(Patient patient) {
+		// TODO Auto-generated method stub
+		patientrepo.save(patient);
+		System.out.println(patient.getId());
+		return patient;
+	}
+	@Override
+	public Patient findById(int id) {
+		// TODO Auto-generated method stub
+		return patientrepo.findById(id).get();
+	}
+    
 }
