@@ -30,6 +30,7 @@ public class Project {
 	private Date start_date;
 	private Date end_date;
 	private String pmanager;
+	
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)

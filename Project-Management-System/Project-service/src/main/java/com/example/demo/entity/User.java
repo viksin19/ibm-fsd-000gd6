@@ -33,9 +33,10 @@ public class User {
 	private String img;
 	private String udomain;
     
-		
-	@ManyToOne(fetch = FetchType.LAZY)
+
+	@ManyToOne
 	private Project current_project;
+
 	
 	private String previous_project;
 
@@ -54,6 +55,7 @@ public class User {
 	public User() {
 		super();
 	}
+
 
 	public int getId() {
 		return id;

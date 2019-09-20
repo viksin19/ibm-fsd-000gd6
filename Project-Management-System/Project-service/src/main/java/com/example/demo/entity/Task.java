@@ -22,12 +22,12 @@ public class Task {
 	
 	private String task_owner;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Project project;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id",nullable = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	private User user;
     
 	private Date start_date;
