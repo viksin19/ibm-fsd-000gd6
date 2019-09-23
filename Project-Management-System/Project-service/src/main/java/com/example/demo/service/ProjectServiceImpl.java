@@ -11,30 +11,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Project;
-import com.example.demo.repo.ProjectRepo;
+import com.example.demo.repository.ProjectRepository;
 import com.example.demo.shared.ProjectDto;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
      @Autowired
-	private ProjectRepo projectrepo;
+	private ProjectRepository projectRepository;
     SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
 	@Override
-	public List<Project> findAll() {
-		// TODO Auto-generated method stub
-		return (List<Project>) projectrepo.findAll();
+	public List<Project> findAll()
+	{
+		
+		return (List<Project>) projectRepository.findAll();
 	}
 
 	@Override
 	public List<Project> findBylocation(String plocation) {
 		// TODO Auto-generated method stub
-		return projectrepo.findByplocation(plocation);
+		return projectRepository.findByplocation(plocation);
 	}
 
 	@Override
 	public Project findById(int id) {
 		// TODO Auto-generated method stub
-		return projectrepo.findById(id).get();
+		return projectRepository.findById(id).get();
 	}
 
 	@Override
@@ -42,11 +43,10 @@ public class ProjectServiceImpl implements ProjectService {
 		// TODO Auto-generated method stub
 		projectDto.setStart_date(date.parse(projectDto.getsDate()));
 		projectDto.setEnd_date(date.parse(projectDto.geteDate()));
-		projectDto.setPid(UUID.randomUUID().toString());
 		ModelMapper model = new ModelMapper();
 		model.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		Project project = model.map(projectDto, Project.class);
-		projectrepo.save(project);
+		projectRepository.save(project);
 		
 		ProjectDto proDto = model.map(project, ProjectDto.class);
 		return proDto;
@@ -55,7 +55,7 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public void deleteProject(int id) {
 		// TODO Auto-generated method stub
-	        projectrepo.deleteById(id);
+	        projectRepository.deleteById(id);
 	}
 
 }

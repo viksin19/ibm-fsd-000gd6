@@ -1,41 +1,29 @@
-package com.example.demo.entity;import javax.persistence.CascadeType;
+package com.example.demo.entity;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
+	private int id;	
 	private String username;
-	
-	private String password;
-	
+	private String password;	
 	private String ulocation;
-	
 	private String avialability;
-
 	private String email;
 	private String img;
-	
 	private String udomain;
-
-	private String previous_project;
-	
+	private String previous_project;	
 	@Transient
 	private int projectid;
 	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "project_id", nullable = true)
+	@ManyToOne
 	private Project project;
 
 	public User(String username, String ulocation, String avialability, String email, String img, String udomain,
@@ -181,8 +169,4 @@ public class User {
 	public void setProject(Project project) {
 		this.project = project;
 	}
-
-	
-
-	
 }

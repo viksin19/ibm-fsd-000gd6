@@ -2,36 +2,36 @@ package com.example.demo.bootstrap;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.entity.Project;
-import com.example.demo.entity.Task;
+import com.example.demo.entity.Tasks;
 import com.example.demo.entity.User;
-import com.example.demo.repo.ProjectRepo;
-import com.example.demo.repo.TaskRepository;
-import com.fasterxml.jackson.databind.Module.SetupContext;
+import com.example.demo.repository.ProjectRepository;
+import com.example.demo.repository.TaskRepository;
+import com.example.demo.repository.UserRepository;
 
+@Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 	
-	ProjectRepo projectRepo;
+	ProjectRepository projectRepository;
 	TaskRepository taskRepository;
+	UserRepository userRepository;
 
-	public DevBootstrap(ProjectRepo projectRepo, TaskRepository taskRepository) {
+	public DevBootstrap(ProjectRepository projectRepository, TaskRepository taskRepository,
+			UserRepository userRepository) {
 		super();
-		this.projectRepo = projectRepo;
+		this.projectRepository = projectRepository;
 		this.taskRepository = taskRepository;
+		this.userRepository = userRepository;
 	}
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		// TODO Auto-generated method stub
-		System.out.println("welcome....");
 		try {
 			init();
 		} catch (ParseException e) {
@@ -42,26 +42,20 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
 	private void init() throws ParseException {
 		// TODO Auto-generated method stub
-		List<Task> list = new ArrayList<Task>();
-		List<User> list1 = new ArrayList<User>();
-		SimpleDateFormat objSDF = new SimpleDateFormat("dd-MM-yyyy");		
-		Project project = new Project("abc","kolkata","20-08-2019","23-08-2020","sp");		
-		project.setStart_date(objSDF.parse(project.getStartDate()));
-		project.setEnd_date(objSDF.parse(project.getEndDate()));
-		Task task = new Task("sp","soor","31/10/2019","31/12/2020","true");
-		list.add(task);
-		User user = new User("renu", "delhi", "true", "sraji@gmail.com", "www.img.com", "fsd", "abc");
-		list1.add(user);
-		project.setUsers(list1);
-		project.setTask(list);
-		project.setPid(UUID.randomUUID().toString());
-		System.out.println(project.getEnd_date());
-		Project pro = new Project(project.getPid(),project.getPname(),project.getPlocation(),project.getStart_date(),project.getEnd_date(),project.getPmanager(),list1,list);
-		System.out.println(pro.toString());
-		System.out.println(task.toString());
-		projectRepo.save(pro);
-		taskRepository.save(task);
-		
+		System.out.println("Welcome");
+		SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");	
+		Project proj = new Project(1,1,1,"Seeru","Seeru veedu","vetri","06-10-2019","05-10-2020");
+		proj.setStart_date(date.parse(proj.getsDate()));
+        proj.setEnd_date(date.parse(proj.geteDate()));
+        Project project = new Project(proj.getPid(),proj.getUid(),proj.getTid(),proj.getPname(),proj.getPlocation(),proj.getStart_date(),proj.getEnd_date(),proj.getPmanager());
+		User user = new User("sp","mumbai","true","qwertyuiop","www.img.com","fsd","xyz","abc");
+		Tasks task = new Tasks("abc","sp","31-10-2019","21-02-2021","true");
+		project.getTasks().add(task);
+		project.getUser().add(user);
+		projectRepository.save(project);
+		userRepository.save(user);
+        taskRepository.save(task);        
+        System.out.println("Bye");
 	}
 
 }

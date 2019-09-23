@@ -10,24 +10,48 @@ public class CreateProjectRequestModel {
 	private Date end_date;
 	private String sDate;
 	private String eDate;
-	private String pmanager;
-	private int task_id;
+	private int pid;
+	private int uid;
+	private int tid;
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+	public int getTid() {
+		return tid;
+	}
+
+	public void setTid(int tid) {
+		this.tid = tid;
+	}
 
 	public CreateProjectRequestModel() {
 		super();
-	}
+	}	
 
-	public CreateProjectRequestModel(String pname, String plocation, Date start_date, Date end_date, String sDate,
-			String eDate, String pmanager, int task_id) {
+	public CreateProjectRequestModel(String pname, String plocation, String sDate, String eDate, int pid, int uid,
+			int tid) {
 		super();
 		this.pname = pname;
 		this.plocation = plocation;
-		this.start_date = start_date;
-		this.end_date = end_date;
 		this.sDate = sDate;
 		this.eDate = eDate;
-		this.pmanager = pmanager;
-		this.task_id = task_id;
+		this.pid = pid;
+		this.uid = uid;
+		this.tid = tid;
 	}
 
 	public String getPname() {
@@ -76,22 +100,6 @@ public class CreateProjectRequestModel {
 
 	public void seteDate(String eDate) {
 		this.eDate = eDate;
-	}
-
-	public String getPmanager() {
-		return pmanager;
-	}
-
-	public void setPmanager(String pmanager) {
-		this.pmanager = pmanager;
-	}
-
-	public int getTask_id() {
-		return task_id;
-	}
-
-	public void setTask_id(int task_id) {
-		this.task_id = task_id;
 	}
 
 }
