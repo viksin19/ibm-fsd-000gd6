@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -83,6 +85,15 @@ public class UserController {
    	service.deleteUser(id);
    	return ResponseEntity.ok("deleted");
    }
-
+  
+   @PutMapping("/update/{id}")
+   public ResponseEntity<CreateUserResponseModel> update(@RequestBody CreateUserRequestModel req,@PathVariable("id") int id){
+		ModelMapper mapper = new ModelMapper();
+		UserDto dto = mapper.map(req, UserDto.class);
+		UserDto dto1 = service.update(dto,id);
+		CreateUserResponseModel user = mapper.map(dto1, CreateUserResponseModel.class);
+		return ResponseEntity.status(HttpStatus.CREATED).body(user);
+	
+	}
 
 }

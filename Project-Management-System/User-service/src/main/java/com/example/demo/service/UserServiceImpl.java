@@ -92,4 +92,26 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findByudomain(udomain);
 	}
 
+	@Override
+	public UserDto update(UserDto dto, int id) {
+		// TODO Auto-generated method stub
+		Optional<User> op = userRepository.findById(id);
+		User u = null;
+		if (op.isPresent())
+			u = op.get();
+		u.setUsername(dto.getUsername());
+		u.setAvialability(dto.getAvialability());
+		u.setEmail(dto.getEmail());
+		u.setImg(dto.getImg());
+		u.setPassword(bcrypt.encode(dto.getPassword()));
+		u.setPrevious_project(dto.getPrevious_project());
+		u.setUlocation(dto.getUlocation());
+		u.setUdomain(dto.getUdomain());
+		userRepository.save(u);
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		UserDto dto1 = mapper.map(u,UserDto.class);
+		return dto1;
+	}
+
 }

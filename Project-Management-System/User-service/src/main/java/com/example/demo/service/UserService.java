@@ -10,6 +10,7 @@ public interface UserService {
 	public List<User> findAll();
 	public List<User> findByusername(String username);
 	public User findById(int id);
+	public UserDto update(UserDto dto,int id);
 	public UserDto saveUser(UserDto user);
 	public void deleteUser(int id);
 	public List<User> findBylocation(String ulocation);
