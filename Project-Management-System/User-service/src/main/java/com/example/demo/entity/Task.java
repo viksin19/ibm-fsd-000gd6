@@ -1,6 +1,6 @@
 package com.example.demo.entity;
-
 import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,24 +12,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import lombok.Data;
 
 @Entity
+@Data
 public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String tname;
 	
+	private String tname;
 	private String task_owner;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "project_id" , nullable = true)
 	private Project project;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id",nullable = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id",nullable = true)
+	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	private User user;
-    
+
 	private Date start_date;
 	private Date end_date;
 	private String status;
