@@ -1,8 +1,12 @@
 package com.example.demo.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +17,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Project;
+import com.example.demo.model.CreateProjectRequestModel;
+import com.example.demo.model.CreateProjectResponseModel;
 import com.example.demo.service.ProjectService;
+import com.example.demo.shared.ProjectDto;
 
 @Controller
 @RestController
 @RequestMapping("/")
 public class ProjectController {
      @Autowired
-     private	ProjectService service;
+     private ProjectService service;
      
      @RequestMapping("/getallproject")
      public ResponseEntity<List<Project>> getAllproject(){
@@ -41,13 +48,19 @@ public class ProjectController {
     }
     
     @PostMapping("/saveproject")
-    public ResponseEntity<Project> saveProject(@RequestBody Project project){
-    	
-    	return ResponseEntity.ok(service.saveProject(project));
+    public ResponseEntity<CreateProjectResponseModel> create(@RequestBody CreateProjectRequestModel projectreq) throws ParseException {
+		// TODO Auto-generated method stub
+		ModelMapper model = new ModelMapper();
+		model.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		ProjectDto pDto = model.map(projectreq, ProjectDto.class);		
+		ProjectDto tempDto = service.saveProject(pDto);		
+		CreateProjectResponseModel proRes = model.map(tempDto, CreateProjectResponseModel.class);	
+		System.out.println();
+    	return ResponseEntity.status(HttpStatus.CREATED).body(proRes);
     }
     
     @PostMapping("/deleteproject")
-    public ResponseEntity<?> deleteProject(@RequestParam("id")int id){
+    public ResponseEntity<?> deleteProject(@RequestParam("id") int id){
     	service.deleteProject(id);
     	return ResponseEntity.ok("deleted");
     }

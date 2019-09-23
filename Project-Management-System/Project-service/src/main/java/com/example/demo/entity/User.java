@@ -1,44 +1,42 @@
-package com.example.demo.entity;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
+package com.example.demo.entity;import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.scheduling.config.Task;
+import javax.persistence.Transient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private String username;
+	
+	private String password;
+	
 	private String ulocation;
+	
 	private String avialability;
+
 	private String email;
 	private String img;
-	private String udomain;
-    
-
-	@ManyToOne
-	private Project current_project;
-
 	
+	private String udomain;
+
 	private String previous_project;
+	
+	@Transient
+	private int projectid;
+	
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "project_id", nullable = true)
+	private Project project;
 
 	public User(String username, String ulocation, String avialability, String email, String img, String udomain,
 			String previous_project) {
@@ -51,11 +49,41 @@ public class User {
 		this.udomain = udomain;
 		this.previous_project = previous_project;
 	}
+	
+	
+	
+	public User(String username, String password, String ulocation, String avialability, String email, String img,
+			String udomain, String previous_project, int projectid) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.ulocation = ulocation;
+		this.avialability = avialability;
+		this.email = email;
+		this.img = img;
+		this.udomain = udomain;
+		this.previous_project = previous_project;
+		this.projectid = projectid;
+	}
+
+
+
+	public User(String username, String password, String ulocation, String avialability, String email, String img,
+			String udomain, String previous_project) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.ulocation = ulocation;
+		this.avialability = avialability;
+		this.email = email;
+		this.img = img;
+		this.udomain = udomain;
+		this.previous_project = previous_project;
+	}
 
 	public User() {
 		super();
 	}
-
 
 	public int getId() {
 		return id;
@@ -65,6 +93,13 @@ public class User {
 		this.id = id;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -113,13 +148,7 @@ public class User {
 		this.udomain = udomain;
 	}
 
-	public Project getCurrent_project() {
-		return current_project;
-	}
-
-	public void setCurrent_project(Project current_project) {
-		this.current_project = current_project;
-	}
+	
 
 	public String getPrevious_project() {
 		return previous_project;
@@ -127,6 +156,30 @@ public class User {
 
 	public void setPrevious_project(String previous_project) {
 		this.previous_project = previous_project;
+	}
+
+
+
+	public int getProjectid() {
+		return projectid;
+	}
+
+
+
+	public void setProjectid(int projectid) {
+		this.projectid = projectid;
+	}
+
+
+
+	public Project getProject() {
+		return project;
+	}
+
+
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	
