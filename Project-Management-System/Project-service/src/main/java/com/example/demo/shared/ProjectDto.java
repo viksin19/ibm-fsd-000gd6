@@ -127,4 +127,12 @@ public class ProjectDto {
 		this.eDate = eDate;
 	}
 
+	@Override
+	public String toString() {
+		return "ProjectDto [pname=" + pname + ", plocation=" + plocation + ", start_date=" + start_date + ", end_date="
+				+ end_date + ", pmanager=" + pmanager + ", sDate=" + sDate + ", eDate=" + eDate + ", pid=" + pid
+				+ ", uid=" + uid + ", tid=" + tid + "]";
+	}
+
+
 }

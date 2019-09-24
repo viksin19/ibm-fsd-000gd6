@@ -10,6 +10,7 @@ public class CreateProjectRequestModel {
 	private Date end_date;
 	private String sDate;
 	private String eDate;
+	private String pmanager;
 	private int pid;
 	private int uid;
 	private int tid;
@@ -41,14 +42,16 @@ public class CreateProjectRequestModel {
 	public CreateProjectRequestModel() {
 		super();
 	}	
+	
 
-	public CreateProjectRequestModel(String pname, String plocation, String sDate, String eDate, int pid, int uid,
-			int tid) {
+	public CreateProjectRequestModel(String pname, String plocation, String sDate,
+			String eDate, String pmanager, int pid, int uid, int tid) {
 		super();
 		this.pname = pname;
 		this.plocation = plocation;
 		this.sDate = sDate;
 		this.eDate = eDate;
+		this.pmanager = pmanager;
 		this.pid = pid;
 		this.uid = uid;
 		this.tid = tid;
@@ -100,6 +103,14 @@ public class CreateProjectRequestModel {
 
 	public void seteDate(String eDate) {
 		this.eDate = eDate;
+	}
+
+	public String getPmanager() {
+		return pmanager;
+	}
+
+	public void setPmanager(String pmanager) {
+		this.pmanager = pmanager;
 	}
 
 }

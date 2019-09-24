@@ -13,5 +13,6 @@ public interface ProjectService {
 	public Project findById(int id);
 	public ProjectDto saveProject(ProjectDto project) throws ParseException;
 	public void deleteProject(int id);
+	public ProjectDto updateProject(ProjectDto project, int id) throws ParseException;
 	
 }
