@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.task.data.Tasks;
+import com.example.task.data.Task;
 import com.example.task.freignInterface.TasksServiceFriegnClient;
 import com.example.task.model.CreateTasksRequestModel;
 import com.example.task.model.CreateTasksResponseModel;

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.task.data.Teams;
 
 @Repository
-public interface TeamsRepository extends JpaRepository<Teams, Long> {
+public interface TeamsRepository extends JpaRepository<Teams, Integer> {
 
 }

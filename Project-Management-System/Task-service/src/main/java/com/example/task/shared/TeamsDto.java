@@ -14,7 +14,7 @@ public class TeamsDto {
 	private String ulastName;
 	private String uemail;
 	private String uassigndate;
-	private Long taskid;
+	private Integer taskid;
 	private String ustatus;
 	
 
@@ -34,7 +34,7 @@ public class TeamsDto {
 	}
 	
 	public TeamsDto(String userid, String ufirstName, String ulastName, String uemail, String uassigndate,
-			Long taskid,String ustatus) {
+			int taskid,String ustatus) {
 		super();
 		this.userid = userid;
 		this.ufirstName = ufirstName;
@@ -93,11 +93,11 @@ public class TeamsDto {
 		this.ustatus = ustatus;
 	}
 
-	public Long getTaskid() {
+	public Integer getTaskid() {
 		return taskid;
 	}
 
-	public void setTaskid(Long taskid) {
+	public void setTaskid(int taskid) {
 		this.taskid = taskid;
 	}
 
