@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  navtosearch(){
-   this.router.navigate(['/flightsearch']);
-  }
+  // navtosearch(){
+  //  this.router.navigate(['/flightsearch']);
+  // }
 
 }
