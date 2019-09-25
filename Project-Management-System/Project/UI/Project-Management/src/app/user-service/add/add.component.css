@@ -21,21 +21,21 @@
     background: linear-gradient(to bottom right, #3366ff 7%, #ff0066 102%);
     width: 25%;
     height: 50px;
-    margin-left: 235px;
-    margin-top: 39px;
+    margin-left: 225px;
+    margin-top: 30px;
     }
     .form-control{
     opacity: 0.9;
     margin-left: 1px;
     width: 100%;
-     height: 60px;
+     height: 40px;
      
     }
     .card{
         width: 50%;
-        height: 500px;
+        height: 470px;
         margin-left: 380px;
-        margin-top: 29px;
+        margin-top: 24px;
     }
     .sidebar-img{
         width: 100px;

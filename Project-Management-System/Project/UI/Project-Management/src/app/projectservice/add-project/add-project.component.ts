@@ -42,7 +42,10 @@ export class AddProjectComponent implements OnInit {
     this.uNames = [];
     console.log(this.users);
     for (let i = 0; i < this.users.length; i++) {
-      let uDetails = {email : this.users[i].email, name : this.users[i].username}
+      let uDetails = {
+        email : this.users[i].email,
+         name : this.users[i].username
+        }
       this.uNames[i] =(uDetails);
     }
   }
