@@ -25,7 +25,7 @@ export class AddProjectComponent implements OnInit {
 
   ngOnInit() {
     const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
-    fetch(_baseUrl + `/users/role/${this.role}`, {
+    fetch(_baseUrl + `/user/role/${this.role}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"

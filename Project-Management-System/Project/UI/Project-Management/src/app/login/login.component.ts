@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     });
     const _baseUrl = `http://b4ibm21.iiht.tech:8001`;
 
-    fetch(_baseUrl + `/users/login`, {
+    fetch(_baseUrl + `/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

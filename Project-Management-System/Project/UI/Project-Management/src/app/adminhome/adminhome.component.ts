@@ -17,7 +17,7 @@ export class AdminhomeComponent implements OnInit {
 
   ngOnInit() {
     const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
-    fetch(_baseUrl + `/users/${this.email}`, {
+    fetch(_baseUrl + `/user/${this.email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"

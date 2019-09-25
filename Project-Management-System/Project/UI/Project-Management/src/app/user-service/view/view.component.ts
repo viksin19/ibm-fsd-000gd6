@@ -13,7 +13,7 @@ email:String;
   constructor(private router:Router) { }
 
   ngOnInit() {
-    const url=`http://b4ibm21.iiht.tech:8001`;
+    const url=`http://b4ibm21.iiht.tech:8001/user`;
     fetch(url+`getalluser`,{
       method: "GET",
       headers: {
@@ -26,7 +26,7 @@ email:String;
     })
   }
 update(email){
-  const url=`http://b4ibm21.iiht.tech:8001`;
+  const url=`http://b4ibm21.iiht.tech:8001/user`;
   fetch(url+`/{email}`,{
     method:"GET",
     headers:{
@@ -39,7 +39,7 @@ update(email){
   this.router.navigate(['updateprofile']);
 }
 delete(email){
-  const url=`http://b4ibm21.iiht.tech:8001`;
+  const url=`http://b4ibm21.iiht.tech:8001/user`;
   fetch(url+`/delete/{email}`,{
     method:"POST",
     headers:{
