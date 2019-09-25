@@ -11,6 +11,16 @@ import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { SidebarModule } from "ng-sidebar";
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { UserhomeComponent } from './userhome/userhome.component';
+import { ManagerhomeComponent } from './managerhome/managerhome.component';
+import { ProjectserviceComponent } from './projectservice/projectservice.component';
+import { AddProjectComponent } from './projectservice/add-project/add-project.component';
+import { ViewProjectComponent } from './projectservice/view-project/view-project.component';
+import { TaskServiceComponent } from './task-service/task-service.component';
+import { TeamServiceComponent } from './team-service/team-service.component';
+import { AddTaskComponent } from './task-service/add-task/add-task.component';
+import { ViewTaskComponent } from './task-service/view-task/view-task.component';
+import { AddTeamComponent } from './team-service/add-team/add-team.component';
+import { ViewTeamComponent } from './team-service/view-team/view-team.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +28,17 @@ import { UserhomeComponent } from './userhome/userhome.component';
     LoginComponent,
     SignupComponent,
     AdminhomeComponent,
-    UserhomeComponent
+    UserhomeComponent,
+    ManagerhomeComponent,
+    ProjectserviceComponent,
+    AddProjectComponent,
+    ViewProjectComponent,
+    TaskServiceComponent,
+    TeamServiceComponent,
+    AddTaskComponent,
+    ViewTaskComponent,
+    AddTeamComponent,
+    ViewTeamComponent
   ],
   imports: [
     BrowserModule,

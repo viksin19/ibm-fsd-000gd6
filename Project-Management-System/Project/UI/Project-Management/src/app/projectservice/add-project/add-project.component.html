@@ -1,0 +1,33 @@
+<body>
+    <div class="row offset-2">
+        <div class="card border-primary">
+            <h6 class="card-header bg-secondary">ADD NEW TASK</h6>
+            <div class="card-body text-success">
+                <form [formGroup]="newProjectForm" (ngSubmit)="submit()" novalidate>
+                    <div class="form-group">
+                        <input type="text" formControlName="pname" placeholder="Enter Project Name" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="plocation" placeholder="Enter Project Location" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="start_date" placeholder="Enter Start Date" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="end_date" placeholder="Enter End Date" /><br />
+                    </div>
+                    <div class="form-group">
+                        <select formControlName="pmanagerEmail">
+                            <option *ngFor="let name of uNames" [ngValue]="name">
+                              {{ name.name }}
+                            </option>
+                          </select><br />
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="Add Task" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
