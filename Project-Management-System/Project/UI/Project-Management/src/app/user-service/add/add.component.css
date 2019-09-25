@@ -21,7 +21,7 @@
     background: linear-gradient(to bottom right, #3366ff 7%, #ff0066 102%);
     width: 25%;
     height: 50px;
-    margin-left: 225px;
+    margin-left: 295px;
     margin-top: 30px;
     }
     .form-control{
@@ -31,11 +31,11 @@
      height: 40px;
      
     }
-    .card{
+    .formheader{
         width: 50%;
         height: 470px;
-        margin-left: 380px;
-        margin-top: 24px;
+        margin-left: 450px;
+        margin-top: 110px;
     }
     .sidebar-img{
         width: 100px;

@@ -1,1 +1,87 @@
-<p>view-project works!</p>
+<div class="image">
+        <div class="row">
+                <div class="col-3">
+                        <div class="sidebar-container">
+                            <div class="sidebar-img">
+                                <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/05/GettyImages-1144499197-620x394.jpg" style="width: 140px; height: 140px; 
+                                border-radius: 50%; margin-left: 27px; margin-top: 3px;">
+                              </div>
+                        <div class="sidebar-logo">
+                          Admin_Name
+                        </div>
+                        <ul class="sidebar-navigation">
+                          
+                          <li class="header">DashBoard</li>
+                          <li><a [routerLink]="['/adminhome']">
+                                <i class="fa fa-home" aria-hidden="true"></i> Home
+                                </a>
+                            </li>
+                            <li>
+                              <a  [routerLink]="['/projectService/add']">
+                                <i class="fa fa-home" aria-hidden="true"></i> Add-Project
+                              </a>
+                            </li>
+                          <li>
+                            <a  [routerLink]="['/projectService/view']">
+                              <i class="fa fa-home" aria-hidden="true"></i> Project-List
+                          </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/userService/add']">
+                              <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
+                            </a>
+                          </li>
+                          
+                          <li>
+                            <a [routerLink]="['/userService/view']">
+                              <i class="fa fa-users" aria-hidden="true"></i>User-List
+                            </a>
+                          </li>
+                            <li>
+                                <a [routerLink]="['/home']">
+                                  <i class="fa fa-users" aria-hidden="true"></i>LogOut
+                                </a>
+                              </li>
+                        </ul>
+                        </div>
+                        </div>
+        <div class="col-9">
+            <div class="row">
+              <br>
+              <br>
+            </div>
+            <div class="row">
+        <table class="table table-hover table-striped table-light">
+        <thead class="table table-dark">
+        <tr >
+            <th>Project-Name</th>
+            <th>Project-Manager</th>
+            <th>Project-Location</th>
+            <th>Start-Date</th>
+            <th>End-Date</th>
+            <th>View-Team</th>
+            <th>Update</th>
+            <th>Remove</th>
+            
+        </tr>
+        </thead>
+        <tbody class="table table-light">
+            <tr *ngFor="let p of projects">   
+                <td>{{p.pname}}</td>
+                <td>{{p.pmanagerName}}</td>
+                <td>{{p.plocation}}</td>
+                <td>{{p.start_date}}</td>
+                <td>{{p.end_date}}</td>
+                <td><button class="btn btn-warning btn-lg" (click)="team(p.projectId)">View-Team</button></td>
+                <td><button class="btn btn-warning btn-lg" (click)="update(p.projectId)">Update</button></td>
+                <td><button class="btn btn-danger btn-lg" (click)="Delete(p.projectId)">Delete</button></td>
+        
+        
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>
+        
