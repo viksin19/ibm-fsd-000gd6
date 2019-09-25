@@ -1,11 +1,17 @@
 
 .image{
-    background: url('https://www.hytex.co.uk/uploads/PM/projectmanagement.jpg') no-repeat;
+    background: url('https://s3.envato.com/files/189936986/preview%20image%20set/01-background.jpg') no-repeat;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: 1770px 700px;
+    background-size: 1670px 550px;
     width: 100%;
     height: 650px;
+}
+.l1{
+  margin-left: 500px;
+}
+.l2{
+  margin-left: 500px;
 }
 .sidebar-container {
     position: fixed;
