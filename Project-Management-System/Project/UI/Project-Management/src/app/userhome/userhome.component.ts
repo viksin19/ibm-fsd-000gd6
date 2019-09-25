@@ -10,6 +10,7 @@ export class UserhomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    window.localStorage.setItem('user','hello');
   }
 
 }
