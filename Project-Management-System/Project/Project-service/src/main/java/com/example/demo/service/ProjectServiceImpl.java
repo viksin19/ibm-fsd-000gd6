@@ -3,7 +3,7 @@ package com.example.demo.service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -33,11 +33,9 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Project findById(long id) {
+	public Project findById(int id) {
 		// TODO Auto-generated method stub
-		Optional<Project> project = projectRepository.findByprojectId(id);
-		Project findProject = project.get();
-		return findProject;
+		return projectRepository.findById(id).get();
 	}
 
 	@Override
@@ -54,32 +52,9 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public void deleteProject(long id) {
+	public void deleteProject(int id) {
 		// TODO Auto-generated method stub
-		projectRepository.deleteByprojectId(id);
+		projectRepository.deleteById(id);
 	}
-	
-	@Override
-	public ProjectDto updateProject(ProjectDto project, long id) throws ParseException {
-		// TODO Auto-generated method stub
-		Optional<Project> projectDetails = projectRepository.findByprojectId(id);
-		System.out.println(projectDetails.toString());
-		Project projectUpdate = null;
-		if(projectDetails.isPresent()) {
-			projectUpdate = projectDetails.get();
-		}
-		System.out.println(projectUpdate.toString());
-		projectUpdate.setPname(project.getPname());
-		projectUpdate.setPlocation(project.getPlocation());
-		projectUpdate.setStart_date(project.getStart_date());
-		projectUpdate.setEnd_date(project.getEnd_date());
-		projectUpdate.setPmanager(project.getPmanager());
-		projectRepository.save(projectUpdate);
-		ModelMapper model = new ModelMapper();
-		model.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		ProjectDto proDto = model.map(projectUpdate, ProjectDto.class);
-		return proDto;
-	}
-	
 
 }

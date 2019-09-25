@@ -10,9 +10,8 @@ public interface ProjectService {
    
 	public List<Project> findAll();
 	public List<Project> findBylocation(String plocation);
-	public Project findById(long id);
+	public Project findById(int id);
 	public ProjectDto saveProject(ProjectDto project) throws ParseException;
-	public void deleteProject(long id);
-	ProjectDto updateProject(ProjectDto project, long id) throws ParseException;
+	public void deleteProject(int id);
 	
 }
