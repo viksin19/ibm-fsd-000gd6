@@ -14,7 +14,9 @@ public interface UserService {
 	public void deleteUser(int id);
 	public List<User> findBylocation(String ulocation);
 	public List<User> findByavailability(String avialability);
-	public List<User> findByemail(String email);
+	public User getByEmail(String email);
+	public User findEmailAndPassword(String email,String password); 
 	public List<User> findBydomain(String udomain);
+	public List<User> getByRole(String urole);
 	
 }

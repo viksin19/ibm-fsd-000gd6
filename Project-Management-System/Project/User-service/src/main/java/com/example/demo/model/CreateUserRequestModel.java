@@ -9,6 +9,7 @@ public class CreateUserRequestModel {
 	private String img;
 	private String udomain;
 	private String previous_project;
+	private String userType;
 	private Long projectid;
 	private Long taskId;
 	
@@ -17,7 +18,7 @@ public class CreateUserRequestModel {
 	}
 
 	public CreateUserRequestModel(String username, String password, String ulocation, String avialability, String email,
-			String img, String udomain, String previous_project, Long projectid, Long taskId) {
+			String img, String udomain, String previous_project, String userType, Long projectid, Long taskId) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -27,10 +28,11 @@ public class CreateUserRequestModel {
 		this.img = img;
 		this.udomain = udomain;
 		this.previous_project = previous_project;
+		this.userType = userType;
 		this.projectid = projectid;
 		this.taskId = taskId;
 	}
-
+	
 	public String getUsername() {
 		return username;
 	}
@@ -110,12 +112,23 @@ public class CreateUserRequestModel {
 	public void setTaskId(Long taskId) {
 		this.taskId = taskId;
 	}
+	
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 
 	@Override
 	public String toString() {
 		return "CreateUserRequestModel [username=" + username + ", password=" + password + ", ulocation=" + ulocation
 				+ ", avialability=" + avialability + ", email=" + email + ", img=" + img + ", udomain=" + udomain
-				+ ", previous_project=" + previous_project + ", projectid=" + projectid + ", taskId=" + taskId + "]";
+				+ ", previous_project=" + previous_project + ", userType=" + userType + ", projectid=" + projectid
+				+ ", taskId=" + taskId + "]";
 	}
+
+	
 	
 }

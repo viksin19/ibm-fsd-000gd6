@@ -1,4 +1,5 @@
 package com.example.demo.service;
+
 import java.util.List;
 import java.util.Optional;
 import org.modelmapper.ModelMapper;
@@ -12,11 +13,11 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.shared.UserDto;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private Environment env;
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	public UserServiceImpl(Environment env, UserRepository userRepository) {
 		super();
@@ -44,12 +45,12 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public UserDto saveUser(UserDto user) {
-		
-		ModelMapper mapper=new ModelMapper();
+
+		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		User userEntity=mapper.map(user,User.class);
+		User userEntity = mapper.map(user, User.class);
 		userRepository.save(userEntity);
-		UserDto uDto=mapper.map(userEntity, UserDto.class);
+		UserDto uDto = mapper.map(userEntity, UserDto.class);
 		return uDto;
 	}
 
@@ -66,21 +67,31 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	 public List<User> findByavailability(String avialability) {
+	public List<User> findByavailability(String avialability) {
 		// TODO Auto-generated method stub
 		return userRepository.findByavialability(avialability);
 	}
 
 	@Override
-	public List<User> findByemail(String email) {
-		// TODO Auto-generated method stub
-		return userRepository.findByemail(email);
+	public User findEmailAndPassword(String email,String password) {
+		User userEntity = userRepository.findByEmailAndPassword(email,password);
+		return userEntity;
 	}
 
 	@Override
 	public List<User> findBydomain(String udomain) {
 		// TODO Auto-generated method stub
 		return userRepository.findByudomain(udomain);
+	}
+	
+	@Override
+	public User getByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+	
+	@Override
+	public List<User> getByRole(String role){
+		return userRepository.findByUserType(role);
 	}
 
 }

@@ -22,21 +22,23 @@ public class Project {
 	private String plocation;
 	private String start_date;
 	private String end_date;
-	private String pmanager;
+	private String pmanagerName;
+	private String pmanagerEmail;
 
 	public Project() {
 		super();
 	}
 
-	public Project(String pname, String plocation, String start_date, String end_date, String pmanager) {
+	public Project(String pname, String plocation, String start_date, String end_date, String pmanagerName,
+			String pmanagerEmail) {
 		super();
 		this.pname = pname;
 		this.plocation = plocation;
 		this.start_date = start_date;
 		this.end_date = end_date;
-		this.pmanager = pmanager;
+		this.pmanagerName = pmanagerName;
+		this.pmanagerEmail = pmanagerEmail;
 	}
-
 	public Long getProjectId() {
 		return projectId;
 	}
@@ -77,18 +79,29 @@ public class Project {
 		this.end_date = end_date;
 	}
 
-	public String getPmanager() {
-		return pmanager;
+	public String getPmanagerName() {
+		return pmanagerName;
 	}
 
-	public void setPmanager(String pmanager) {
-		this.pmanager = pmanager;
+	public void setPmanagerName(String pmanagerName) {
+		this.pmanagerName = pmanagerName;
+	}
+
+	public String getPmanagerEmail() {
+		return pmanagerEmail;
+	}
+
+	public void setPmanagerEmail(String pmanagerEmail) {
+		this.pmanagerEmail = pmanagerEmail;
 	}
 
 	@Override
 	public String toString() {
 		return "Project [projectId=" + projectId + ", pname=" + pname + ", plocation=" + plocation + ", start_date="
-				+ start_date + ", end_date=" + end_date + ", pmanager=" + pmanager + "]";
+				+ start_date + ", end_date=" + end_date + ", pmanagerName=" + pmanagerName + ", pmanagerEmail="
+				+ pmanagerEmail + "]";
 	}
+
+	
 
 }

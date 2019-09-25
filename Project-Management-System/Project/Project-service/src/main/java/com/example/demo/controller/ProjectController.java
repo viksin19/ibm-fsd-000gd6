@@ -26,7 +26,6 @@ import com.example.demo.service.ProjectService;
 import com.example.demo.shared.ProjectDto;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 public class ProjectController {
 	@Autowired
 	private ProjectService service;

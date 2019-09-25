@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entity.ErrorClass;
+import com.example.demo.entity.Login;
 import com.example.demo.entity.User;
 import com.example.demo.model.CreateUserRequestModel;
 import com.example.demo.model.CreateUserResponseModel;
@@ -22,6 +27,7 @@ import com.example.demo.service.UserService;
 import com.example.demo.shared.UserDto;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 	@Autowired
 	private UserService service;
@@ -55,20 +61,36 @@ public class UserController {
 
 		return ResponseEntity.ok(service.findByavailability(avialability));
 	}
-
-	@GetMapping("/findbyemail/{email}")
-	public ResponseEntity<List<User>> userbyEmail(@PathVariable("email") String email) {
-
-		return ResponseEntity.ok(service.findByemail(email));
+	
+	@GetMapping("/{email}")
+	public ResponseEntity< ? > userbyEmail(@PathVariable("email") String email) {
+		System.out.println("email");
+		return ResponseEntity.ok(service.getByEmail(email));
 	}
 
+	@PostMapping("/login")
+	public ResponseEntity<?> userbyEmail(@RequestBody ArrayList<Login> loginData) {
+		Login userDetails = loginData.get(0);
+		User user = service.findEmailAndPassword(userDetails.getEmail(),userDetails.getPassword());
+		if (user == null)
+			return ResponseEntity.status(HttpStatus.CREATED).body(new ErrorClass("Email or password is wrong"));
+		else
+			return ResponseEntity.status(HttpStatus.CREATED).body(user);
+	}
+
+	@GetMapping("/role/{urole}")
+	public ResponseEntity<List<User>> userbyRole(@PathVariable("urole") String urole) {
+
+		return ResponseEntity.ok(service.getByRole(urole));
+	}
+	
 	@GetMapping("/findbydomain/{udomain}")
 	public ResponseEntity<List<User>> userbyDomain(@PathVariable("udomain") String udomain) {
 
 		return ResponseEntity.ok(service.findBydomain(udomain));
 	}
 
-	@PostMapping("/users")
+	@PostMapping("/")
 	public ResponseEntity<CreateUserResponseModel> createUser(@RequestBody CreateUserRequestModel userDetail) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
