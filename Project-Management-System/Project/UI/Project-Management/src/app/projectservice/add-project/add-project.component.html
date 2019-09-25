@@ -1,62 +1,7 @@
 <body>
-        <div class="image">
-                <div class="row">
-                  <div class="col-3">
-                  <div class="sidebar-container">
-                      <div class="sidebar-img">
-                          <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/05/GettyImages-1144499197-620x394.jpg" style="width: 140px; height: 140px; 
-                          border-radius: 50%; margin-left: 27px; margin-top: 3px;">
-                        </div>
-                  <div class="sidebar-logo">
-                    Admin_Name
-                  </div>
-                  <ul class="sidebar-navigation">
-                    
-                    <li class="header">DashBoard</li>
-                    <li><a>
-                          <i class="fa fa-home" aria-hidden="true"></i> Home
-                          </a>
-                      </li>
-                      <li>
-                        <a  [routerLink]="['/projectService/add']">
-                          <i class="fa fa-home" aria-hidden="true"></i> Add-Project
-                        </a>
-                      </li>
-                    <li>
-                      <a  [routerLink]="['/projectService/view']">
-                        <i class="fa fa-home" aria-hidden="true"></i> Project-List
-                    </a>
-                    </li>
-                    <li>
-                      <a [routerLink]="['/userService/add']">
-                        <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
-                      </a>
-                    </li>
-                    
-                    <li>
-                      <a [routerLink]="['/userService/view']">
-                        <i class="fa fa-users" aria-hidden="true"></i>User-List
-                      </a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/updateprofile']">
-                          <i class="fa fa-users" aria-hidden="true"></i>Update_Profile
-                        </a>
-                      </li>
-                      <li>
-                          <a [routerLink]="['/home']">
-                            <i class="fa fa-users" aria-hidden="true"></i>LogOut
-                          </a>
-                        </li>
-                  </ul>
-                  </div>
-                  </div>
-                </div>
-                
-                <div class="col-9">
-    
+    <div class="row offset-2">
         <div class="card border-primary">
-            <h6 class="card-header bg-secondary">ADD NEW TASK</h6>
+            <h6 class="card-header bg-secondary">ADD NEW PROJECT</h6>
             <div class="card-body text-success">
                 <form [formGroup]="newProjectForm" (ngSubmit)="submit()" novalidate>
                     <div class="form-group">
@@ -74,16 +19,15 @@
                     <div class="form-group">
                         <select formControlName="pmanagerEmail">
                             <option *ngFor="let name of uNames" [ngValue]="name">
-                              {{ name.name }}
+                                {{ name.name }}
                             </option>
-                          </select><br />
+                        </select><br />
                     </div>
 
-                    <input type="submit" class="btn btn-primary" value="Add Task" />
+                    <input type="submit" class="btn btn-primary" value="Add Project" />
 
                 </form>
             </div>
         </div>
-    </div>
     </div>
 </body>

@@ -43,13 +43,35 @@ export class AddProjectComponent implements OnInit {
     console.log(this.users);
     for (let i = 0; i < this.users.length; i++) {
       let uDetails = {email : this.users[i].email, name : this.users[i].username}
-      console.log(uDetails);
       this.uNames[i] =(uDetails);
     }
   }
 
   submit() {
+    let projectName = this.newProjectForm.value.pname;
+    let projectLocation = this.newProjectForm.value.plocation;
+    let startDate = this.newProjectForm.value.start_date;
+    let endDate = this.newProjectForm.value.end_date;
+    let pManagerEmail = this.newProjectForm.value.pmanagerEmail.email;
+    console.log(pManagerEmail);
 
+    let projectDetails = [];
+    projectDetails.push({pname :projectName, plocation : projectLocation, 
+        start_date : startDate, end_date : endDate, pmanagerEmail : pManagerEmail
+    });
+    const _baseUrl = `http://b4ibm21.iiht.tech:8010`;
+
+    fetch(_baseUrl + "/projects", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(projectDetails)
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
   }
 }
 
