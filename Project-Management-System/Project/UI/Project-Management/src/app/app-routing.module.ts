@@ -20,6 +20,10 @@ import { UpdateprofileComponent } from './updateprofile/updateprofile.component'
 
 const routes: Routes = [
   {
+    path: 'home',
+    component:HomeComponent
+  },
+  {
     path: 'adminhome',
     component: AdminhomeComponent
   },
