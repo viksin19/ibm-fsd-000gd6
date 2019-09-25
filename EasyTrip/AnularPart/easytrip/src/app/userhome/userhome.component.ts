@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userhome.component.css']
 })
 export class UserhomeComponent implements OnInit {
-
+ user={
+  name: 'vikram',
+  email: 'vikram@gmail.com',
+  age: '23'
+}
   constructor() { }
 
   ngOnInit() {
+        window.localStorage.setItem('email',JSON.stringify(this.user));
   }
 
 }
