@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { SidebarModule } from "ng-sidebar";
@@ -21,6 +20,11 @@ import { AddTaskComponent } from './task-service/add-task/add-task.component';
 import { ViewTaskComponent } from './task-service/view-task/view-task.component';
 import { AddTeamComponent } from './team-service/add-team/add-team.component';
 import { ViewTeamComponent } from './team-service/view-team/view-team.component';
+import { UserServiceComponent } from './user-service/user-service.component';
+import { AddComponent } from './user-service/add/add.component';
+import { ViewComponent } from './user-service/view/view.component';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,12 @@ import { ViewTeamComponent } from './team-service/view-team/view-team.component'
     AddTaskComponent,
     ViewTaskComponent,
     AddTeamComponent,
-    ViewTeamComponent
+    ViewTeamComponent,
+    UserServiceComponent,
+    AddComponent,
+    ViewComponent,
+    UpdateprofileComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -46,6 +55,7 @@ import { ViewTeamComponent } from './team-service/view-team/view-team.component'
     ReactiveFormsModule,
     FormsModule,
     SidebarModule
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

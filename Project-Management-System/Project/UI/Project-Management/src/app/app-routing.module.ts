@@ -12,6 +12,9 @@ import { AddTaskComponent } from './task-service/add-task/add-task.component';
 import { ViewTaskComponent } from './task-service/view-task/view-task.component';
 import { AddTeamComponent } from './team-service/add-team/add-team.component';
 import { ViewTeamComponent } from './team-service/view-team/view-team.component';
+import { AddComponent } from './user-service/add/add.component';
+import { ViewComponent } from './user-service/view/view.component';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 
 
 
@@ -23,6 +26,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'updateprofile',
+    component: UpdateprofileComponent
   },
   {
     path: 'signup',
@@ -59,6 +66,19 @@ const routes: Routes = [
       {
         path: 'view',
         component: ViewTaskComponent
+      }
+    ]
+  },
+  {
+    path: 'userService',
+    children: [
+      {
+        path: 'add',
+        component: AddComponent
+      },
+      {
+        path: 'view',
+        component: ViewComponent
       }
     ]
   },

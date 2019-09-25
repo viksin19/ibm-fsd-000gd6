@@ -1,1 +1,68 @@
-<p>userhome works!</p>
+<div class="image">
+  <div class="row">
+    <div class="col-3">
+    <div class="sidebar-container">
+        <div class="sidebar-img">
+            <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/05/GettyImages-1144499197-620x394.jpg" style="width: 140px; height: 140px; 
+            border-radius: 50%; margin-left: 27px; margin-top: 3px;">
+          </div>
+    <div class="sidebar-logo">
+      User_Name
+    </div>
+    <ul class="sidebar-navigation">
+      
+      <li class="header">DashBoard</li>
+      <li><a>
+            <i class="fa fa-home" aria-hidden="true"></i> Home
+            </a>
+        </li>
+      <li>
+        <a  [routerLink]="['/projectdetails']">
+          <i class="fa fa-home" aria-hidden="true"></i> Project_Details
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/taskdetails']">
+          <i class="fa fa-tachometer" aria-hidden="true"></i> Task_Details
+        </a>
+      </li>
+      
+      <li>
+        <a [routerLink]="['/teamdetails']">
+          <i class="fa fa-users" aria-hidden="true"></i> Teams
+        </a>
+      </li>
+      <li>
+          <a [routerLink]="['/updateprofile']">
+            <i class="fa fa-users" aria-hidden="true"></i>Update_Profile
+          </a>
+        </li>
+        <li>
+            <a [routerLink]="['/home']">
+              <i class="fa fa-users" aria-hidden="true"></i>LogOut
+            </a>
+          </li>
+    </ul>
+    </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="row">
+      <div class="col-4 c1">
+        <h2 class="text-white"> Task_Status</h2>
+      </div>
+       <div class="col-4 c2">
+         <h2 class="text-white">Project_Status</h2>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-4 c3">
+         <h3 class="text-white"> Task_Completed</h3>
+        </div>
+         <div class="col-4 c4">
+          <h2 class="text-white"> Days_left</h2>
+         </div>
+      </div>
+  </div> 
+
+</div>
