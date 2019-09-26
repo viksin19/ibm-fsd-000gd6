@@ -72,8 +72,8 @@ public class ProjectController {
 	}
 	
 	@PostMapping("/projects/tasks")
-	public ResponseEntity<?> createTeam(@RequestBody CreateTasksRequestModel taskDetail) {
-
+	public ResponseEntity<?> createTeam(@RequestBody ArrayList<CreateTasksRequestModel> task) {
+		CreateTasksRequestModel taskDetail = task.get(0);
 		return ResponseEntity.status(HttpStatus.CREATED).body(projectFeignClient.createTask(taskDetail));
 	}
 }
