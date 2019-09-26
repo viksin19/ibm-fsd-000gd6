@@ -2,7 +2,7 @@ export interface User {
     username: string,
     password: string,
     ulocation: string,
-    avialability: string,
+    availability: string,
     email: string,
     img: string,
     udomain: string,

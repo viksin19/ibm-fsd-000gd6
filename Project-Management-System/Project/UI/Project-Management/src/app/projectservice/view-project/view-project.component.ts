@@ -13,7 +13,7 @@ id:Number;
 
   ngOnInit() {
     const url = `http://b4ibm21.iiht.tech:8010`;
-    fetch(url+`/getallproject`,{
+    fetch(url+`/projects/getallproject`,{
       method: "GET",
       headers: {
         "Content-Type":"application/json"
@@ -21,6 +21,7 @@ id:Number;
     })
     .then(res=>res.json())
     .then(data=>{
+      console.log(data);
       this.projects=data;
     })
   }

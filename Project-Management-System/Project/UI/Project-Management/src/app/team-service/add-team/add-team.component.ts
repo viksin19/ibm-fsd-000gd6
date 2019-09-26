@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-<<<<<<< HEAD
-
-=======
 import { User } from 'src/app/user/User';
->>>>>>> d27981bc01d74b332d2da36cb05c532ac6999d72
 
 @Component({
   selector: 'app-add-team',

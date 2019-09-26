@@ -11,32 +11,39 @@ import { UserService } from '../user.service';
 export class AdminhomeComponent implements OnInit {
   userData: User
   email: string
+  graphUser: User[]
+  mCount: number
+  uCount: number
+  engagedUser: number
+  arr:any[]
 
 
-public barOptions={
-  scaleShowVerticalLines: false,
-  responsive: true
-};
-public barLables=['2006','2007','2008'];
-public barChartType='bar';
-public barLegends=true;
-public barData=[
-{ data: [40,98,40], label: 'A'},
-{ data: [35,60,70], label: 'B'}
-];
+  public barOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barLables = ['2006', '2007', '2008'];
+  public barChartType = 'bar';
+  public barLegends = true;
+  public barData = [
+    { data: [40, 98, 40], label: 'A' },
+    { data: [35, 60, 70], label: 'B' }
+  ];
 
 
-public doughnutLabels=['Task','Teams'];
-public doughnutChartType='doughnut';
-public doughnutData=[40,80];
+  public doughnutLabels = ['Task', 'Teams'];
+  public doughnutChartType = 'doughnut';
+  public doughnutData = [40, 80];
 
+  public pieLabels = ['Manager','Free-Developer','Enganged-Developer'];
+  public pieData = [ , , , ];
+  public pieChartType = 'pie';
 
-public pieLabels=['Manager','Employee'];
-public pieData=[20,100];
-public pieChartType='pie';
-
-  constructor(private route: ActivatedRoute, private router: Router,private userService: UserService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
     this.email = this.route.snapshot.queryParams.email;
+    this.mCount = 0;
+    this.uCount = 0;
+    this.engagedUser = 0;
   }
 
   ngOnInit() {
@@ -51,11 +58,44 @@ public pieChartType='pie';
       .then(res => {
         console.log(res.email);
         this.userData = res;
-        this.submit();
-      })
-  }
+        this.localCheck();
+        fetch(_baseUrl + `user/getAllUser`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(res => res.json())
+          .then(data => {
+            this.graphUser = data;
+            this.graphsUser();
+          })
 
-  submit(){
+      })
+
+
+
+  }
+  graphsUser() {
+    
+    for (let i = 0; i < this.graphUser.length; i++) {
+      console.log(this.graphUser[i].userType);
+      if (this.graphUser[i].userType == "manager") {
+        this.mCount++;
+      } else if (this.graphUser[i].availability == "yes") {
+        this.uCount++;
+      } else {
+        this.engagedUser++;
+      }
+
+    }
+     this.arr = [this.mCount,this.uCount,this.engagedUser];
+     this.pieData=this.arr;
+ 
+  }
+  localCheck() {
     localStorage.setItem("email", JSON.stringify(this.userData.email));
   }
+
+  
 }
+
