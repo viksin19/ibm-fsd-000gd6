@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { stat } from 'fs';
+import { User } from 'src/app/user/User';
 
 @Component({
   selector: 'app-add-team',
@@ -8,9 +8,13 @@ import { stat } from 'fs';
   styleUrls: ['./add-team.component.css']
 })
 export class AddTeamComponent implements OnInit {
+  role: string
+  users: User[]
+  uNames: userName[]
   newTeamForm: FormGroup
 
   constructor() {
+    this.role = "user"
     this.newTeamForm = new FormGroup({
       ufirstName: new FormControl(""),
       ulastName: new FormControl(""),
@@ -18,25 +22,44 @@ export class AddTeamComponent implements OnInit {
       ustatus: new FormControl(""),
       uassigndate: new FormControl("")
     })
-   }
+  }
 
   ngOnInit() {
+    const _baseUrl = `http://localhost:8001`;
+    fetch(_baseUrl + `/user/role/${this.role}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.users = res;
+      this.ints();
+    })
+  }
+
+  ints(){
+    this.uNames = [];
+    console.log(this.users);
+    for(let i=0; i<this.users.length; i++){
+      let uDetails ={
+        email : this.users[i].email,
+        name : this.users[i].username
+      }
+      this.uNames[i] = (uDetails);
+    }
   }
 
   submit(){
-    let firstName = this.newTeamForm.value.ufirstName;
+    let firstName = this.newTeamForm.value.ufi;
     let lastName = this.newTeamForm.value.ulastName;
     let email = this.newTeamForm.value.uemail;
     let status = this.newTeamForm.value.ustatus;
     let assigndate = this.newTeamForm.value.uassigndate;
-    console.log(firstName);
-    console.log(lastName);
-    console.log(email);
-    console.log(status);
-    console.log(assigndate);
     let teamDetails = [];
-    teamDetails.push({"userId":"abc","ufirstName":"shankar","ulastName":"mahesh","uemail":"shankarmahesh@gmail.com",
-          "ustatus":"active","uassigndate": "21/10/2019","taskId":1});
+    teamDetails.push({"userid":"abc","ufirstName":firstName,"ulastName":lastName,"uemail":email,
+          "ustatus":status,"uassigndate": assigndate,"taskId":1});
     const _baseUrl = `http://localhost:8050`;
     fetch(_baseUrl +  "/team",{
       method: "POST",
@@ -51,4 +74,10 @@ export class AddTeamComponent implements OnInit {
       console.log(res);
     })
   }
+
+}
+
+interface userName{
+  email : String
+  name : String
 }

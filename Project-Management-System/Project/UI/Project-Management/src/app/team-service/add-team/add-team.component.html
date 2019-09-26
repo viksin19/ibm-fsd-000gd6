@@ -11,9 +11,15 @@
                         <label for="ulastName">LastName:</label>
                         <input type="text" formControlName="ulastName" class="form-control" id="ulastName" aria-describedby="ulastName" placeholder="Enter lastname">
                     </div>
-                    <div class="form-group">
+                    <div class=" row form-group">
+                        <div class="col-5">
                         <label for="uemail">Email:</label>
-                        <input type="email" formControlName="uemail" class="form-control" id="uemail" aria-describedby="uemail" placeholder="Enter email">
+                        <select formControlName="uemail" class="form-control" id="uemail" aria-placeholder="Email">
+                            <option *ngFor="let name of uNames" [ngValue]="name.email">
+                                {{ name.email }}
+                            </option>
+                        </select>
+                        </div><br>
                     </div>
                     <div class="form-group">
                         <label for="ustatus">Status:</label>
