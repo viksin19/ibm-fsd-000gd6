@@ -105,4 +105,9 @@ public class UserController {
 
 		return ResponseEntity.ok(userService.findBydomain(udomain));
 	}
+	
+	@GetMapping("/user/getAllUser")
+	public ResponseEntity<?> getAllUser() {
+		return ResponseEntity.ok(userService.getAllUser());
+	}
 }

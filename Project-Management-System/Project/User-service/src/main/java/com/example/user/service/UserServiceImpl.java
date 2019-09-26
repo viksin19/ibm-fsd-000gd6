@@ -147,4 +147,10 @@ public class UserServiceImpl implements UserService {
 				+ ">Successefully Registered !!!</h2><br>" + "<h6>" + user.getUsername() + "</h6><br>" + "<h6>"
 				+ user.getUlocation() + "</div>\r\n" + "</body>\r\n" + "</html>";
 	}
+
+	@Override
+	public List<User> getAllUser() {
+		
+		return userRepository.findAll();
+	}
 }

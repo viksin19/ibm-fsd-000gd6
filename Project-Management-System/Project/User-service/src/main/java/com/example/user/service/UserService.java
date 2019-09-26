@@ -18,4 +18,5 @@ public interface UserService {
 	public User findEmailAndPassword(String email,String password); 
 	public List<User> findBydomain(String udomain);
 	public List<User> getByRole(String urole);
+	public List<User> getAllUser();
 }
