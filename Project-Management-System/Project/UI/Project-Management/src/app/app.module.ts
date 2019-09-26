@@ -24,6 +24,8 @@ import { UserServiceComponent } from './user-service/user-service.component';
 import { AddComponent } from './user-service/add/add.component';
 import { ViewComponent } from './user-service/view/view.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { ChartsModule } from "ng2-charts";
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { UpdateprofileComponent } from './updateprofile/updateprofile.component'
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    SidebarModule
+    SidebarModule,
+    ChartsModule
  
   ],
   providers: [],

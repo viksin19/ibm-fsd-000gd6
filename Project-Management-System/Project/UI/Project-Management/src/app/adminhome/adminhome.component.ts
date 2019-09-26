@@ -11,6 +11,30 @@ import { UserService } from '../user.service';
 export class AdminhomeComponent implements OnInit {
   userData: User
   email: string
+
+
+public barOptions={
+  scaleShowVerticalLines: false,
+  responsive: true
+};
+public barLables=['2006','2007','2008'];
+public barChartType='bar';
+public barLegends=true;
+public barData=[
+{ data: [40,98,40], label: 'A'},
+{ data: [35,60,70], label: 'B'}
+];
+
+
+public doughnutLabels=['Task','Teams'];
+public doughnutChartType='doughnut';
+public doughnutData=[40,80];
+
+
+public pieLabels=['Manager','Employee'];
+public pieData=[20,100];
+public pieChartType='pie';
+
   constructor(private route: ActivatedRoute, private router: Router,private userService: UserService) {
     this.email = this.route.snapshot.queryParams.email;
   }

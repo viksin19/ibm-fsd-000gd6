@@ -14,7 +14,7 @@ email:String;
 
   ngOnInit() {
     const url=`http://b4ibm21.iiht.tech:8001/user`;
-    fetch(url+`getalluser`,{
+    fetch(url+`/getAllUser`,{
       method: "GET",
       headers: {
         "Content-Type":"application/json"
@@ -27,7 +27,7 @@ email:String;
   }
 update(email){
   const url=`http://b4ibm21.iiht.tech:8001/user`;
-  fetch(url+`/{email}`,{
+  fetch(url+`/${email}`,{
     method:"GET",
     headers:{
       "Content-Type":"application/json"
@@ -40,7 +40,7 @@ update(email){
 }
 delete(email){
   const url=`http://b4ibm21.iiht.tech:8001/user`;
-  fetch(url+`/delete/{email}`,{
+  fetch(url+`/delete/${email}`,{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
