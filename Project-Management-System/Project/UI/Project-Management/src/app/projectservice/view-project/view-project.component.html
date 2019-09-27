@@ -68,15 +68,14 @@
         <tbody class="table table-light">
             <tr *ngFor="let p of projects">   
                 <td>{{p.pname}}</td>
-                <td>{{p.pmanagerName}}</td>
+                <td>{{p.pmanagerEmail}}</td>
                 <td>{{p.plocation}}</td>
                 <td>{{p.start_date}}</td>
                 <td>{{p.end_date}}</td>
                 <td><button class="btn btn-success btn-lg" (click)="team(p.projectId)">View-Team</button></td>
                 <td><button class="btn btn-warning btn-lg" (click)="update(p.projectId)">Update</button></td>
-                <td><button class="btn btn-danger btn-lg" (click)="Delete(p.projectId)">Delete</button></td>
-        
-        
+                <td><button class="btn btn-danger btn-lg" (click)="delete(p.projectId)">Delete</button></td>
+      
             </tr>
         </tbody>
         </table>
@@ -84,4 +83,4 @@
         </div>
         </div>
         </div>
-        
+  
