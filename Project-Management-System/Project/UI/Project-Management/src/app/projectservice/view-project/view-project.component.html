@@ -73,14 +73,88 @@
                 <td>{{p.start_date}}</td>
                 <td>{{p.end_date}}</td>
                 <td><button class="btn btn-success btn-lg" (click)="team(p.projectId)">View-Team</button></td>
-                <td><button class="btn btn-warning btn-lg" (click)="update(p.projectId)">Update</button></td>
+                <td><button class="btn btn-warning btn-lg" id="update" (click)="updateForm(p.projectId)">Update</button>
+                </td>
                 <td><button class="btn btn-danger btn-lg" (click)="delete(p.projectId)">Delete</button></td>
       
             </tr>
         </tbody>
         </table>
+      </div>   
         </div>
         </div>
         </div>
+
+        <div class="modaldetails">
+        <button type="button"  id="toggle" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" style="display: none">
+          </button>
+
+
+          <!-- Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update-Project</h5>
+          <button type="button" id="cross" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-  
+        <div class="modal-body">
+            <form #registerForm="ngForm" (submit)="update()" novalidate>
+                <div class=" row form-group">
+                    <div class="col-5">
+                    <input type="text" readonly class="form-control text-dark" name="pname" [(ngModel)]="project.pname" placeholder="Enter Project Name" /><br />
+                </div>
+                <div class="col-5 ">
+                    <input type="text" class="form-control text-dark" name="plocation" [(ngModel)]="project.plocation" placeholder="Enter Project Location" /><br />
+                </div>
+                </div>
+                <div class="row form-group ">
+                    <div class="col-5">
+                    <input type="text" class="form-control text-dark" name="start_date" [(ngModel)]="project.start_date" placeholder="Enter Start Date" /><br />
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control text-dark" name="end_date" [(ngModel)]="project.end_date" placeholder="Enter End Date" /><br />
+                </div>
+                </div>
+                <div class=" row form-group">
+                    <div class="col-5">
+                        <input type="text" class="form-control text-dark" readonly name="pmanagerEmail" [(ngModel)]="project.pmanagerEmail" placeholder="Email" /><br />
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-danger btn-lg" value="Add Project" />
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="updateclose" class="btn btn-secondary" data-dismiss="modal" style="display: none">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- teams modal -->
+<button type="button"  id="teamtoggle" class="btn btn-primary" data-toggle="modal" data-target="#teamModal" style="display: none"> </button>
+ <!-- team - body -->
+ <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Teams in Project</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button"id="teamclose" class="btn btn-secondary" data-dismiss="modal" style="display: none">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>

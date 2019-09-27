@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
     loginDetails.push({
       email: email, password: password
     });
+
+    document.getElementById("close").click();
     const _baseUrl = `http://b4ibm21.iiht.tech:8001`;
 
     fetch(_baseUrl + `/user/login`, {
