@@ -78,7 +78,6 @@ export class AdminhomeComponent implements OnInit {
   graphsUser() {
     
     for (let i = 0; i < this.graphUser.length; i++) {
-      console.log(this.graphUser[i].userType);
       if (this.graphUser[i].userType == "manager") {
         this.mCount++;
       } else if (this.graphUser[i].availability == "yes") {
