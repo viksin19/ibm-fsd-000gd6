@@ -10,6 +10,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ViewProjectComponent implements OnInit {
 projects: Project[]
 project:Project
+uProject:Uproject
 id:Number
 
   constructor(private router:Router) { 
@@ -89,20 +90,29 @@ team(id){
 update(){
   
   const url = `http://b4ibm21.iiht.tech:8010`;
-  console.log(this.project);
 
-  document.getElementById("updateclose").click();
-  fetch(url + "/projects", {
+  this.uProject= {
+    pname:this.project.pname,
+    plocation: this.project.plocation,
+    start_date:this.project.start_date,
+    end_date:this.project.end_date,
+    pmanagerEmail:this.project.pmanagerEmail
+  }
+  console.log(this.uProject);
+
+  
+  fetch(url + "/project/updateproject", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(this.project)
+    body: JSON.stringify(this.uProject)
   })
     .then(res => res.json())
     .then(res => {
       console.log(res);
     });
+    document.getElementById("updateclose").click();
   // document.location.reload();
 }
 
@@ -117,4 +127,11 @@ buttonclicked(){
 show(){
 
 }
+}
+interface Uproject{
+  pname:String,
+    plocation: String,
+    start_date:String,
+    end_date:String,
+    pmanagerEmail:String
 }
