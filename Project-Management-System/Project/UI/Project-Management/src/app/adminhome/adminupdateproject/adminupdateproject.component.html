@@ -1,5 +1,5 @@
 <div class="image">
-<div class="row">
+    <div class="row">
         <div class="col-3">
                 <div class="sidebar-container">
                     <div class="sidebar-img">
@@ -45,38 +45,48 @@
                 </ul>
                 </div>
                 </div>
-<div class="col-9">
+                <div class="col-9">
     <div class="row">
-      <br>
-      <br>
+
+
     </div>
     <div class="row">
-<table class="table  table-striped ">
-<thead class="table  text-white bg-dark">
-<tr >
-    <th>Name</th>
-    <th>Domain</th>
-    <th>Location</th>
-    <th>Email</th>
-    <th>Previous-Project</th>
-    <th>Type</th>
-    <th>Remove</th>
-</tr>
-</thead>
-<tbody class="table table-light table-hover">
-    <tr *ngFor="let u of users">   
-        <td>{{u.username}}</td>
-        <td>{{u.udomain}}</td>
-        <td>{{u.ulocation}}</td>
-        <td>{{u.email}}</td>
-        <td>{{u.previous_project}}</td>
-        <td>{{u.userType}}</td>
-        <td><button class="btn btn-danger btn-lg" (click)="Delete(u.email)">Remove</button></td>
-        
-    </tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+        <div class="col-8">
+        <div class="formheader border-primary">
+            <h4 class="card-header bg-warning text-dark text-center">Update-Project</h4>
+            <div class="formbody">
+                <form [formGroup]="newProjectForm" (ngSubmit)="update()" novalidate>
+                    <div class=" row form-group">
+                        <div class="col-5">
+                        <input type="text" readonly class="form-control text-dark" formControlName="pname" placeholder="Enter Project Name" /><br />
+                    </div>
+                    <div class="col-5 ">
+                        <input type="text" class="form-control text-dark" formControlName="plocation" placeholder="Enter Project Location" /><br />
+                    </div>
+                    </div>
+                    <div class="row form-group ">
+                        <div class="col-5">
+                        <input type="text" class="form-control text-dark" formControlName="start_date" placeholder="Enter Start Date" /><br />
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="form-control text-dark" formControlName="end_date" placeholder="Enter End Date" /><br />
+                    </div>
+                    </div>
+                    <div class=" row form-group">
+                        
+                            <div class="col-5">
+                                <input type="text" readonly class="form-control text-dark" formControlName="pmanagerEmail" placeholder="Enter End Date" /><br />
+                            </div>
+                        
+                    </div>
+
+                    <input type="submit" class="btn btn-danger btn-lg" value="Update-Project" />
+
+                </form>
+                </div>
+                </div>
+                </div>
+            </div>
+            </div>
+    </div>
 </div>

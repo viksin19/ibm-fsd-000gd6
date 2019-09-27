@@ -18,6 +18,7 @@ import { UpdateprofileComponent } from './updateprofile/updateprofile.component'
 
 
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -25,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'adminhome',
-    component: AdminhomeComponent
+    component: AdminhomeComponent,
   },
   {
     path: 'login',

@@ -27,6 +27,7 @@ import { UpdateprofileComponent } from './updateprofile/updateprofile.component'
 import { ChartsModule } from "ng2-charts";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

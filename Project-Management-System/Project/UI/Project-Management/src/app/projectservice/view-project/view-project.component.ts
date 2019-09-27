@@ -7,8 +7,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./view-project.component.css']
 })
 export class ViewProjectComponent implements OnInit {
-projects: Project[];
-id:Number;
+projects: Project[]
+id:Number
   constructor(private router:Router) { }
 
   ngOnInit() {
@@ -26,25 +26,28 @@ id:Number;
     })
   }
 update(id){
-  
+  window.localStorage.setItem("projectId",id);
+  this.router.navigate(['adminhome/updateproject']);
 }
 
   delete(id){
+    console.log(id);
     const url = `http://b4ibm21.iiht.tech:8010`;
-    fetch(url+`/deleteproject?id=${id}`,{
+    fetch(url+`/deleteproject/${id}`,{
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(res=>res.json)
     .then(res=>{
-         if(res){
+         if(res[0]=="deleted"){
            alert("Project Deleted");
          }
-        this.router.navigate(['projectService/view'])
+        document.location.reload();
     })
   }
 team(id){
+  console.log(id);
   window.localStorage.setItem("projectId",id);
   this.router.navigate(['adminhome/viewteam']);
 }

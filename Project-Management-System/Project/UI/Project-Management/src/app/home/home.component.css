@@ -8,11 +8,14 @@
     height: 750px;
 }
 .nav-right{
-  margin-left: 670px;
+  margin-left: 450px;
   flex: auto;
 }
 
-  
+.trade{
+  margin-top: 2px;
+  margin-right: 80px;
+}
   .content-container {
     padding-left: 220px;
   }
