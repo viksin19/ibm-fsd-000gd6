@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid">
 <div class="row">
 
@@ -55,3 +56,32 @@
 </div>
 
 </div>
+=======
+<body>
+    <div class="container">
+        <h1 >VIEW TEAM</h1>
+            <table class="table table-dark">
+                <tr>
+                    <td>Email</td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                </tr>
+                <tr *ngFor="let name of tDetails" class="table-primary">
+                    <td style="color:black;">{{ name.email }}</td>
+                    <td><a class="btn btn-info" role="button" [routerLink]="['/teamService/update',name.email]"></a></td>
+        
+                    <td><button (click)="delete(name.email)" class="btn btn-danger">Delete</button></td>
+                </tr>class="btn btn-info" role="button"
+            </table>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+>>>>>>> 44f5d8a83bd8bede300cfc832ee229e84081b458

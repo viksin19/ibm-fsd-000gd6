@@ -54,7 +54,7 @@ export class AddTeamComponent implements OnInit {
   }
 
   submit(){
-    let firstName = this.newTeamForm.value.ufi;
+    let firstName = this.newTeamForm.value.ufirstName;
     let lastName = this.newTeamForm.value.ulastName;
     let email = this.newTeamForm.value.uemail;
     let status = this.newTeamForm.value.ustatus;
