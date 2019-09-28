@@ -84,8 +84,8 @@
       background-color: transparent;
     }
     .image{
-        background: url('https://www.pixelstalk.net/wp-content/uploads/2016/06/Art-Images-Wallpaper-HD-Background.jpg') no-repeat;
-        background-attachment: fixed;
+        
+        
         background-repeat: no-repeat;
         background-size: 1770px 700px;
         width: 100%;
@@ -105,10 +105,22 @@
         .formheader{
             margin-top: 80px;
             margin-left: 20px;
+            opacity: 1.0;
             
         }
 .formbody{
     background: none;
     margin-top: 30px;
     margin-left: 10px;
+}
+.btn-lg{
+  width: 50%;
+  border-radius: 50px;
+  margin-top: 30px;
+  margin-left: 170px;
+  opacity: 1.1;
+}
+.col-9{
+  margin-top: 50px;
+  margin-left: 440px;
 }

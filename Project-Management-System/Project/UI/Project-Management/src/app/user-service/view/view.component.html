@@ -52,29 +52,52 @@
     </div>
     <div class="row">
 <table class="table  table-striped ">
-<thead class="table  text-white bg-dark">
-<tr >
-    <th>Name</th>
-    <th>Domain</th>
-    <th>Location</th>
-    <th>Email</th>
-    <th>Previous-Project</th>
-    <th>Type</th>
-    <th>Remove</th>
-</tr>
-</thead>
+
+
 <tbody class="table table-light table-hover">
+  <div class="bg-secondary"><br>
+    <h3 class="text-center text-white">Employee-Details</h3>
+    <br>
+  </div>
+  <div class="row"><br><br>
+  </div>
     <tr *ngFor="let u of users">   
-        <td>{{u.username}}</td>
-        <td>{{u.udomain}}</td>
-        <td>{{u.ulocation}}</td>
-        <td>{{u.email}}</td>
-        <td>{{u.previous_project}}</td>
-        <td>{{u.userType}}</td>
-        <td><button class="btn btn-danger btn-lg" (click)="Delete(u.email)">Remove</button></td>
-        
+            
+      <div class="row tbody">
+       <td class="col-4">
+        <div class="row">
+            <td><h5>Employee-Name :</h5></td> <td><p class="text-center"> {{u.username}} </p></td> 
+        </div>
+        <div class="row">
+            <td><h5>Employee-Email :</h5></td> <td><p class="text-center"> {{u.email}} </p></td> 
+        </div>
+       </td>
+       <td class="col-4">
+          <div class="row">
+              <td><h5>Location :</h5></td> <td><p class="text-center"> {{u.ulocation}} </p></td> 
+          </div>
+          <div class="row">
+              <td><h5>Domain:</h5></td> <td><p class="text-center"> {{u.udomain}} </p></td> 
+          </div>
+         </td>
+         <td class="col-4">
+            <div class="row">
+                <td><h5>Previous-Project :</h5></td> <td><p class="text-center"> {{u.previous_project}} </p></td> 
+            </div>
+            <div class="row">
+                <td><h5>Employee-Type:</h5></td> <td><p class="text-center"> {{u.userType}} </p></td> 
+            </div>
+           </td>
+      </div>
+      <div class="row tbody">
+        <td><button class="btn btn-danger btn-lg" (click)="delete(u.email)">Remove</button></td>
+        </div>
+        <div class="row bg-info">
+          <br><br>
+        </div>
     </tr>
 </tbody>
+
 </table>
 </div>
 </div>

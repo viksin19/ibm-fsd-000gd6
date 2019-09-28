@@ -46,7 +46,7 @@ update(email){
 delete(email){
   const url=`http://b4ibm21.iiht.tech:8001/user`;
   fetch(url+`/delete/${email}`,{
-    method:"POST",
+    method:"GET",
     headers:{
       "Content-Type":"application/json"
     }
@@ -55,7 +55,7 @@ delete(email){
     if(res){
       alert("User Deleted !!");
     }
-    this.router.navigate(['userService/view']);
+    document.location.reload();
   })
 }
 }
