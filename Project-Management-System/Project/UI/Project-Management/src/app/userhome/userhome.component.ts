@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-userhome',
@@ -8,11 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserhomeComponent implements OnInit {
 
-  email: String
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    this.email = this.route.snapshot.queryParams.email;
-    localStorage.setItem("email", JSON.stringify(this.email));
+    window.localStorage.setItem('user','hello');
   }
+
 }

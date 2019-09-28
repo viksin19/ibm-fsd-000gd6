@@ -1,4 +1,4 @@
-export interface Team 
+export interface TeamInterface
 {
     teamId : ULongRange,
     userid :  String,

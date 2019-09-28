@@ -7,13 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamServiceComponent implements OnInit {
 
-  
-  constructor() { 
-
-  }
+  constructor() { }
 
   ngOnInit() {
-    
   }
 
 }
