@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     })
   }
   ngOnInit() {
-   
+   window.localStorage.clear();
   }
 
   // navtosearch(){
@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     let email = this.newLoginForm.value.email;
     let password = this.newLoginForm.value.password;
     console.log(email);
+    localStorage.setItem("email",email);
     let loginDetails = [];
     loginDetails.push({
       email: email, password: password

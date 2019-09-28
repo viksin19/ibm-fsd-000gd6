@@ -10,9 +10,13 @@ import { Router } from '@angular/router';
 export class ViewComponent implements OnInit {
 users:User[];
 email:String;
+admin:string
   constructor(private router:Router) { }
 
   ngOnInit() {
+
+    this.admin=localStorage.getItem("admin");
+
     const url=`http://b4ibm21.iiht.tech:8001/user`;
     fetch(url+`/getAllUser`,{
       method: "GET",

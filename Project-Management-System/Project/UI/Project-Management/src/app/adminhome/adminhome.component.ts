@@ -16,22 +16,23 @@ export class AdminhomeComponent implements OnInit {
   uCount: number
   engagedUser: number
   arr:any[]
+  admin:string
 
 
   public barOptions = {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barLables = ['2006', '2007', '2008'];
+  public barLables = ['AT&T', 'Northern-Trust', 'Red-Hat'];
   public barChartType = 'bar';
   public barLegends = true;
   public barData = [
-    { data: [40, 98, 40], label: 'A' },
-    { data: [35, 60, 70], label: 'B' }
+    { data: [60, 98, 40], label: 'Tasks' },
+    { data: [45, 50, 25], label: 'Task-completed' }
   ];
 
 
-  public doughnutLabels = ['Task', 'Teams'];
+  public doughnutLables = ['Projects-Completed', 'Live-Projects'];
   public doughnutChartType = 'doughnut';
   public doughnutData = [40, 80];
 
@@ -40,13 +41,16 @@ export class AdminhomeComponent implements OnInit {
   public pieChartType = 'pie';
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
-    this.email = this.route.snapshot.queryParams.email;
+    
+    
     this.mCount = 0;
     this.uCount = 0;
     this.engagedUser = 0;
   }
 
   ngOnInit() {
+    this.email = localStorage.getItem("email");
+    console.log(this.email);
     const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
     fetch(_baseUrl + `/user/${this.email}`, {
       method: "GET",
@@ -56,8 +60,10 @@ export class AdminhomeComponent implements OnInit {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res.email);
         this.userData = res;
+        this.admin=this.userData.username;
+       console.log(this.admin);
+       window.localStorage.setItem("admin",this.admin);
         this.localCheck();
         fetch(_baseUrl + `user/getAllUser`, {
           method: "GET",
@@ -92,7 +98,7 @@ export class AdminhomeComponent implements OnInit {
  
   }
   localCheck() {
-    localStorage.setItem("email", JSON.stringify(this.userData.email));
+  
   }
 
   

@@ -12,6 +12,7 @@ export class AddProjectComponent implements OnInit {
   role: string
   uNames: userName[]
   newProjectForm: FormGroup
+  admin:string
   constructor() {
     this.role = "manager"
     this.newProjectForm = new FormGroup({
@@ -24,6 +25,7 @@ export class AddProjectComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.admin=localStorage.getItem("admin");
     const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
     fetch(_baseUrl + `/user/role/${this.role}`, {
       method: "GET",

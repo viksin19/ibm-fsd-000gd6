@@ -10,7 +10,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ViewProjectComponent implements OnInit {
 projects: Project[]
 project:Project
+uProject:any
 id:Number
+admin:string
 
   constructor(private router:Router) { 
     this.project= {  projectId: 0,
@@ -22,7 +24,7 @@ id:Number
   }
 
   ngOnInit() {
-    
+    this.admin=localStorage.getItem("admin");
    const url = `http://b4ibm21.iiht.tech:8010`;
     fetch(url+`/projects/getallproject`,{
       method: "GET",
@@ -90,30 +92,27 @@ update(){
   
   const url = `http://b4ibm21.iiht.tech:8010`;
 
-    let uProject = [];
-    uProject.push({
+  this.uProject.push({
     pname:this.project.pname,
     plocation: this.project.plocation,
     start_date:this.project.start_date,
     end_date:this.project.end_date,
     pmanagerEmail:this.project.pmanagerEmail
-  })
-  console.log(uProject);
-
-  
+  });
+  console.log(this.uProject);  
   fetch(url + "/project/updateproject", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(uProject)
+    body: JSON.stringify(this.uProject)
   })
     .then(res => res.json())
     .then(res => {
       console.log(res);
     });
     document.getElementById("updateclose").click();
-    document.location.reload();
+ 
 }
 
 // update form generation
@@ -127,4 +126,11 @@ buttonclicked(){
 show(){
 
 }
+}
+interface Uproject{
+  pname:String,
+    plocation: String,
+    start_date:String,
+    end_date:String,
+    pmanagerEmail:String
 }

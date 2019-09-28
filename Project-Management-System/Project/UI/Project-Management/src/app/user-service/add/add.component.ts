@@ -7,6 +7,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
   roles: any[]
+  admin:string
   newAddUserForm: FormGroup
   constructor() {
     this.newAddUserForm = new FormGroup({
@@ -25,6 +26,7 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.admin=localStorage.getItem("admin");
   }
   submit() {
     let username = this.newAddUserForm.value.username;
