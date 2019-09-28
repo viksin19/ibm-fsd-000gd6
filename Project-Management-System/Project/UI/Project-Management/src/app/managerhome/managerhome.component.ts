@@ -24,7 +24,7 @@ export class ManagerhomeComponent implements OnInit {
     },this.email);
   }
 
-  ngOnInit() {}
+  ngOnInit() {localStorage.setItem("memail", JSON.stringify(this.email));}
 
   
 
