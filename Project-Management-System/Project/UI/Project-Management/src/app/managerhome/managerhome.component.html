@@ -1,5 +1,4 @@
-<a class="nav-link" [routerLink]="['/projectService']">
-    <a class="nav-link" [routerLink]="['/home']">
+
         <div class="image">
             <div class="row">
               <div class="col-3">
@@ -9,7 +8,7 @@
                       border-radius: 50%; margin-left: 27px; margin-top: 3px;">
                     </div>
               <div class="sidebar-logo">
-                Manager
+                Manager-{{manager}}
               </div>
               <ul class="sidebar-navigation">
                 
@@ -40,8 +39,8 @@
                   </a>
                 </li>
                 <li>
-                    <a [routerLink]="['/updateprofile']">
-                      <i class="fa fa-users" aria-hidden="true"></i>Update_Profile
+                    <a data-toggle="modal" data-target="#updateModal">
+                      Update_Profile
                     </a>
                   </li>
                   <li>
@@ -54,3 +53,30 @@
               </div>
             </div>
             </div>
+
+
+            <!-- Update Modal -->
+            <!-- The Modal -->
+<div class="modal" id="updateModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

@@ -11,20 +11,32 @@ import { UserService } from '../user.service';
 export class ManagerhomeComponent implements OnInit {
   userData: User
   email: string
+  manager:string
   constructor(private route: ActivatedRoute, private router: Router,private userService: UserService) {
-    this.email = this.route.snapshot.queryParams.email;
-    this.getUser();
+   
+    
   }
 
-  getUser(){
-    console.log(this.email);
-    this.userService.getUserByEmail((data)=>{
-      this.userData = data;
-      console.log(this.userData);
-    },this.email);
-  }
 
-  ngOnInit() {localStorage.setItem("memail", JSON.stringify(this.email));}
+  ngOnInit() {
+
+    this.email = localStorage.getItem("email");
+    const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
+    fetch(_baseUrl + `/user/${this.email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(res => {
+            
+        this.manager=res.username;
+        console.log(this.manager);
+        localStorage.setItem("manager",this.manager);
+
+      })
+  }
 
   
 

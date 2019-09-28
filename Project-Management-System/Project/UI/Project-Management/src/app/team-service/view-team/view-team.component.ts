@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-team.component.css']
 })
 export class ViewTeamComponent implements OnInit {
-
+manager:string
   constructor() { }
 
   ngOnInit() {
+    this.manager=localStorage.getItem("manager");
   }
 
 }

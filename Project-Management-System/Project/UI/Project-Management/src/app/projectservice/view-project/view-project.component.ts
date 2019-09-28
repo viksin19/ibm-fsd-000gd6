@@ -92,13 +92,15 @@ update(){
   
   const url = `http://b4ibm21.iiht.tech:8010`;
 
-  this.uProject.push({
+  
+  this.uProject=[{
     pname:this.project.pname,
     plocation: this.project.plocation,
     start_date:this.project.start_date,
     end_date:this.project.end_date,
     pmanagerEmail:this.project.pmanagerEmail
-  });
+  }];
+
   console.log(this.uProject);  
   fetch(url + "/project/updateproject", {
     method: "POST",

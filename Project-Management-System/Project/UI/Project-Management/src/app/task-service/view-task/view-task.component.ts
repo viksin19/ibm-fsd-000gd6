@@ -14,6 +14,7 @@ task:Taskraedonlyproject
 uNames:userName[]
 users:User[]
 proid:proid[]
+manager:string
 projects:Project[]
 pname:Project[]
 id:Number;
@@ -28,6 +29,9 @@ id:Number;
   ;}
 
   ngOnInit() {
+        
+    this.manager=localStorage.getItem("manager");
+
     const url = `http://b4ibm21.iiht.tech:8010`;
     fetch(url+`/projects/getAllTasks`,{
       method: "GET",
@@ -140,6 +144,8 @@ update(){
            alert("task is removed");
          }
         this.router.navigate(['taskService/view'])
+
+        document.location.reload();
     })
   }
   form(){

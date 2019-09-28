@@ -53,31 +53,43 @@
             </div>
             <div class="row">
         <table class="table table-hover table-striped ">
-        <thead class="table text-white bg-dark">
-        <tr >
-            <th>Project-Name</th>
-            <th>Project-Manager</th>
-            <th>Project-Location</th>
-            <th>Start-Date</th>
-            <th>End-Date</th>
-            <th>View-Team</th>
-            <th>Update</th>
-            <th>Remove</th>
-            
-        </tr>
-        </thead>
+
+        
+        
         <tbody class="table table-light">
-            <tr *ngFor="let p of projects">   
-                <td>{{p.pname}}</td>
-                <td>{{p.pmanagerEmail}}</td>
-                <td>{{p.plocation}}</td>
-                <td>{{p.start_date}}</td>
-                <td>{{p.end_date}}</td>
-                <td><button class="btn btn-success btn-lg" (click)="team(p.projectId)">View-Team</button></td>
-                <td><button class="btn btn-warning btn-lg" id="update" (click)="updateForm(p.projectId)">Update</button>
+            <tr *ngFor="let p of projects">  
+              <div class="row tablebody">
+                <td class="col-4">
+                  <div class="row ">
+                  <td><h5>Project-Name :</h5></td> <td><p class="text-center"> {{p.pname}} </p></td> 
+                  </div>
+                
+                <div class="row">
+                  <td><h5>Manager-Email : </h5></td> <td>{{p.pmanagerEmail}}</td>
+                </div>
                 </td>
-                <td><button class="btn btn-danger btn-lg" (click)="delete(p.projectId)">Delete</button></td>
-      
+                <td class="col-4">
+                    <div class="row">
+                    <td><h5>Project-Location :</h5></td> <td><p class="text"> {{p.plocation}} </p></td> 
+                    </div>
+                  
+                  <div class="row">
+                    <td><h5>Start-Date : </h5></td> <td>{{p.start_date}}</td>
+                  </div>
+                  </td>
+                  <td class="col-4">
+                      <div class="row"></div>
+                       <div class="row">
+                      <td><h5>End-Date :</h5></td> <td>{{p.end_date}}</td>
+                       </div>
+                    </td>
+                  </div>
+                    <div class="row tablebody">
+                   <td><button class="btn btn-success btn-lg btns" (click)="team(p.projectId)">View-Team</button></td>
+                   <td><button class="btn btn-warning btn-lg btns" id="update" (click)="updateForm(p.projectId)">Update</button> </td>
+                    <td><button class="btn btn-danger btn-lg btns" (click)="delete(p.projectId)">Delete</button></td>
+                    </div>
+                  
             </tr>
         </tbody>
         </table>

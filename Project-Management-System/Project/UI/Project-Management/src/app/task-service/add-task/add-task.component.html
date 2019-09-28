@@ -12,7 +12,7 @@
       <ul class="sidebar-navigation">
             
         <li class="header">DashBoard</li>
-        <li><a>
+        <li><a [routerLink]="['/managerhome']">
               <i class="fa fa-home" aria-hidden="true"></i> Home
               </a>
           </li>
@@ -37,11 +37,7 @@
             <i class="fa fa-users" aria-hidden="true"></i>TeamMememberList
           </a>
         </li>
-        <li>
-            <a [routerLink]="['/updateprofile']">
-              <i class="fa fa-users" aria-hidden="true"></i>Update_Profile
-            </a>
-          </li>
+       
           <li>
               <a [routerLink]="['/home']">
                 <i class="fa fa-users" aria-hidden="true"></i>LogOut

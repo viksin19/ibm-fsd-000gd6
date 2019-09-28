@@ -11,6 +11,7 @@ export class AddTeamComponent implements OnInit {
   role: string
   users: User[]
   uNames: userName[]
+  manager:string
   newTeamForm: FormGroup
 
   constructor() {
@@ -25,6 +26,7 @@ export class AddTeamComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.manager=localStorage.getItem("manager");
     const _baseUrl = `http://localhost:8001`;
     fetch(_baseUrl + `/user/role/${this.role}`, {
       method: "GET",

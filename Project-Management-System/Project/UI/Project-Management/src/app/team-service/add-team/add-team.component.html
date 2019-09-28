@@ -14,7 +14,7 @@
                     <ul class="sidebar-navigation">
                           
                       <li class="header">DashBoard</li>
-                      <li><a>
+                      <li><a [routerLink]="['/managerhome']">
                             <i class="fa fa-home" aria-hidden="true"></i> Home
                             </a>
                         </li>
@@ -39,11 +39,7 @@
                           <i class="fa fa-users" aria-hidden="true"></i>TeamMememberList
                         </a>
                       </li>
-                      <li>
-                          <a [routerLink]="['/updateprofile']">
-                            <i class="fa fa-users" aria-hidden="true"></i>Update_Profile
-                          </a>
-                        </li>
+                    
                         <li>
                             <a [routerLink]="['/home']">
                               <i class="fa fa-users" aria-hidden="true"></i>LogOut
@@ -56,38 +52,53 @@
         </div>
 
         <div class="col-9">
-            
-                <h1 class="bg-danger text-center text-white">ADD NEW TEAM</h1>
-                <form [formGroup]="newTeamForm" (ngSubmit)="submit()" novalidate>
-                    <div class="form-group">
+<div class="row">
+  <div class="col-8">
+            <div class="card">
+                <div class="card-header bg-info"><h3 class="bg1 text-center text-white">ADD NEW TEAM</h3></div>
+                <div class="card-body bg-light">
+                  <!-- form -->
+                  <form [formGroup]="newTeamForm" (ngSubmit)="submit()" novalidate>
+                    <div class="row">
+                     
+                    <div class="form-group col-4 ">
                     <label for="ufirstName">FirstName:</label>
-                    <input type="text" formControlName="ufirstName" class="form-control" id="ufirstName" aria-describedby="ufirstName" placeholder="Enter firstname">
+                    <input type="text" formControlName="ufirstName" class="form-control form-control-lg" id="ufirstName" aria-describedby="ufirstName" placeholder="Enter firstname">
                     </div>
-                    <div class="form-group">
+                    <div class="col-1"></div>
+                    <div class="form-group col-4">
                         <label for="ulastName">LastName:</label>
-                        <input type="text" formControlName="ulastName" class="form-control" id="ulastName" aria-describedby="ulastName" placeholder="Enter lastname">
+                        <input type="text" formControlName="ulastName" class="form-control form-control-lg" id="ulastName" aria-describedby="ulastName" placeholder="Enter lastname">
                     </div>
-                    <div class=" row form-group">
-                        <div class="col-5">
-                        <label for="uemail">Email:</label>
-                        <select formControlName="uemail" class="form-control" id="uemail" aria-placeholder="Email">
-                            <option *ngFor="let name of uNames" [ngValue]="name.email">
-                                {{ name.email }}
-                            </option>
-                        </select>
-                        </div><br>
                     </div>
-                    <div class="form-group">
+                    
+                    <div class="row">
+                    <div class="form-group col-4">
                         <label for="ustatus">Status:</label>
-                        <input type="text" formControlName="ustatus" class="form-control" id="ustatus" aria-describedby="ustatus" placeholder="Enter status">
+                        <input type="text" formControlName="ustatus" class="form-control form-control-lg" id="ustatus" aria-describedby="ustatus" placeholder="Enter status">
                     </div>
-                    <div class="form-group">
+                    <div class="col-1"></div>
+                    <div class="form-group col-4">
                         <label for="uassigndate">Assigndate:</label>
-                        <input type="text" formControlName="uassigndate" class="form-control" id="uassigndate" aria-describedby="uassigndate" placeholder="Enter Assigndate">
+                        <input type="text" formControlName="uassigndate" class="form-control form-control-lg" id="uassigndate" aria-describedby="uassigndate" placeholder="Enter Assigndate">
                     </div>
+                  </div>
+                  <div class=" row form-group">
+                      <div class="col-5">
+                      <label for="uemail">Email:</label>
+                      <select formControlName="uemail" class="form-control form-control-lg" id="uemail" aria-placeholder="Email">
+                          <option *ngFor="let name of uNames" [ngValue]="name.email">
+                              {{ name.email }}
+                          </option>
+                      </select>
+                      </div><br>
+                  </div>
                 <input type="submit" class="btn btn-primary" value="Add Team" />
             </form>
-
+              </div>
+              </div>
+            </div>
+          </div>   
         </div>
     </div>
     </div>

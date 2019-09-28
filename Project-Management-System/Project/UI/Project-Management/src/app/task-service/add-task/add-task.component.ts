@@ -13,11 +13,13 @@ users:User[]
 projects:Project[]
 pnames:pnames[]
 proid:Number
+manager:string
 manageremail:string
 uNames:userName[]
 newTaskForm:FormGroup
   constructor() {
-    this.manageremail=localStorage.getItem("memail");
+    this.manageremail=localStorage.getItem("email");
+    this.manager=localStorage.getItem("manager");
    this.manageremail=this.manageremail.slice(1,this.manageremail.length-1);
     console.log(this.manageremail);
     this.newTaskForm = new FormGroup({
