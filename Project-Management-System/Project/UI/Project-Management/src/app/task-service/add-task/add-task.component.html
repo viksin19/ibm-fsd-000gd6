@@ -49,22 +49,22 @@
       </div>
    
     <div class="col-9">
-    <div class="TaskForm">
+    <div class="TaskForm" style="margin-top: 130px; width:67%; margin-left: 40px;">
     <div class="card">
-        <div class="card-header">
-            <h3 class="text-success">Add-new task</h3>
+        <div class="card-header bg-primary" style="border-radius: 25px;">
+            <h3 class="text-white text-center">Add-new task</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-light">
             <form [formGroup]="newTaskForm" (ngSubmit)="submit()" novalidate>
            
                 <div class="row">
                   <div class="col-md-6">
-                  <label for="TaskName" class="text-white">TaskName</label>
-                    <input formControlName="taskName" id="taskName" class="form-control" placeholder="taskName">
+                  <label for="TaskName" class="text-dark">Task-Name</label>
+                    <input formControlName="taskName" id="taskName" class="form-control" placeholder="Task-Name">
                   </div>
                   <div class=" col-md-6">
-                  <label for="TaskLeader" class="text-white">TaskLeader</label>
-                  <select formControlName="taskLeader">
+                  <label for="TaskLeader" class="text-dark">Task-Leader</label>
+                  <select formControlName="taskLeader" class="form-control">
                     <option *ngFor="let name of uNames" [ngValue]="name">
                         {{ name.name }}
                     </option>
@@ -72,23 +72,23 @@
                 </div>
                 <div class="row">
                <div class=" col-md-6">
-              <label for="startDate" class="text-white">startDate</label>
-              <input formControlName="startDate" id="startDate" class="form-control " placeholder="startdate" />
+              <label for="startDate" class="text-dark">Start-Date</label>
+              <input formControlName="startDate" id="startDate" class="form-control " placeholder="Start-date" />
               </div>
               <div class=" col-md-6">
-              <label for="endDate" class="text-white">endDate</label>
-              <input formControlName="endDate" id="endDate" class="form-control " placeholder="enddate" />
+              <label for="endDate" class="text-dark">End-Date</label>
+              <input formControlName="endDate" id="endDate" class="form-control " placeholder="End-date" />
               </div>
               </div>
               
                <div class="row">
                   <div class="col-md-6">
-                    <label for="status" class="text-white">status</label>
-                    <input  formControlName="status" class="form-control" id="status" placeholder="status">
+                    <label for="status" class="text-dark">Status</label>
+                    <input  formControlName="status" class="form-control" id="status" placeholder="Status">
                   </div>
                   
                 </div>
-              <input type="submit" class="btn btn-success btn-lg" value="Add-Task" />
+              <input type="submit" class="btn btn-success btn-lg" style="border-radius: 40px;" value="Add-Task" />
               
     
     </form>

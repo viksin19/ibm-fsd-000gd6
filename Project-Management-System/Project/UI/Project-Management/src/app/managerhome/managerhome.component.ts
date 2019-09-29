@@ -19,7 +19,7 @@ export class ManagerhomeComponent implements OnInit {
 
 
   ngOnInit() {
-
+      this.manager=localStorage.getItem("manager");
     this.email = localStorage.getItem("email");
     const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
     fetch(_baseUrl + `/user/${this.email}`, {
@@ -30,7 +30,7 @@ export class ManagerhomeComponent implements OnInit {
     })
       .then(res => res.json())
       .then(res => {
-            
+            console.log(res);
         this.manager=res.username;
         console.log(this.manager);
         localStorage.setItem("manager",this.manager);

@@ -54,44 +54,61 @@
     </div>
     <div class="row">
 <table class="table table-hover table-striped table-light">
-<thead class="table text-white text-center bg-dark">
-<tr >
-    <th>Task name</th>
-    <th>task leader</th>
-    
-    <th>Start-Date</th>
-    <th>End-Date</th>
-    <th>status</th>
-    <th>project name</th>
-    <th>Update</th>
-    <th>Remove</th>
-    
-    
-</tr>
-</thead>
+
 <tbody class="table table-light">
-    <tr *ngFor="let t of tasks,let p of pname" >   
-        <td>{{t.taskName}}</td>
-        <td>{{t.taskLeader}}</td>
-        
-        <td>{{t.startDate}}</td>
-        <td>{{t.endDate}}</td>
-        <td>{{t.status}}</td>
-        <td>{{p.pname}}</td>
-        <td><button class="btn btn-warning btn-lg" id="update" (click)="updateForm(t.taskId)">Update</button></td>
-        <td><button class="btn btn-danger btn-lg" (click)="delete(t.taskId)">Delete</button></td>
+    <div class="bg-danger" style="border-radius: 50px;"><br>
+      <h3 class="text-center text-white">Task-List</h3>
+      <br>
+    </div>
+    <div class="row"><br><br>
+    </div>
+      <tr *ngFor="let t of tasks, let p of pname">   
+              
+        <div class="row tbody">
+         <td class="col-4">
+          <div class="row">
+              <td><h5>Task-Name :</h5></td> <td><p class="text-center">{{t.taskName}}</p></td> 
+          </div>
+          <div class="row">
+              <td><h5>Task-Leader :</h5></td> <td><p class="text-center"> {{t.taskLeader}}</p></td> 
+          </div>
+         </td>
+         <td class="col-4">
+            <div class="row">
+                <td><h5>Start-Date :</h5></td> <td><p class="text-center"> {{t.startDate}}</p></td> 
+            </div>
+            <div class="row">
+                <td><h5>End-Date:</h5></td> <td><p class="text-center"> {{t.endDate}} </p></td> 
+            </div>
+           </td>
+           <td class="col-4">
+              <div class="row">
+                  <td><h5>Task-Status:</h5></td> <td><p class="text-center"> {{t.status}}</p></td> 
+              </div>
+              <div class="row">
+                  <td><h5>Project-Name:</h5></td> <td><p class="text-center"> {{p.pname}} </p></td> 
+              </div>
+             </td>
+        </div>
+        <div class="row tbody">
+            <td><button class="btn btn-warning btn-lg text-dark" style="border-radius: 50px;" id="update" (click)="updateForm(t.taskId)"><h4>Update</h4></button></td>
+            <td><button class="btn btn-danger btn-lg"   style="border-radius: 50px;" (click)="delete(t.taskId)"><h4>Delete</h4></button></td>
+          </div>
+          <br>
+          <div class="row bg-info" style="border-radius: 50px;">
+            <br><br>
+          </div>
+      </tr>
+      </tbody>
+      </table>
 
 
-    </tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="modaldetails">
-    <button type="button"  id="toggle" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" style="display: none">
-      </button>
+
+
+
+    
+       
+
 
 
       <!-- Modal -->

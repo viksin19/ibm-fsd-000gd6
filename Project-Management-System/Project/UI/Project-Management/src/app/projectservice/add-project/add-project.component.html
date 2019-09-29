@@ -52,10 +52,10 @@
     </div>
     <div class="row">
         <div class="col-8">
-        <div class="formheader bg-light border-primary">
-            <h4 class="card-header bg-info text-white text-center">ADD NEW PROJECT</h4>
-            <div class="formbody">
-                <form [formGroup]="newProjectForm" (ngSubmit)="submit()" novalidate>
+        <div class="formheader bg-light border-primary" >
+            <h4 class="card-header bg-info text-white text-center" style="border-radius: 40px">ADD NEW PROJECT</h4>
+            <div class="formbody  bg-light">
+                <form [formGroup]="newProjectForm" class="bg-light"  (ngSubmit)="submit()" novalidate>
                     <div class=" row form-group">
                         <div class="col-5">
                         <input type="text" class="form-control text-dark" formControlName="pname" placeholder="Enter Project Name" /><br />
