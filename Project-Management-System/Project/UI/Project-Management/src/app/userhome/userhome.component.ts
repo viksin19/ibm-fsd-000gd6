@@ -13,6 +13,12 @@ email : string
 user:User
   constructor(private userService :UserService) { }
 
+
+  public doughnutLables = ['Task-Completed', 'Reamaining-Task'];
+  public doughnutChartType = 'doughnut';
+  public doughnutData = [40, 60];
+
+
   ngOnInit() {
     this.userName=localStorage.getItem("user");
      this.email=localStorage.getItem("email");

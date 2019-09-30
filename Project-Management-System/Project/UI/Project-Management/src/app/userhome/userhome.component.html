@@ -47,16 +47,17 @@
       </div>
     
     <div class="col-9">
-      
+      <div class="header bg-info" style="border-radius: 40px;"><br>
+        <br></div>
       <div class="row">
-       
+       <div class="col-1">&nbsp;</div>
       <div class="col-4">
         
         <div class="row">
           <div class="col-6">
-          <h2> Developer-Name: </h4>
+          <h3> Developer-Name: </h3>
         </div>
-        <div class="col-6"><h3>{{user.username}}</h3></div>
+        <div class="col-6"><h4>{{user.username}}</h4></div>
         </div>
       </div>
       <div class="col-2"></div>
@@ -64,9 +65,9 @@
         
           <div class="row">
             <div class="col-6">
-            <h2> Email: </h4>
+            <h3> Email: </h3>
           </div>
-          <div class="col-6"><h3>{{user.email}}</h3></div>
+          <div class="col-6"><h4>{{user.email}}</h4></div>
           </div>
         </div>
 
@@ -74,14 +75,14 @@
       </div>
       <div class="row"><br><br></div>
       <div class="row">
-       
+        <div class="col-1">&nbsp;</div>
           <div class="col-4">
             
             <div class="row">
               <div class="col-6">
-              <h2> Location : </h4>
+              <h3> Location : </h3>
             </div>
-            <div class="col-6"><h3>{{user.ulocation}}</h3></div>
+            <div class="col-6"><h4>{{user.ulocation}}</h4></div>
             </div>
           </div>
           <div class="col-2"></div>
@@ -89,23 +90,23 @@
             
               <div class="row">
                 <div class="col-6">
-                <h2> Domain : </h4>
+                <h3> Domain : </h3>
               </div>
-              <div class="col-6"><h3>{{user.udomain}}</h3></div>
+              <div class="col-6"><h4>{{user.udomain}}</h4></div>
               </div>
             </div>
           </div>
 
           <div class="row"><br><br></div>
           <div class="row">
-           
+            <div class="col-1">&nbsp;</div>
               <div class="col-4">
                 
                 <div class="row">
                   <div class="col-6">
-                  <h2> Availability : </h4>
+                  <h3> Availability : </h3>
                 </div>
-                <div class="col-6"><h3>{{user.availability}}</h3></div>
+                <div class="col-6"><h4>{{user.availability}}</h4></div>
                 </div>
               </div>
               <div class="col-2"></div>
@@ -113,9 +114,9 @@
                 
                   <div class="row">
                       <div class="col-6">
-                      <h2> Manager : </h4>
+                      <h3> Manager : </h3>
                     </div>
-                    <div class="col-6"><h3>{{manager.username}}</h3></div>
+                    <div class="col-6"><h4>{{manager.username}}</h4></div>
                     </div>
              </div>
 
@@ -123,12 +124,12 @@
 
   <div class="row"><br><br></div>
   <div class="row">
-   
+    <div class="col-1">&nbsp;</div>
       <div class="col-4">
         
         <div class="row">
           <div class="col-6">
-          <h2> Current-Project : </h4>
+          <h2> Current-Project : </h2>
         </div>
         <div class="col-6"><h3>{{project.pname}}</h3></div>
         </div>
@@ -138,11 +139,34 @@
         
           <div class="row">
               <div class="col-6">
-              <h2> Current-Task : </h4>
+              <h2> Current-Task : </h2>
             </div>
             <div class="col-6"><h3>{{task.taskName}}</h3></div>
             </div>
      </div>
+
+</div>
+<div class="row">
+<br><br><br>
+  <div class="col-8">
+
+    <div class="card">
+      <div class="card-header bg-primary"><h4 class="text-center text-white">Task-Status</h4></div>
+      <div class="card-body"> <canvas baseChart
+        [data]="doughnutData"
+        [labels]="doughnutLables"
+        [chartType]="doughnutChartType">
+      </canvas>
+     
+      <button type="button" class="btn btn-md btn-danger" style="margin-left: 410px; margin-top: 40px;" data-toggle="modal" data-target="#statusModal">Update</button>
+
+     </div>
+    
+    </div>
+
+
+
+  </div>
 
 </div>
 
@@ -151,8 +175,10 @@
   
   </div>
   </div>
+  </div>
 
 
 
 
   <!-- Update-Profile-Modal -->
+
