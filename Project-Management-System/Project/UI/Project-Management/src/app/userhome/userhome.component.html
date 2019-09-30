@@ -7,33 +7,33 @@
               border-radius: 50%; margin-left: 27px; margin-top: 3px;">
             </div>
       <div class="sidebar-logo">
-        Hello ! {{user}}
+        User_Name
       </div>
       <ul class="sidebar-navigation">
         
         <li class="header">DashBoard</li>
-        <li><a>
+        <li><a [routerLink]="['/userhome']">
               <i class="fa fa-home" aria-hidden="true"></i> Home
               </a>
           </li>
         <li>
-          <a  [routerLink]="['/usercomponents/viewprojectdetails']">
-            <i class="fa fa-home" aria-hidden="true"></i> Project-Details
+          <a  [routerLink]="['/userhome/project-details']">
+            <i class="fa fa-home" aria-hidden="true"></i> Project_Details
           </a>
         </li>
         <li>
-          <a [routerLink]="['/usercomponents/viewtasklist']">
+          <a [routerLink]="['/userhome/view-task']">
             <i class="fa fa-tachometer" aria-hidden="true"></i> Task_Details
           </a>
         </li>
         
         <li>
-          <a [routerLink]="['/usercomponents/viewteamslist']">
-            <i class="fa fa-users" aria-hidden="true"></i> Teams
+          <a [routerLink]="['/userhome/view-team']">
+            <i class="fa fa-users" aria-hidden="true"></i> Team_Details
           </a>
         </li>
         <li>
-            <a data-toggle="modal" data-target="#updateModal">
+            <a [routerLink]="['/userhome/update-profile']">
               <i class="fa fa-users" aria-hidden="true"></i>Update_Profile
             </a>
           </li>
@@ -45,140 +45,24 @@
       </ul>
       </div>
       </div>
-    
-    <div class="col-9">
-      <div class="header bg-info" style="border-radius: 40px;"><br>
-        <br></div>
-      <div class="row">
-       <div class="col-1">&nbsp;</div>
-      <div class="col-4">
-        
-        <div class="row">
-          <div class="col-6">
-          <h3> Developer-Name: </h3>
-        </div>
-        <div class="col-6"><h4>{{user.username}}</h4></div>
-        </div>
-      </div>
-      <div class="col-2"></div>
-      <div class="col-4">
-        
-          <div class="row">
-            <div class="col-6">
-            <h3> Email: </h3>
-          </div>
-          <div class="col-6"><h4>{{user.email}}</h4></div>
-          </div>
-        </div>
-
-
-      </div>
-      <div class="row"><br><br></div>
-      <div class="row">
-        <div class="col-1">&nbsp;</div>
-          <div class="col-4">
-            
-            <div class="row">
-              <div class="col-6">
-              <h3> Location : </h3>
-            </div>
-            <div class="col-6"><h4>{{user.ulocation}}</h4></div>
-            </div>
-          </div>
-          <div class="col-2"></div>
-          <div class="col-4">
-            
-              <div class="row">
-                <div class="col-6">
-                <h3> Domain : </h3>
-              </div>
-              <div class="col-6"><h4>{{user.udomain}}</h4></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row"><br><br></div>
-          <div class="row">
-            <div class="col-1">&nbsp;</div>
-              <div class="col-4">
-                
-                <div class="row">
-                  <div class="col-6">
-                  <h3> Availability : </h3>
-                </div>
-                <div class="col-6"><h4>{{user.availability}}</h4></div>
-                </div>
-              </div>
-              <div class="col-2"></div>
-              <div class="col-4">
-                
-                  <div class="row">
-                      <div class="col-6">
-                      <h3> Manager : </h3>
-                    </div>
-                    <div class="col-6"><h4>{{manager.username}}</h4></div>
-                    </div>
-             </div>
-
-  </div>
-
-  <div class="row"><br><br></div>
-  <div class="row">
-    <div class="col-1">&nbsp;</div>
-      <div class="col-4">
-        
-        <div class="row">
-          <div class="col-6">
-          <h2> Current-Project : </h2>
-        </div>
-        <div class="col-6"><h3>{{project.pname}}</h3></div>
-        </div>
-      </div>
-      <div class="col-2"></div>
-      <div class="col-4">
-        
-          <div class="row">
-              <div class="col-6">
-              <h2> Current-Task : </h2>
-            </div>
-            <div class="col-6"><h3>{{task.taskName}}</h3></div>
-            </div>
-     </div>
-
-</div>
-<div class="row">
-<br><br><br>
-  <div class="col-8">
-
-    <div class="card">
-      <div class="card-header bg-primary"><h4 class="text-center text-white">Task-Status</h4></div>
-      <div class="card-body"> <canvas baseChart
-        [data]="doughnutData"
-        [labels]="doughnutLables"
-        [chartType]="doughnutChartType">
-      </canvas>
-     
-      <button type="button" class="btn btn-md btn-danger" style="margin-left: 410px; margin-top: 40px;" data-toggle="modal" data-target="#statusModal">Update</button>
-
-     </div>
-    
     </div>
-
-
-
-  </div>
-
-</div>
-
-
-
+    <div class="col-9">
+      <div class="row">
+        <div class="col-4 c1">
+          <h2 class="text-white"> Task_Status</h2>
+        </div>
+         <div class="col-4 c2">
+           <h2 class="text-white">Project_Status</h2>
+         </div>
+      </div>
+      <div class="row">
+          <div class="col-4 c3">
+           <h3 class="text-white"> Task_Completed</h3>
+          </div>
+           <div class="col-4 c4">
+            <h2 class="text-white"> Days_left</h2>
+           </div>
+        </div>
+    </div> 
   
   </div>
-  </div>
-  </div>
-
-
-
-
-  <!-- Update-Profile-Modal -->
-

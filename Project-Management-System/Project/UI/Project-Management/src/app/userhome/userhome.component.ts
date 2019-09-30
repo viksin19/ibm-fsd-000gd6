@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { User } from '../Interfaces/User';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-userhome',
@@ -8,23 +7,16 @@ import { User } from '../Interfaces/User';
   styleUrls: ['./userhome.component.css']
 })
 export class UserhomeComponent implements OnInit {
-userName:any
-email : string
-user:User
-  constructor(private userService :UserService) { }
 
+  email : String
+  constructor(private route: ActivatedRoute, private router: Router) { 
 
-  public doughnutLables = ['Task-Completed', 'Reamaining-Task'];
-  public doughnutChartType = 'doughnut';
-  public doughnutData = [40, 60];
-
-
-  ngOnInit() {
-    this.userName=localStorage.getItem("user");
-     this.email=localStorage.getItem("email");
-    this.userService.getUserByEmail(data =>{
-       this.user = data;
-    },this.email);
   }
-
+    
+  ngOnInit() {
+    this.email = this.route.snapshot.queryParams.email;
+    console.log(this.email);
+    localStorage.setItem('email',JSON.stringify(this.email));
+    localStorage.setItem('user','hello');
+  }
 }
