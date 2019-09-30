@@ -17,6 +17,9 @@ export class ManagerhomeComponent implements OnInit {
     
   }
 
+  public doughnutLables = ['Tasks-Completed', 'Reamaining-Tasks'];
+  public doughnutChartType = 'doughnut';
+  public doughnutData = [4, 9];
 
   ngOnInit() {
       this.manager=localStorage.getItem("manager");
