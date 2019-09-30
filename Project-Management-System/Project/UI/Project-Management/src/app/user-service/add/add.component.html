@@ -1,0 +1,116 @@
+<div class="image">
+  <div class="row">
+    <div class="col-3">
+      <div class="sidebar-container">
+        <div class="sidebar-img">
+          <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/05/GettyImages-1144499197-620x394.jpg"
+            style="width: 140px; height: 140px; 
+                  border-radius: 50%; margin-left: 27px; margin-top: 3px;">
+        </div>
+        <div class="sidebar-logo">
+          Admin-{{admin}}
+        </div>
+        <ul class="sidebar-navigation">
+
+          <li class="header">DashBoard</li>
+          <li><a [routerLink]="['/adminhome']">
+              <i class="fa fa-home" aria-hidden="true"></i> Home
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/projectService/add']">
+              <i class="fa fa-home" aria-hidden="true"></i> Add-Project
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/projectService/view']">
+              <i class="fa fa-home" aria-hidden="true"></i> Project-List
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/userService/add']">
+              <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
+            </a>
+          </li>
+
+          <li>
+            <a [routerLink]="['/userService/view']">
+              <i class="fa fa-users" aria-hidden="true"></i>User-List
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/home']">
+              <i class="fa fa-users" aria-hidden="true"></i>LogOut
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="signupForm">
+    <div class="formheader">
+      <div class="card-header bg-primary" style="border-radius: 40px;">
+        <h3 class="text-white text-center ">Add-User</h3>
+      </div>
+      <div class="formbody bg-light">
+        <form [formGroup]="newAddUserForm" (ngSubmit)="submit()" novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name" class="text-white">Name</label>
+              <input type="text" formControlName="username" class="form-control" placeholder="Name">
+            </div>
+            <div class=" col-md-6">
+              <label for="city" class="text-white">City</label>
+              <input type="text" formControlName="ulocation" class="form-control" placeholder="City">
+            </div>
+          </div>
+          <div class="row">
+            <div class=" col-md-6">
+              <label for="age" class="text-white">Previous_Project</label>
+              <input type="text" formControlName="previous_project" class="form-control "
+                placeholder="Previous_Project" />
+            </div>
+            <div class=" col-md-6">
+              <label for="domain" class="text-white">Domain</label>
+              <input type="text" formControlName="udomain" class="form-control " placeholder="Domain" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="inputEmail4" class="text-white">Email</label>
+              <input type="text" formControlName="email" class="form-control"placeholder="Email">
+            </div>
+            <div class=" col-md-6">
+              <label for="inputPassword4" class="text-white">Password</label>
+              <input type="password" formControlName="password" class="form-control" 
+                placeholder="Password">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="inputimage" class="text-white">Image</label>
+              <input type="text" formControlName="img" class="form-control" placeholder="image">
+            </div>
+            <div class=" col-md-6">
+              <label for="inputPassword4" class="text-white" aria-placeholder="User-Type">UserType</label>
+              <select formControlName="userType" class="form-control">
+                <option *ngFor="let role of roles" [ngValue]="role">
+                  {{ role.type }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class=" col-md-6">
+              <label for="domain" class="text-white">Availability</label>
+              <input type="text" formControlName="availability" class="form-control " placeholder="availability" />
+            </div>
+          </div>
+          <input type="submit" class="btn btn-success btn-lg" value="Add-User" />
+
+        </form>
+      </div>
+    </div>
+  </div>
