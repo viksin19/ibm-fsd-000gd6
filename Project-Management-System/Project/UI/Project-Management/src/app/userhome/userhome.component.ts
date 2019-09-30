@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../Interfaces/User';
+import { Tasks } from '../Interfaces/Tasks';
 
 @Component({
   selector: 'app-userhome',
@@ -10,8 +11,11 @@ import { User } from '../Interfaces/User';
 export class UserhomeComponent implements OnInit {
 userName:any
 email : string
-user:User
-  constructor(private userService :UserService) { }
+userRecord:User
+userTask:Tasks
+  constructor(private userService :UserService) {
+  
+   }
 
 
   public doughnutLables = ['Task-Completed', 'Reamaining-Task'];
@@ -23,8 +27,14 @@ user:User
     this.userName=localStorage.getItem("user");
      this.email=localStorage.getItem("email");
     this.userService.getUserByEmail(data =>{
-       this.user = data;
+       this.userRecord = data;
     },this.email);
+  }
+
+  updateStatus(){
+    document.getElementById("closeStatus").click();
+      console.log(this.userTask);
+    
   }
 
 }
