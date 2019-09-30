@@ -20,7 +20,7 @@ newTaskForm:FormGroup
   constructor() {
     this.manageremail=localStorage.getItem("email");
     this.manager=localStorage.getItem("manager");
-   this.manageremail=this.manageremail.slice(1,this.manageremail.length-1);
+  
     console.log(this.manageremail);
     this.newTaskForm = new FormGroup({
       taskName: new FormControl(""),
