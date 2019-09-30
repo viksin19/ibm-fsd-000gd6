@@ -28,7 +28,10 @@ userTask:Tasks
      this.email=localStorage.getItem("email");
     this.userService.getUserByEmail(data =>{
        this.userRecord = data;
+       console.log(this.userRecord);
     },this.email);
+
+
   }
 
   updateStatus(){

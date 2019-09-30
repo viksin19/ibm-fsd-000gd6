@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Interfaces/User';
+import { Project } from 'src/app/Interfaces/Project';
+import { Tasks } from 'src/app/Interfaces/Tasks';
 
 @Component({
   selector: 'app-view-tasks',
@@ -11,6 +13,8 @@ export class ViewTasksComponent implements OnInit {
   email: String
   users: User[]
   user:any
+  project:Project
+  task:Tasks
 
   constructor() { }
 
@@ -28,8 +32,30 @@ export class ViewTasksComponent implements OnInit {
       .then(res => res.json())
       .then(res => {
         this.users = res;
+
         const _project = `http://localhost:8050`;
-        fetch(_baseUrl + `/`)
+        fetch(_project + `/${this.email}`,{
+          method:"GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(res=>res.json())
+          .then(pro=>{
+              
+            this.project=pro;
+
+            const _task = `http://localhost:8001`;
+            fetch(_task+`/${this.project.projectId}`,{
+              method:"GET",
+              headers:{
+                "Content-Type":"application/json"
+              }
+            }).then(response=>response.json())
+              .then(ta=>{
+                 this.task=ta;
+              })
+
+          })
       })
   }
 
