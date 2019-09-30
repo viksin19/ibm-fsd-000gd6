@@ -23,6 +23,11 @@ import { AddComponent } from './user-service/add/add.component';
 import { ViewComponent } from './user-service/view/view.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { ChartsModule } from "ng2-charts";
+import { UsercomponentsComponent } from './usercomponents/usercomponents.component';
+import { ViewTeamsComponent } from './usercomponents/view-teams/view-teams.component';
+import { ViewTasksComponent } from './usercomponents/view-tasks/view-tasks.component';
+import { UpdateTasksComponent } from './usercomponents/update-tasks/update-tasks.component';
+import { ViewProjectdetailsComponent } from './usercomponents/view-projectdetails/view-projectdetails.component';
 
 
 
@@ -46,7 +51,13 @@ import { ChartsModule } from "ng2-charts";
     UserServiceComponent,
     AddComponent,
     ViewComponent,
-    UpdateprofileComponent
+    UpdateprofileComponent,
+    UsercomponentsComponent,
+    ViewTeamsComponent,
+    ViewTasksComponent,
+    UpdateTasksComponent,
+    ViewProjectdetailsComponent
+
    
   ],
   imports: [

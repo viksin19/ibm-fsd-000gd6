@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { User } from '../Interfaces/User';
 
 @Component({
   selector: 'app-userhome',
@@ -6,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userhome.component.css']
 })
 export class UserhomeComponent implements OnInit {
-
-  constructor() { }
+userName:any
+email : string
+user:User
+  constructor(private userService :UserService) { }
 
   ngOnInit() {
-    window.localStorage.setItem('user','hello');
+    this.userName=localStorage.getItem("user");
+     this.email=localStorage.getItem("email");
+    this.userService.getUserByEmail(data =>{
+       this.user = data;
+    },this.email);
   }
 
 }

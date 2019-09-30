@@ -14,6 +14,11 @@ import { ViewTeamComponent } from './team-service/view-team/view-team.component'
 import { AddComponent } from './user-service/add/add.component';
 import { ViewComponent } from './user-service/view/view.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { UpdateTasksComponent } from './usercomponents/update-tasks/update-tasks.component';
+import { ViewTasksComponent } from './usercomponents/view-tasks/view-tasks.component';
+import { ViewProjectdetailsComponent } from './usercomponents/view-projectdetails/view-projectdetails.component';
+import { ViewTeamsComponent } from './usercomponents/view-teams/view-teams.component';
+
 
 
 
@@ -79,6 +84,27 @@ const routes: Routes = [
       {
         path: 'view',
         component: ViewComponent
+      }
+    ]
+  },
+  {
+    path: 'usercomponents',
+      children : [
+        {
+        path: 'updatetask',
+        component: UpdateTasksComponent
+      },
+      {
+        path: 'viewtasklist',
+        component: ViewTasksComponent
+      },
+      {
+        path: 'viewprojectdetails',
+        component: ViewProjectdetailsComponent
+      },
+      {
+        path: 'viewteamslist',
+        component: ViewTeamsComponent
       }
     ]
   },

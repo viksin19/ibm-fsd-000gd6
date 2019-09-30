@@ -2,18 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/user/User';
 
 @Component({
-  selector: 'app-view-teams',
-  templateUrl: './view-teams.component.html',
-  styleUrls: ['./view-teams.component.css']
+  selector: 'app-view-projectdetails',
+  templateUrl: './view-projectdetails.component.html',
+  styleUrls: ['./view-projectdetails.component.css']
 })
-export class ViewTeamsComponent implements OnInit {
+export class ViewProjectdetailsComponent implements OnInit {
 
   email: String
   users: User[]
+  user:any
 
   constructor() { }
 
-  ngOnInit() {    
+  ngOnInit() {   
+    this.user=localStorage.getItem("user"); 
     this.email=JSON.parse(window.localStorage.getItem("email"));
     console.log(this.email);
     const _baseUrl = `http://localhost:8001`;
@@ -26,8 +28,7 @@ export class ViewTeamsComponent implements OnInit {
       .then(res => res.json())
       .then(res => {
         this.users = res;
-        const _project = `http://localhost:8050`;
-        fetch(_baseUrl + `/`)
+        console.log(this.users);
       })
   }
 

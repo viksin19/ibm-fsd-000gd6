@@ -10,7 +10,7 @@ export class UserService {
   constructor() { }
 
   getUserByEmail(callback,email:string){
-    const _baseUrl = `http://b4ibm21.iiht.tech:8001/users/${email}`;
+    const _baseUrl = `http://b4ibm21.iiht.tech:8001/user/${email}`;
     fetch(_baseUrl)
     .then(res=>res.json())
     .then(users=>{
