@@ -1,0 +1,84 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="image">
+        <header>
+                <nav class="navbar navbar-dark bg-primary  navbar-expand-lg">
+                  <ul class="navbar-nav nav-right mr-auto">
+                      <li class="nav-item active">
+                          <h4 class="text-white trade">Global-Thinkers-Project-Management</h4>
+                        </li>
+                    <li class="nav-item  active">
+                        <a class="nav-link nav-right" data-toggle="modal" data-target="#exampleModal">LogIn</a>
+                      </li>
+                   
+                        <li class="nav-item  active">
+                            <a class="nav-link " [routerLink]="['/home']">AboutUs</a>
+                          </li>
+                  </ul>
+                </nav>
+        </header>
+        <br>
+        <br>
+        <br>
+        <br>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-5 heading">
+       <h1 class="text-white text-center glow">Welcome</h1>
+       <h1 class="text-white text-center glow">To</h1>
+       <h1 class="text-white text-center glow">Project-Management</h1>
+      </div>
+      <div class="col-1">
+
+      </div>
+      <div class="col-5">
+
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-6">
+           
+          <button type="button" class="btn btn-lg btn-success " data-toggle="modal" data-target="#exampleModal"><h3 class="text-center text-white">Let's Manage -></h3></button>
+
+        </div>
+      </div>
+
+    </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-success text-center" id="exampleModalLabel">LogIn !!</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-light">
+            <form [formGroup]="newLoginForm" (ngSubmit)="submit()" novalidate>
+
+                <div class="row">
+                  <div class="col-md-8">
+                    <label for="inputEmail4" class="text-white">Email</label>
+                    <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class=" col-md-8">
+                    <label for="inputPassword4" class="text-white">Password</label>
+                    <input type="password" formControlName="password" class="form-control" placeholder="Password">
+                  </div>
+                </div>
+                <hr>
+                <input type="submit" class="btn btn-success btn-warning" style="border-radius: 50px; width: 50%;" value="GO->" />
+              </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal" style="display: none">Close</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
