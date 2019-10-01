@@ -63,7 +63,7 @@
                  </div>
                  <div class="col-4"><h5>Name : </h5>{{userData.username}}</div>
                  <div class="col-1"></div>
-                 <div class="col-4"><h5>Location : </h5>{{usaerData.ulocation}}</div>
+                 <div class="col-4"><h5>Location : </h5>{{userData.ulocation}}</div>
                </div>
                <br>
                <div class="row">
@@ -121,12 +121,47 @@
   
         <!-- Modal body -->
         <div class="modal-body">
-          Modal body..
+        
+
+            <form #registerForm="ngForm" (submit)="update()" validate>
+                <div class=" row form-group">
+                  <div class="col-4">
+                    <input type="text" class="form-control text-dark" name="username" [(ngModel)]="userData.username"
+                      placeholder="Enter Name" /><br />
+                  </div>
+                  <div class="col-4 ">
+                    <input type="text" class="form-control text-dark" name="password" [(ngModel)]="userData.password"
+                      placeholder="Enter Password" /><br />
+                  </div>
+                </div>
+                <div class="row form-group ">
+                  <div class="col-4">
+                    <input type="text" readonly class="form-control text-dark" name="udomain" [(ngModel)]="userData.udomain"
+                      placeholder="Domain" /><br />
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control text-dark" name="ulocation" [(ngModel)]="userData.ulocation"
+                      placeholder="Location" /><br />
+                  </div>
+                </div>
+                <div class=" row form-group">
+                  <div class="col-4">
+                    <input type="email" class="form-control text-dark" readonly name="email"
+                      [(ngModel)]="userData.email" placeholder="Email" /><br />
+                  </div>
+                </div>
+    
+                <input type="submit" class="btn btn-danger btn-lg" value="Update" />
+    
+              </form>
+
+
+
         </div>
   
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" id="close" style="display: none" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
   
       </div>

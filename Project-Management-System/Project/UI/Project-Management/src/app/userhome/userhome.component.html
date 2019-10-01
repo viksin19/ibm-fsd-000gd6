@@ -48,6 +48,7 @@
     
     <div class="col-9">
       <div class="header bg-info" style="border-radius: 40px;"><br>
+        <h3 class="text-white text-center" >Hello ! {{userRecord.username}}</h3>
         <br></div>
       <div class="row">
        <div class="col-1">&nbsp;</div>
@@ -180,7 +181,6 @@
 
 
 
-
   <!-- Update-Profile-Modal -->
 
   <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -225,3 +225,67 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+    <div class="modal" id="updateModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Update</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+            
+    
+                <form #registerForm="ngForm" (submit)="update()" validate>
+                    <div class=" row form-group">
+                      <div class="col-4">
+                        <input type="text" class="form-control text-dark" name="username" [(ngModel)]="userRecord.username"
+                          placeholder="Enter Name" required/><br />
+                      </div>
+                      <div class="col-4 ">
+                        <input type="text" class="form-control text-dark" name="password" [(ngModel)]="userRecord.password"
+                          placeholder="Enter Password" required/><br />
+                      </div>
+                    </div>
+                    <div class="row form-group ">
+                      <div class="col-4">
+                        <input type="text" readonly class="form-control text-dark" name="udomain" [(ngModel)]="userRecord.udomain"
+                          placeholder="Domain" /><br />
+                      </div>
+                      <div class="col-4">
+                        <input type="text" class="form-control text-dark" name="ulocation" [(ngModel)]="userRecord.ulocation"
+                          placeholder="Location" required /><br />
+                      </div>
+                    </div>
+                    <div class=" row form-group">
+                      <div class="col-4">
+                        <input type="email" class="form-control text-dark" readonly name="email"
+                          [(ngModel)]="userData.email" placeholder="Email" /><br />
+                      </div>
+                    </div>
+        
+                    <input type="submit" class="btn btn-danger btn-lg" value="Update" />
+        
+                  </form>
+    
+    
+    
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" id="close" style="display: none" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+    

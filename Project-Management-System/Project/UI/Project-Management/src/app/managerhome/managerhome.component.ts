@@ -52,7 +52,7 @@ export class ManagerhomeComponent implements OnInit {
         localStorage.setItem("manager",this.manager);
 
         const prourl=`http://b4ibm21.iiht.tech:8010`;
-        fetch(prourl+`/${this.userData.email}`,{
+        fetch(prourl+`/findbyemail/${this.userData.email}`,{
           method:"GET",
           headers:{
             "Content-Type":"application/json"
@@ -124,5 +124,22 @@ export class ManagerhomeComponent implements OnInit {
 
 
   }
+update(){
 
+  const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
+
+  fetch(_baseUrl+`/update/${this.userData.email}`,{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify(this.userData)
+  }).then(res=>res.json())
+    .then(data=>{
+      
+      alert(`--`+data);
+
+    })
+document.getElementById("close").click();
+}
 }

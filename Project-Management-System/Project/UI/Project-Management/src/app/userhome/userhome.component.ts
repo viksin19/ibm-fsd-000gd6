@@ -36,5 +36,11 @@ userTask:Tasks
       console.log(this.userTask);
     
   }
+update(){
 
+
+
+
+  document.getElementById("close").click();
+}
 }
