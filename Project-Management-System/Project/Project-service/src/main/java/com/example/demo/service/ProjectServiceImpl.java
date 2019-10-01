@@ -19,12 +19,16 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.ErrorClass;
 import com.example.demo.entity.Project;
 import com.example.demo.feignClient.ProjectFeignClient;
+import com.example.demo.feignClient.UserFeignClient;
 import com.example.demo.model.CreateTasksRequestModel;
 import com.example.demo.model.CreateTasksResponseModel;
+import com.example.demo.model.ProjectIdRequestModel;
 import com.example.demo.repository.ProjectRepository;
 import com.example.demo.shared.ProjectDto;
 import com.example.demo.shared.TasksDto;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+import javassist.expr.NewArray;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -32,13 +36,17 @@ public class ProjectServiceImpl implements ProjectService {
 	private ProjectRepository projectRepository;
 	@Autowired
 	private ProjectFeignClient projectFeignClient;
+	@Autowired
+	private UserFeignClient userFeignClient;
 	
 	
 	@Autowired
-	public ProjectServiceImpl(ProjectRepository projectRepository, ProjectFeignClient projectFeignClient) {
+	public ProjectServiceImpl(ProjectRepository projectRepository, ProjectFeignClient projectFeignClient,
+			UserFeignClient userFeignClient) {
 		super();
 		this.projectRepository = projectRepository;
 		this.projectFeignClient = projectFeignClient;
+		this.userFeignClient = userFeignClient;
 	}
 
 	@Override
@@ -68,15 +76,19 @@ public class ProjectServiceImpl implements ProjectService {
 		ModelMapper model = new ModelMapper();
 		model.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		Project project = model.map(projectDto, Project.class);
-		System.out.println(project);
 		projectRepository.save(project);
+		System.out.println(project.toString());
+		ProjectIdRequestModel projectDetail = new ProjectIdRequestModel(project.getProjectId(),project.getPlocation(),project.getPmanagerEmail());
+		userFeignClient.projectAssignedUserDetail(projectDetail);
 		ProjectDto proDto = model.map(project, ProjectDto.class);
 		return proDto;
 	}
 
 	@Override
 	public void deleteProject(Long id) {
-		// TODO Auto-generated method stub
+		Project project = projectRepository.findById(id).get();
+		ProjectIdRequestModel projectDetail= new ProjectIdRequestModel(project.getProjectId(),project.getPlocation(),project.getPmanagerEmail());
+		userFeignClient.projectDeletedUserDetail(projectDetail);
 		projectRepository.deleteById(id);
 	}
 

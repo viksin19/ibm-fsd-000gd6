@@ -1,5 +1,6 @@
 package com.example.task.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,4 +11,5 @@ import com.example.task.data.Tasks;
 @Repository
 public interface TasksRepository extends JpaRepository<Tasks, Long> {
 	Tasks findByTaskName(String taskName);
+	List<Tasks> findByProjectId(Long projectId);
 }

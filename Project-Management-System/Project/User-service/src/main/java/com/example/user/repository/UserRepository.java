@@ -12,15 +12,16 @@ import com.example.user.data.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByEmail(String email);
-	List<User> findByusername(String username);
+	
+	List<User> findByUsername(String username);
 
-	List<User> findByulocation(String ulocation);
-
-	List<User> findByavailability(String availability);
+	List<User> findByAvailability(String availability);
 
 	User findByEmailAndPassword(String email, String password);
-	
-	List<User> findByudomain(String udomain);
 
+	List<User> findByUserTypeAndAvailability(String role,String availability);
+	
+	List<User> findByTaskId(Long taskId);
+	
 	List<User> findByUserType(String role);
 }

@@ -1,4 +1,4 @@
-package com.example.task.model;
+package com.example.user.model;
 
 public class CreateTeamsRequestModel {
 	private Long userid;
@@ -76,7 +76,5 @@ public class CreateTeamsRequestModel {
 		return "CreateTeamsRequestModel [userid=" + userid + ", uemail=" + uemail + ", uassigndate=" + uassigndate
 				+ ", ustatus=" + ustatus + ", taskId=" + taskId + ", projectId=" + projectId + "]";
 	}
-
-	
 	
 }

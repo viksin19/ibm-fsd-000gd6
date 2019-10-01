@@ -24,6 +24,7 @@ export class ManagerhomeComponent implements OnInit {
     
   }
 
+
   public doughnutLables = ['Completed', 'OnGoing','Stuck'];
   public doughnutChartType = 'doughnut';
   public doughnutData = [, , ,];

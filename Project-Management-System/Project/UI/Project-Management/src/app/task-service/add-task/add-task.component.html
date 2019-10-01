@@ -1,100 +1,94 @@
 <div class="image container-fluid">
-    <div class="row">
-      <div class="col-3">
+  <div class="row">
+    <div class="col-3">
       <div class="sidebar-container">
-          <div class="sidebar-img">
-              <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/05/GettyImages-1144499197-620x394.jpg" style="width: 140px; height: 140px; 
+        <div class="sidebar-img">
+          <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/05/GettyImages-1144499197-620x394.jpg"
+            style="width: 140px; height: 140px; 
               border-radius: 50%; margin-left: 27px; margin-top: 3px;">
-            </div>
-      <div class="sidebar-logo">
-      Manager-{{manager}}
-      </div>
-      <ul class="sidebar-navigation">
-            
-        <li class="header">DashBoard</li>
-        <li><a [routerLink]="['/managerhome']">
+        </div>
+        <div class="sidebar-logo">
+          Manager-{{manager}}
+        </div>
+        <ul class="sidebar-navigation">
+
+          <li class="header">DashBoard</li>
+          <li><a [routerLink]="['/managerhome']">
               <i class="fa fa-home" aria-hidden="true"></i> Home
-              </a>
+            </a>
           </li>
           <li>
-            <a  [routerLink]="['/taskService/add']">
+            <a [routerLink]="['/taskService/add']">
               <i class="fa fa-home" aria-hidden="true"></i> Add-Task
             </a>
           </li>
-        <li>
-          <a  [routerLink]="['/taskService/view']">
-            <i class="fa fa-home" aria-hidden="true"></i> Task-List
-        </a>
-        </li>
-        <li>
-          <a [routerLink]="['/teamService/add']">
-            <i class="fa fa-tachometer" aria-hidden="true"></i>Add-TeamMember
-          </a>
-        </li>
-        
-        <li>
-          <a [routerLink]="['/teamService/view']">
-            <i class="fa fa-users" aria-hidden="true"></i>TeamMememberList
-          </a>
-        </li>
-       
           <li>
-              <a [routerLink]="['/home']">
-                <i class="fa fa-users" aria-hidden="true"></i>LogOut
-              </a>
-            </li>
-      </ul>
-     
+            <a [routerLink]="['/taskService/view']">
+              <i class="fa fa-home" aria-hidden="true"></i> Task-List
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/teamService/add']">
+              <i class="fa fa-tachometer" aria-hidden="true"></i>Add-TeamMember
+            </a>
+          </li>
+
+          <li>
+            <a [routerLink]="['/teamService/view']">
+              <i class="fa fa-users" aria-hidden="true"></i>TeamMememberList
+            </a>
+          </li>
+
+          <li>
+            <a [routerLink]="['/home']">
+              <i class="fa fa-users" aria-hidden="true"></i>LogOut
+            </a>
+          </li>
+        </ul>
+
       </div>
-      </div>
-   
+    </div>
+
     <div class="col-9">
-    <div class="TaskForm" style="margin-top: 130px; width:67%; margin-left: 40px;">
-    <div class="card">
-        <div class="card-header bg-primary" style="border-radius: 25px;">
+      <div class="TaskForm" style="margin-top: 130px; width:67%; margin-left: 40px;">
+        <div class="card">
+          <div class="card-header bg-primary" style="border-radius: 25px;">
             <h3 class="text-white text-center">Add-new task</h3>
-        </div>
-        <div class="card-body bg-light">
+          </div>
+          <div class="card-body bg-light">
             <form [formGroup]="newTaskForm" (ngSubmit)="submit()" novalidate>
-           
-                <div class="row">
-                  <div class="col-md-6">
+
+              <div class="row">
+                <div class="col-md-6">
                   <label for="TaskName" class="text-dark">Task-Name</label>
-                    <input formControlName="taskName" id="taskName" class="form-control" placeholder="Task-Name">
-                  </div>
-                  <div class=" col-md-6">
-                  <label for="TaskLeader" class="text-dark">Task-Leader</label>
-                  <select formControlName="taskLeader" class="form-control">
-                    <option *ngFor="let name of uNames" [ngValue]="name">
-                        {{ name.name }}
-                    </option>
-                </select></div>
+                  <input formControlName="taskName" id="taskName" class="form-control" placeholder="Task-Name">
                 </div>
-                <div class="row">
-               <div class=" col-md-6">
-              <label for="startDate" class="text-dark">Start-Date</label>
-              <input formControlName="startDate" id="startDate" class="form-control " placeholder="Start-date" />
+                
               </div>
-              <div class=" col-md-6">
-              <label for="endDate" class="text-dark">End-Date</label>
-              <input formControlName="endDate" id="endDate" class="form-control " placeholder="End-date" />
-              </div>
-              </div>
-              
-               <div class="row">
-                  <div class="col-md-6">
-                    <label for="status" class="text-dark">Status</label>
-                    <input  formControlName="status" class="form-control" id="status" placeholder="Status">
-                  </div>
-                  
+              <div class="row">
+                <div class=" col-md-6">
+                  <label for="startDate" class="text-dark">Start-Date</label>
+                  <input formControlName="startDate" id="startDate" class="form-control " placeholder="Start-date" />
                 </div>
+                <div class=" col-md-6">
+                  <label for="endDate" class="text-dark">End-Date</label>
+                  <input formControlName="endDate" id="endDate" class="form-control " placeholder="End-date" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="status" class="text-dark">Status</label>
+                  <input formControlName="status" class="form-control" id="status" placeholder="Status">
+                </div>
+
+              </div>
               <input type="submit" class="btn btn-success btn-lg" style="border-radius: 40px;" value="Add-Task" />
-              
-    
-    </form>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-        
+  </div>

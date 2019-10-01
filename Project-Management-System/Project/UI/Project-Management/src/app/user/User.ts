@@ -9,7 +9,5 @@ export interface User {
     previous_project: String,
     userType: String,
     projectid: String,
-    taskId: String,
-    uStatus:string,
-    uAssigndate:string
+    taskId: String
 }

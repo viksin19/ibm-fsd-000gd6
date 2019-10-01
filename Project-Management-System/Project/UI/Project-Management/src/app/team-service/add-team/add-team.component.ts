@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { User } from 'src/app/user/User';
+import { Tasks } from 'src/app/Interfaces/Tasks';
 
 @Component({
   selector: 'app-add-team',
@@ -11,75 +12,119 @@ export class AddTeamComponent implements OnInit {
   role: string
   users: User[]
   uNames: userName[]
-  manager:string
+  manager: string
+  projectId: string
+  tName: tDetail[]
+  tasks: tDetail[]
   newTeamForm: FormGroup
 
   constructor() {
     this.role = "user"
     this.newTeamForm = new FormGroup({
-      ufirstName: new FormControl(""),
-      ulastName: new FormControl(""),
       uemail: new FormControl(""),
-      ustatus: new FormControl(""),
-      uassigndate: new FormControl("")
+      uassigndate: new FormControl(""),
+      taskName: new FormControl("")
     })
   }
 
   ngOnInit() {
-    this.manager=localStorage.getItem("manager");
+    this.manager = localStorage.getItem("email");
     const _baseUrl = `http://localhost:8001`;
-    fetch(_baseUrl + `/user/role/${this.role}`, {
+    const projectUrl = `http://b4ibm21.iiht.tech:8010`;
+    const taskUrl = `http://b4ibm21.iiht.tech:8021`;
+    
+    fetch(_baseUrl + `/user/role/user`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     })
-    .then(res => res.json())
-    .then(res => {
-      this.users = res;
-      this.ints();
-    })
-  }
+      .then(res => res.json())
+      .then(res => {
+        this.users = res;
+        this.uNames = [];
+        console.log(this.users);
+        for (let i = 0; i < this.users.length; i++) {
+          let uDetails = {
+            email: this.users[i].email,
+            name: this.users[i].username
+          }
+          this.uNames[i] = (uDetails);
+        }
+      })
 
-  ints(){
-    this.uNames = [];
-    console.log(this.users);
-    for(let i=0; i<this.users.length; i++){
-      let uDetails ={
-        email : this.users[i].email,
-        name : this.users[i].username
+    fetch(projectUrl + `/findbyemail/${this.manager}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
       }
-      this.uNames[i] = (uDetails);
-    }
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.projectId = res.projectId;
+
+        fetch(taskUrl + `/getAllTasks/${this.projectId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(res => res.json())
+          .then(res => {
+            this.tasks = res;
+            this.getTaskName();
+
+          })
+
+      })
   }
 
-  submit(){
-    let firstName = this.newTeamForm.value.ufi;
-    let lastName = this.newTeamForm.value.ulastName;
+  getTaskName(){
+    this.tName =[];
+    console.log(this.tasks);
+    for(let j=0; j<this.tasks.length; j++){
+        let taskDetail= {
+          taskName: this.tasks[j].taskName,
+          taskId: this.tasks[j].taskId
+        }
+        this.tName.push(taskDetail);
+    }
+    console.log(this.tName)
+    
+  }
+
+
+    submit() {
     let email = this.newTeamForm.value.uemail;
-    let status = this.newTeamForm.value.ustatus;
     let assigndate = this.newTeamForm.value.uassigndate;
+    let taskId = this.newTeamForm.value.taskName;
+
+    
     let teamDetails = [];
-    teamDetails.push({"userid":"abc","ufirstName":firstName,"ulastName":lastName,"uemail":email,
-          "ustatus":status,"uassigndate": assigndate,"taskId":1});
-    const _baseUrl = `http://localhost:8050`;
-    fetch(_baseUrl +  "/team",{
+    teamDetails.push({ uemail: email,uassigndate: assigndate, taskId: taskId,projectId : this.projectId });
+    const taskUrl = `http://b4ibm21.iiht.tech:8021`;
+    console.log(teamDetails);
+    fetch(taskUrl + "/tasks/team", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(teamDetails)
     })
-    .then(res => res.json())
-    .then(res => {
-      console.log(teamDetails[0]);
-      console.log(res);
-    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      })
   }
 
 }
 
-interface userName{
-  email : String
-  name : String
+interface userName {
+  email: String
+  name: String
+}
+
+interface tDetail {
+  taskName: string
+  taskId: Number
 }

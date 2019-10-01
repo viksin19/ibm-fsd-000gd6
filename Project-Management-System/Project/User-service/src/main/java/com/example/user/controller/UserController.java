@@ -17,12 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.user.data.ErrorClass;
 import com.example.user.data.Login;
 import com.example.user.data.User;
+import com.example.user.model.CreateTeamsRequestModel;
 import com.example.user.model.CreateUserRequestModel;
 import com.example.user.model.CreateUserResponseModel;
+import com.example.user.model.ProjectIdRequestModel;
 import com.example.user.service.UserService;
 import com.example.user.shared.UserDto;
 
@@ -48,7 +49,7 @@ public class UserController {
 	public ResponseEntity<?> getByEmail(@PathVariable("email") String email) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
+		System.out.println("User Email = "+email);
 		UserDto userDto = userService.getUserByEmail(email);
 		CreateUserResponseModel model = mapper.map(userDto, CreateUserResponseModel.class);
 		return ResponseEntity.status(HttpStatus.CREATED).body(model);
@@ -83,11 +84,7 @@ public class UserController {
 		return ResponseEntity.ok(userService.findByusername(username));
 	}
 
-	@GetMapping("/user/findbylocation/{ulocation}")
-	public ResponseEntity<List<User>> userbyLocation(@PathVariable("ulocation") String ulocation) {
-
-		return ResponseEntity.ok(userService.findBylocation(ulocation));
-	}
+	
 
 	@GetMapping("/user/findbyavailability/{availability}")
 	public ResponseEntity<List<User>> userbyAvailability(@PathVariable("availability") String availability) {
@@ -96,18 +93,54 @@ public class UserController {
 	}
 	@GetMapping("/user/role/{urole}")
 	public ResponseEntity<List<User>> userbyRole(@PathVariable("urole") String urole) {
-
 		return ResponseEntity.ok(userService.getByRole(urole));
 	}
 	
-	@GetMapping("/user/findbydomain/{udomain}")
-	public ResponseEntity<List<User>> userbyDomain(@PathVariable("udomain") String udomain) {
-
-		return ResponseEntity.ok(userService.findBydomain(udomain));
-	}
 	
 	@GetMapping("/user/getAllUser")
 	public ResponseEntity<?> getAllUser() {
 		return ResponseEntity.ok(userService.getAllUser());
+	}
+	
+	@GetMapping("/user/delete/{email}")
+	public ResponseEntity<?> deleteUser(@PathVariable("email") String email) {
+		userService.deleteUser(email);
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ErrorClass("Deleted"));
+	}
+	
+	@PostMapping("/projectAssignedUserDetail")
+	public ResponseEntity<?> projectAssignedUserDetail(@RequestBody ProjectIdRequestModel projectDetail){
+		userService.updateAssignedProjectId(projectDetail);
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ErrorClass("Updated"));
+	}
+	
+	@PostMapping("/projectDeletedUserDetail")
+	public ResponseEntity<?> projectDeletedUserDetail(@RequestBody ProjectIdRequestModel projectDetail){
+		userService.updateDeletedProjectId(projectDetail);
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ErrorClass("Deleted"));
+	}
+	
+	@PostMapping("/taskAssignedUserDetail")
+	public ResponseEntity<?> taskAssignedUserDetail(@RequestBody CreateTeamsRequestModel teamDetail){
+		userService.updateAssignedtaskId(teamDetail);
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ErrorClass("Updated"));
+	}
+
+	@PostMapping("/taskDeletedUserDetail")
+	public ResponseEntity<?> taskDeletedUserDetail(@RequestBody Long taskId){
+		userService.updateDeletedTaskId(taskId);
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ErrorClass("Deleted"));
+	}
+	
+	@GetMapping("/getAllTeam")
+	public List<?> getAllTeam(Long taskId){
+		List<?> teams =userService.getAllTeam(taskId);
+		return teams;
+	}
+	
+	@GetMapping("/deleteTeamMember")
+	public boolean deleteTeamMember(String email) {
+		boolean teamMember = userService.deleteTeamMember(email);
+		return true;
 	}
 }

@@ -13,13 +13,16 @@ public class UserDto {
 	private String userType;
 	private Long projectid;
 	private Long taskId;
+	private String uStatus;
+	private String uAssigndate;
 	
 	public UserDto() {
 		super();
 	}
 
-	public UserDto(String username, String password, String ulocation, String availability, String email, String img,
-			String udomain, String previous_project, String userType, Long projectid, Long taskId) {
+	public UserDto(String username, String password, String ulocation, String availability, String email,
+			String img, String udomain, String previous_project, String userType, Long projectid, Long taskId,
+			String uStatus, String uAssigndate) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -32,6 +35,8 @@ public class UserDto {
 		this.userType = userType;
 		this.projectid = projectid;
 		this.taskId = taskId;
+		this.uStatus = uStatus;
+		this.uAssigndate = uAssigndate;
 	}
 
 	public String getUsername() {
@@ -122,12 +127,37 @@ public class UserDto {
 		this.userType = userType;
 	}
 
+	public String getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+
+	public String getuStatus() {
+		return uStatus;
+	}
+
+	public void setuStatus(String uStatus) {
+		this.uStatus = uStatus;
+	}
+
+	public String getuAssigndate() {
+		return uAssigndate;
+	}
+
+	public void setuAssigndate(String uAssigndate) {
+		this.uAssigndate = uAssigndate;
+	}
+
 	@Override
 	public String toString() {
-		return "UserDto [ username=" + username + ", password=" + password + ", ulocation="
-				+ ulocation + ", availability=" + availability + ", email=" + email + ", img=" + img + ", udomain="
-				+ udomain + ", previous_project=" + previous_project + ", userType=" + userType + ", projectid="
-				+ projectid + ", taskId=" + taskId + "]";
+		return "UserDto [username=" + username + ", password=" + password + ", ulocation=" + ulocation
+				+ ", availability=" + availability + ", email=" + email + ", img=" + img + ", udomain=" + udomain
+				+ ", previous_project=" + previous_project + ", userType=" + userType + ", projectid=" + projectid
+				+ ", taskId=" + taskId + ", uStatus=" + uStatus + ", uAssigndate=" + uAssigndate + "]";
 	}
+
 	
 }

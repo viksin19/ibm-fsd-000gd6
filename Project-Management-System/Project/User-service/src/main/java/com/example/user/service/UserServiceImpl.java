@@ -8,6 +8,7 @@ import javax.mail.internet.MimeMessage;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.omg.CORBA.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -15,6 +16,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.user.data.User;
+import com.example.user.model.CreateTeamsRequestModel;
+import com.example.user.model.ProjectIdRequestModel;
 import com.example.user.repository.UserRepository;
 import com.example.user.shared.UserDto;
 
@@ -46,7 +49,8 @@ public class UserServiceImpl implements UserService {
 		try {
 			this.sendMail(userEntity.getEmail(), "Hello ", this.getbody(userEntity));
 		} catch (MessagingException e) {
-			e.printStackTrace();
+			UserDto uDto = mapper.map(userEntity, UserDto.class);
+			return uDto;
 		}
 
 		UserDto uDto = mapper.map(userEntity, UserDto.class);
@@ -71,7 +75,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> findByusername(String username) {
 		// TODO Auto-generated method stub
-		return userRepository.findByusername(username);
+		return userRepository.findByUsername(username);
 	}
 
 	@Override
@@ -87,15 +91,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findBylocation(String ulocation) {
-		// TODO Auto-generated method stub
-		return userRepository.findByulocation(ulocation);
-	}
-
-	@Override
 	public List<User> findByavailability(String availability) {
 		// TODO Auto-generated method stub
-		return userRepository.findByavailability(availability);
+		return userRepository.findByAvailability(availability);
 	}
 
 	@Override
@@ -105,14 +103,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findBydomain(String udomain) {
-		// TODO Auto-generated method stub
-		return userRepository.findByudomain(udomain);
-	}
-
-	@Override
 	public List<User> getByRole(String role) {
-		return userRepository.findByUserType(role);
+		return userRepository.findByUserTypeAndAvailability(role, "yes");
 	}
 
 	public void sendMail(String to, String subject, String body) throws MessagingException {
@@ -153,4 +145,72 @@ public class UserServiceImpl implements UserService {
 		
 		return userRepository.findAll();
 	}
+
+	@Override
+	public void deleteUser(String email) {
+		User userDetails = userRepository.findByEmail(email);
+		userRepository.delete(userDetails);
+	}
+
+	@Override
+	public boolean updateAssignedProjectId(ProjectIdRequestModel projectDetail) {
+		User userDetail = userRepository.findByEmail(projectDetail.getPmanagerEmail());
+		userDetail.setAvailability("no");
+		userDetail.setUlocation(projectDetail.getPlocation());
+		userDetail.setProjectid(projectDetail.getProjectId());
+		userRepository.save(userDetail);
+		return true;
+	}
+
+	@Override
+	public boolean updateDeletedProjectId(ProjectIdRequestModel projectDetail) {
+		User userDetail = userRepository.findByEmail(projectDetail.getPmanagerEmail());
+		userDetail.setAvailability("yes");
+		userDetail.setUlocation(projectDetail.getPlocation());
+		userDetail.setProjectid(null);
+		userRepository.save(userDetail);
+		return false;
+	}
+
+	@Override
+	public void updateDeletedTaskId(Long taskId) {
+		List<User> userDetail = userRepository.findByTaskId(taskId);
+		for(int i=0; i<userDetail.size(); i++) {
+			userDetail.get(i).setTaskId(null);
+			userDetail.get(i).setAvailability("yes");
+		}
+		
+		userRepository.saveAll(userDetail);
+	}
+
+	@Override
+	public void updateAssignedtaskId(CreateTeamsRequestModel teamDetail) {
+		User userDetail = userRepository.findByEmail(teamDetail.getUemail());
+		userDetail.setAvailability("no");
+		userDetail.setuAssigndate(teamDetail.getUassigndate());
+		userDetail.setTaskId(teamDetail.getTaskId());
+		userDetail.setProjectid(teamDetail.getProjectId());
+		userRepository.save(userDetail);
+		
+	}
+
+	@Override
+	public List<?> getAllTeam(Long taskId) {
+		List<?> teams = userRepository.findByTaskId(taskId);
+		return teams;
+	}
+
+	@Override
+	public boolean deleteTeamMember(String email) {
+		User userDetail = userRepository.findByEmail(email);
+		userDetail.setAvailability("yes");
+		userDetail.setTaskId(null);
+		userDetail.setuStatus(null);
+		userRepository.save(userDetail);
+		return false;
+	}
+
+	
+
+	
 }

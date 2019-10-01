@@ -22,6 +22,8 @@ public class User {
 	private String userType;
 	private Long projectid;
 	private Long taskId;
+	private String uStatus;
+	private String uAssigndate;
 	
 	public User() {
 		super();
@@ -41,6 +43,43 @@ public class User {
 		this.userType = userType;
 		this.projectid = projectid;
 		this.taskId = taskId;
+	}
+	
+	public User(String username, String password, String ulocation, String availability, String email,
+			String img, String udomain, String previous_project, String userType, Long projectid, Long taskId,
+			String uAssigndate) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.ulocation = ulocation;
+		this.availability = availability;
+		this.email = email;
+		this.img = img;
+		this.udomain = udomain;
+		this.previous_project = previous_project;
+		this.userType = userType;
+		this.projectid = projectid;
+		this.taskId = taskId;
+		this.uAssigndate = uAssigndate;
+	}
+
+	public User(String username, String password, String ulocation, String availability, String email,
+			String img, String udomain, String previous_project, String userType, Long projectid, Long taskId,
+			String uStatus, String uAssigndate) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.ulocation = ulocation;
+		this.availability = availability;
+		this.email = email;
+		this.img = img;
+		this.udomain = udomain;
+		this.previous_project = previous_project;
+		this.userType = userType;
+		this.projectid = projectid;
+		this.taskId = taskId;
+		this.uStatus = uStatus;
+		this.uAssigndate = uAssigndate;
 	}
 
 	public Long getUserId() {
@@ -73,14 +112,6 @@ public class User {
 
 	public void setUlocation(String ulocation) {
 		this.ulocation = ulocation;
-	}
-
-	public String getavailability() {
-		return availability;
-	}
-
-	public void setavailability(String availability) {
-		this.availability = availability;
 	}
 
 	public String getEmail() {
@@ -138,14 +169,37 @@ public class User {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+	
+	public String getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+
+	public String getuStatus() {
+		return uStatus;
+	}
+
+	public void setuStatus(String uStatus) {
+		this.uStatus = uStatus;
+	}
+
+	public String getuAssigndate() {
+		return uAssigndate;
+	}
+
+	public void setuAssigndate(String uAssigndate) {
+		this.uAssigndate = uAssigndate;
+	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", ulocation="
 				+ ulocation + ", availability=" + availability + ", email=" + email + ", img=" + img + ", udomain="
 				+ udomain + ", previous_project=" + previous_project + ", userType=" + userType + ", projectid="
-				+ projectid + ", taskId=" + taskId + "]";
+				+ projectid + ", taskId=" + taskId + ", uStatus=" + uStatus + ", uAssigndate=" + uAssigndate + "]";
 	}
 
-	
 }

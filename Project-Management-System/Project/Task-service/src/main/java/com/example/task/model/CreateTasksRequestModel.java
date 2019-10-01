@@ -9,7 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CreateTasksRequestModel {
 	private String taskName;
-	private String taskLeader;
 	private String startDate;
 	private String endDate;
 	private String status;
@@ -19,11 +18,10 @@ public class CreateTasksRequestModel {
 		super();
 	}
 
-	public CreateTasksRequestModel(String taskName, String taskLeader, String startDate, String endDate,
+	public CreateTasksRequestModel(String taskName,String startDate, String endDate,
 			String status, Long projectId) {
 		super();
 		this.taskName = taskName;
-		this.taskLeader = taskLeader;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.status = status;
@@ -36,14 +34,6 @@ public class CreateTasksRequestModel {
 
 	public void setTaskName(String taskName) {
 		this.taskName = taskName;
-	}
-
-	public String getTaskLeader() {
-		return taskLeader;
-	}
-
-	public void setTaskLeader(String taskLeader) {
-		this.taskLeader = taskLeader;
 	}
 
 	public String getStartDate() {
@@ -72,7 +62,7 @@ public class CreateTasksRequestModel {
 
 	@Override
 	public String toString() {
-		return "CreateTasksRequestModel [taskName=" + taskName + ", taskLeader=" + taskLeader + ", startDate="
+		return "CreateTasksRequestModel [taskName=" + taskName + ",startDate="
 				+ startDate + ", endDate=" + endDate + ", status=" + status + "]";
 	}
 
