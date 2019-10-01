@@ -29,6 +29,9 @@ import { ViewTasksComponent } from './usercomponents/view-tasks/view-tasks.compo
 import { UpdateTasksComponent } from './usercomponents/update-tasks/update-tasks.component';
 import { ViewProjectdetailsComponent } from './usercomponents/view-projectdetails/view-projectdetails.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { LoginComponent } from './login/login.component';
+
+
 
 
 
@@ -57,7 +60,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
     ViewTeamsComponent,
     ViewTasksComponent,
     UpdateTasksComponent,
-    ViewProjectdetailsComponent
+    ViewProjectdetailsComponent,
+    LoginComponent
 
    
   ],
@@ -68,7 +72,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
     FormsModule,
     SidebarModule,
     ChartsModule,
-    CalendarModule
+    CalendarModule,
+ 
  
   ],
   providers: [],

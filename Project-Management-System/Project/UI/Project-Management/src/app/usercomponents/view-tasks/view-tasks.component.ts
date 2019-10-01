@@ -22,7 +22,7 @@ export class ViewTasksComponent implements OnInit {
     this.user=localStorage.getItem("user");
     this.email=JSON.parse(window.localStorage.getItem("email"));
     console.log(this.email);
-    const _baseUrl = `http://localhost:8001`;
+    const _baseUrl = `http://b4ibm.iiht.tech:8001`;
     fetch(_baseUrl + `/user/${this.email}`, {
       method: "GET",
       headers: {

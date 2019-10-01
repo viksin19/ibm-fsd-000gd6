@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './signup/signup.component';
+
 import { UserhomeComponent } from './userhome/userhome.component';
 import { ManagerhomeComponent } from './managerhome/managerhome.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
@@ -18,6 +18,7 @@ import { UpdateTasksComponent } from './usercomponents/update-tasks/update-tasks
 import { ViewTasksComponent } from './usercomponents/view-tasks/view-tasks.component';
 import { ViewProjectdetailsComponent } from './usercomponents/view-projectdetails/view-projectdetails.component';
 import { ViewTeamsComponent } from './usercomponents/view-teams/view-teams.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -37,8 +38,8 @@ const routes: Routes = [
     component: UpdateprofileComponent
   },
   {
-    path: 'signup',
-    component: SignupComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'userhome',
