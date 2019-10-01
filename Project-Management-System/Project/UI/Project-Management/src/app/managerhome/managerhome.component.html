@@ -56,12 +56,40 @@
 
               <div class="row bg-info" style="border-radius: 40px;"><br>
                 <h1 class="text-center text-white" style="margin-left: 380px">Hello ! {{manager}}</h1>
-
-
               </div>
+              <br>
+               <div class="row">
+                 <div class="col-1">
+                 </div>
+                 <div class="col-4"><h5>Name : </h5>{{userData.username}}</div>
+                 <div class="col-1"></div>
+                 <div class="col-4"><h5>Location : </h5>{{usaerData.ulocation}}</div>
+               </div>
+               <br>
+               <div class="row">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-4"><h5>Project-Name: </h5>{{project.pname}}</div>
+                  <div class="col-1"></div>
+                  <div class="col-4"><h5>Project-Location : </h5>{{project.plocation}}</div>
+                </div>
+                <br>
+               <div class="row">
+              
+                <div class="col-6">
 
+                    <div class="card">
+                        <div class="card-header bg-danger"><h4 class="text-center text-white">Pie-Chart</h4></div>
+                        <div class="card-body"> <canvas baseChart
+                          [data]="pieData"
+                          [labels]="pieLabels"
+                          [chartType]="pieChartType"></canvas>
+                        
+                      
+                      </div></div>
 
-              <div class="card">
+                </div>
+                <div class="col-6">
                   <div class="card-header bg-primary"><h4 class="text-center text-white">Project-Status</h4></div>
                   <div class="card-body"> <canvas baseChart
                     [data]="doughnutData"
@@ -69,7 +97,8 @@
                     [chartType]="doughnutChartType">
                   </canvas>
                  </div>
-                 
+                 </div>
+              
                 </div>
 
             </div>

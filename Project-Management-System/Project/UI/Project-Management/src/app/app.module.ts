@@ -28,6 +28,7 @@ import { ViewTeamsComponent } from './usercomponents/view-teams/view-teams.compo
 import { ViewTasksComponent } from './usercomponents/view-tasks/view-tasks.component';
 import { UpdateTasksComponent } from './usercomponents/update-tasks/update-tasks.component';
 import { ViewProjectdetailsComponent } from './usercomponents/view-projectdetails/view-projectdetails.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
 
 
 
@@ -66,7 +67,8 @@ import { ViewProjectdetailsComponent } from './usercomponents/view-projectdetail
     ReactiveFormsModule,
     FormsModule,
     SidebarModule,
-    ChartsModule
+    ChartsModule,
+    CalendarModule
  
   ],
   providers: [],
