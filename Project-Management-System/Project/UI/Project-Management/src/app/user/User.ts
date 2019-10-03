@@ -2,7 +2,7 @@ export interface User {
     username: String,
     password: String,
     ulocation: String,
-    avialability: String,
+    availability: String,
     email: String,
     img: String,
     udomain: String,

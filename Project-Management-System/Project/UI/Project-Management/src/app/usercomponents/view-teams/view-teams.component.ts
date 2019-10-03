@@ -10,18 +10,17 @@ import { Project } from 'src/app/Interfaces/Project';
 export class ViewTeamsComponent implements OnInit {
 
   email: String
-  users:User[]
+  users: User[]
   user:User
-  u:any
   teams:User
   project:Project
 
-  constructor() { 
+  constructor() {
     this.user = {
       username: "",
       password: "",
       ulocation: "",
-      avialability: "",
+      availability: "",
       email: "",
       img: "",
       udomain: "",
@@ -30,14 +29,9 @@ export class ViewTeamsComponent implements OnInit {
       projectid: "",
       taskId: ""
     } 
-
   }
 
   ngOnInit() {    
-
-    this.u=localStorage.getItem("user");
-    this.email=JSON.parse(window.localStorage.getItem("email"));
-    console.log(this.email);
     this.email = localStorage.getItem("email");
     console.log(this.email);
     const _baseUrl = `http://b4ibm21.iiht.tech:8001`;
@@ -51,7 +45,7 @@ export class ViewTeamsComponent implements OnInit {
       .then(res => {
         this.user = res;
         let taskUrl = `http://b4ibm21.iiht.tech:8001`
-        fetch(taskUrl + `/findByProjectId/${this.user.projectid}`,{
+        fetch(taskUrl + `/getAllTeam/${this.user.taskId}`,{
           method: "GET",
           headers:{
             "Content-Type":"application/json"

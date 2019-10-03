@@ -21,17 +21,15 @@ export class ViewTaskComponent implements OnInit {
   constructor(private router: Router) {
     this.task = {
       taskName: "",
-      taskLeader: "",
       startDate: "",
       endDate: "",
       status: ""
-    }
-      ;
+    };
   }
 
   ngOnInit() {
 
-    this.manager = localStorage.getItem("manager");
+    this.manager = localStorage.getItem("email");
     const url = `http://b4ibm21.iiht.tech:8010/`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;
     fetch(url + `/findbyemail/${this.manager}`, {
@@ -54,14 +52,14 @@ export class ViewTaskComponent implements OnInit {
           .then(res => res.json())
           .then(data => {
             this.tasks = data;
-    
+
           })
       })
-    
+
   }
   updateForm(id) {
 
-    
+
     const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
     const url = `http://b4ibm21.iiht.tech:8021`;
     fetch(url + `/taskById/${id}`, {
@@ -83,19 +81,18 @@ export class ViewTaskComponent implements OnInit {
             this.users = res;
             this.form();
           })
-        
+
 
       })
 
   }
-  
+
   update() {
     const url = `http://b4ibm21.iiht.tech:8021`;
 
     let newtask = [];
     newtask.push({
       taskName: this.task.taskName,
-      taskLeader: this.task.taskLeader,
       startDate: this.task.startDate,
       endDate: this.task.endDate,
       status: this.task.status
@@ -149,7 +146,6 @@ interface proid {
 }
 interface Taskraedonlyproject {
   taskName: string,
-  taskLeader: string,
   startDate: string,
   endDate: string,
   status: string,

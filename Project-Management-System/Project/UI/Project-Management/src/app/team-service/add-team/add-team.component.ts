@@ -28,7 +28,7 @@ export class AddTeamComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.manager = localStorage.getItem("manager");
+    this.manager = localStorage.getItem("email");
     const _baseUrl = `http://localhost:8001`;
     const projectUrl = `http://b4ibm21.iiht.tech:8010`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;

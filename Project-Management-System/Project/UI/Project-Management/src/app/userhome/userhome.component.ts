@@ -10,12 +10,12 @@ import { Project } from '../Interfaces/Project';
   styleUrls: ['./userhome.component.css']
 })
 export class UserhomeComponent implements OnInit {
-userName:any
-email : string
-userRecord: User
-userTask: Tasks
-userProject: Project
-  constructor(private userService :UserService) {
+  userName: any
+  email: string
+  userRecord: User
+  userTask: Tasks
+  userProject: Project
+  constructor(private userService: UserService) {
     this.userRecord = {
       username: "",
       password: "",
@@ -46,8 +46,7 @@ userProject: Project
       status: "",
       projectId: 0
     }
-  
-   }
+  }
 
 
   public doughnutLables = ['Task-Completed', 'Reamaining-Task'];
@@ -56,14 +55,49 @@ userProject: Project
 
 
   ngOnInit() {
-    this.userName=localStorage.getItem("user");
-     this.email=localStorage.getItem("email");
-    this.userService.getUserByEmail(data =>{
-       this.userRecord = data;
-    },this.email);
+    this.email = localStorage.getItem("email");
+    console.log(this.email);
+    const userUrl = `http://b4ibm21.iiht.tech:8001`;
+    const taskUrl = `http://b4ibm21.iiht.tech:8021`;
+    const projectUrl = `http://b4ibm21.iiht.tech:8010`;
+    fetch(userUrl + `/user/${this.email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.userRecord = res;
+        console.log(this.userRecord);
+        fetch(projectUrl + `/findbyid/${this.userRecord.projectid}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(res => res.json())
+          .then(res => {
+            this.userProject = res;
+            console.log(this.userProject);
+
+            fetch(taskUrl + `/taskById/${this.userRecord.taskId}`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json"
+              }
+            })
+              .then(res => res.json())
+              .then(res => {
+                this.userTask = res;
+                console.log(this.userTask);
+              })
+
+          })
+      })
   }
 
-  updateStatus(){
+  updateStatus() {
     const userUrl = `http://b4ibm21.iiht.tech:8001`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;
     const projectUrl = `http://b4ibm21.iiht.tech:8010`;
@@ -81,28 +115,7 @@ userProject: Project
       .then(res => {
         console.log(res);
       })
-    document.getElementById("closeStatus").click();
-      console.log(this.userTask);
-    
+
   }
-update(){
-
-  const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
-
-  fetch(_baseUrl+`/update/${this.userRecord.email}`,{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body: JSON.stringify(this.userRecord)
-  }).then(res=>res.json())
-    .then(data=>{
-      
-      alert(`--`+data);
-
-    })
-document.getElementById("close").click();
-}
 
 }
-
