@@ -3,8 +3,7 @@ export interface User {
     password: string,
     ulocation: string,
     availability: string,
-    email: string,
-    img: string,
+    email: string
     udomain: string,
     previous_project: string,
     userType: string,

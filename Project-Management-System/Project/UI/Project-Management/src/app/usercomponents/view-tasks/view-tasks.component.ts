@@ -22,7 +22,6 @@ export class ViewTasksComponent implements OnInit {
       ulocation: "",
       availability: "",
       email: "",
-      img: "",
       udomain: "",
       previous_project: "",
       userType: "",

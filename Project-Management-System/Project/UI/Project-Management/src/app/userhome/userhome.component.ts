@@ -22,7 +22,6 @@ export class UserhomeComponent implements OnInit {
       ulocation: "",
       availability: "",
       email: "",
-      img: "",
       udomain: "",
       previous_project: "",
       userType: "",

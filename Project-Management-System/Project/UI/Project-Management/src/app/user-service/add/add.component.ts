@@ -9,12 +9,13 @@ export class AddComponent implements OnInit {
   roles: any[]
   admin:string
   newAddUserForm: FormGroup
+  cities : any[]
+  available : any[]
   constructor() {
     this.newAddUserForm = new FormGroup({
       username: new FormControl("",[Validators.required]),
       ulocation: new FormControl("",[Validators.required]),
       udomain: new FormControl("",[Validators.required]),
-      img: new FormControl("",[Validators.required]),
       email: new FormControl("",[Validators.email]),
       previous_project: new FormControl("",[Validators.required]),
       userType: new FormControl("",[Validators.required]),
@@ -23,6 +24,11 @@ export class AddComponent implements OnInit {
 
     })
     this.roles =[{type : "manager"},{type : "user"}];
+
+    this.cities = [{city : "Banglore"},{city : "Chennai"},{city : "Gurgaon"},{city : "Hyderabad"},{city : "Kolkata"},
+    {city : "Mumbai"},{city : "Pune"}];
+
+    this.available = [{status : "yes"},{status : "no"}];
   }
 
   ngOnInit() {
@@ -30,14 +36,13 @@ export class AddComponent implements OnInit {
   }
   submit() {
     let username = this.newAddUserForm.value.username;
-    let ulocation = this.newAddUserForm.value.ulocation;
+    let ulocation = this.newAddUserForm.value.ulocation.city;
     let udomain = this.newAddUserForm.value.udomain;
-    let img = this.newAddUserForm.value.img;
     let email = this.newAddUserForm.value.email;
     let previous_project = this.newAddUserForm.value.previous_project;
     let userType = this.newAddUserForm.value.userType.type;
     let password = this.newAddUserForm.value.password;
-    let availability = this.newAddUserForm.value.availability;
+    let availability = this.newAddUserForm.value.availability.status;
     let user = [];
     user.push({
       username: username,
@@ -45,7 +50,6 @@ export class AddComponent implements OnInit {
       ulocation: ulocation,
       availability: availability,
       email: email,
-      img: img,
       udomain: udomain,
       previous_project: previous_project,
       userType: userType,
