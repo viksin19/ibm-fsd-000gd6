@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.user.data.User;
 import com.example.user.model.CreateTeamsRequestModel;
+import com.example.user.model.PRojectIdTaskIDModel;
 import com.example.user.model.ProjectIdRequestModel;
 import com.example.user.repository.UserRepository;
 import com.example.user.shared.UserDto;
@@ -207,9 +208,29 @@ public class UserServiceImpl implements UserService {
 		userDetail.setTaskId(null);
 		userDetail.setuStatus(null);
 		userRepository.save(userDetail);
-		return false;
+		return true;
+	}
+	
+	@Override
+	public List<User> getUserFromPojectIdTaskId(PRojectIdTaskIDModel teamDetail) {
+		List<User> user = userRepository.findAllByProjectidAndTaskIdIn(teamDetail.getProjectId(),teamDetail.getTaskIDs());
+		System.out.println(user.toString());
+		return user;
 	}
 
+	@Override
+	public boolean getByStatus(String email, String status) {
+		User user = userRepository.findByEmail(email);
+		user.setuStatus(status);
+		userRepository.save(user);
+		return true;
+	}
+
+	@Override
+	public boolean getByProjectId(Long projectId) {
+		userRepository.findByProjectid(projectId);
+		return false;
+	}
 	
 
 	
