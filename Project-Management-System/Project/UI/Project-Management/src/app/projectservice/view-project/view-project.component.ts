@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/Interfaces/Project';
 import { Router } from "@angular/router";
 import { FormGroup, FormControl } from '@angular/forms';
+import { User } from 'src/app/Interfaces/User';
 @Component({
   selector: 'app-view-project',
   templateUrl: './view-project.component.html',
@@ -82,6 +83,16 @@ updateForm(id){
   // view team
 team(id){
   console.log(id);
+    let teams:any
+  fetch(`http://b4ibm21.iiht.tech:8001/findbyprojectid/${id}`,{
+    method:"GET",
+    headers:{
+      "Content-Type":"application/json"
+    }
+  }).then(res=>res.json())
+    .then(data=>{
+      teams=data;
+    })
   document.getElementById("teamtoggle").click();
   window.localStorage.setItem("projectId",id);
 

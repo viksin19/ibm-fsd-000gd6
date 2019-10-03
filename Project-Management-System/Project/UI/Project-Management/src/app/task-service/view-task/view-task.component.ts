@@ -31,7 +31,7 @@ export class ViewTaskComponent implements OnInit {
 
   ngOnInit() {
 
-    this.manager = localStorage.getItem("email");
+    this.manager = localStorage.getItem("manager");
     const url = `http://b4ibm21.iiht.tech:8010/`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;
     fetch(url + `/findbyemail/${this.manager}`, {

@@ -23,19 +23,19 @@
             </a>
           </li>
           <li>
+              <a [routerLink]="['/teamService/add']">
+                <i class="fa fa-tachometer" aria-hidden="true"></i>Add-Member
+              </a>
+            </li>
+  
+          <li>
             <a [routerLink]="['/taskService/view']">
               <i class="fa fa-home" aria-hidden="true"></i> Task-List
             </a>
           </li>
           <li>
-            <a [routerLink]="['/teamService/add']">
-              <i class="fa fa-tachometer" aria-hidden="true"></i>Add-TeamMember
-            </a>
-          </li>
-
-          <li>
             <a [routerLink]="['/teamService/view']">
-              <i class="fa fa-users" aria-hidden="true"></i>TeamMememberList
+              <i class="fa fa-users" aria-hidden="true"></i>Team-Memember-List
             </a>
           </li>
 
@@ -53,7 +53,7 @@
       <div class="TaskForm" style="margin-top: 130px; width:67%; margin-left: 40px;">
         <div class="card">
           <div class="card-header bg-primary" style="border-radius: 25px;">
-            <h3 class="text-white text-center">Add-new task</h3>
+            <h3 class="text-white text-center">Add-New task</h3>
           </div>
           <div class="card-body bg-light">
             <form [formGroup]="newTaskForm" (ngSubmit)="submit()" novalidate>
@@ -61,29 +61,29 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="TaskName" class="text-dark">Task-Name</label>
-                  <input formControlName="taskName" id="taskName" class="form-control" placeholder="Task-Name">
+                  <input formControlName="taskName" id="taskName" class="form-control" placeholder="Task-Name" required>
                 </div>
                 
               </div>
               <div class="row">
                 <div class=" col-md-6">
                   <label for="startDate" class="text-dark">Start-Date</label>
-                  <input formControlName="startDate" id="startDate" class="form-control " placeholder="Start-date" />
+                  <input type="date" formControlName="startDate" id="startDate" class="form-control " placeholder="Start-date" required/>
                 </div>
                 <div class=" col-md-6">
                   <label for="endDate" class="text-dark">End-Date</label>
-                  <input formControlName="endDate" id="endDate" class="form-control " placeholder="End-date" />
+                  <input type="date" formControlName="endDate" id="endDate" class="form-control " placeholder="End-date" required/>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6">
                   <label for="status" class="text-dark">Status</label>
-                  <input formControlName="status" class="form-control" id="status" placeholder="Status">
+                  <input formControlName="status" class="form-control" id="status" placeholder="Status" required>
                 </div>
 
               </div>
-              <input type="submit" class="btn btn-success btn-lg" style="border-radius: 40px;" value="Add-Task" />
+              <input type="submit" [disabled]="!newTaskForm.valid" class="btn btn-success btn-lg" style="border-radius: 40px;" value="Add-Task" />
 
 
             </form>

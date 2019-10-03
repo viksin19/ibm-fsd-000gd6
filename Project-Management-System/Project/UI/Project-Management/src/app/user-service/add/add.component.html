@@ -18,6 +18,11 @@
             </a>
           </li>
           <li>
+              <a [routerLink]="['/userService/add']">
+                <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
+              </a>
+            </li>
+          <li>
             <a [routerLink]="['/projectService/add']">
               <i class="fa fa-home" aria-hidden="true"></i> Add-Project
             </a>
@@ -27,12 +32,6 @@
               <i class="fa fa-home" aria-hidden="true"></i> Project-List
             </a>
           </li>
-          <li>
-            <a [routerLink]="['/userService/add']">
-              <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
-            </a>
-          </li>
-
           <li>
             <a [routerLink]="['/userService/view']">
               <i class="fa fa-users" aria-hidden="true"></i>User-List
@@ -58,18 +57,18 @@
           <div class="row">
             <div class="col-md-6">
               <label for="name" class="text-white">Name</label>
-              <input type="text" formControlName="username" class="form-control" placeholder="Name">
+              <input type="text" formControlName="username" class="form-control" placeholder="Name" required>
             </div>
             <div class=" col-md-6">
               <label for="city" class="text-white">City</label>
-              <input type="text" formControlName="ulocation" class="form-control" placeholder="City">
+              <input type="text" formControlName="ulocation" class="form-control" placeholder="City" required>
             </div>
           </div>
           <div class="row">
             <div class=" col-md-6">
               <label for="age" class="text-white">Previous_Project</label>
               <input type="text" formControlName="previous_project" class="form-control "
-                placeholder="Previous_Project" />
+                placeholder="Previous_Project" required />
             </div>
             <div class=" col-md-6">
               <label for="domain" class="text-white">Domain</label>
@@ -80,12 +79,13 @@
           <div class="row">
             <div class="col-md-6">
               <label for="inputEmail4" class="text-white">Email</label>
-              <input type="text" formControlName="email" class="form-control"placeholder="Email">
+              <input type="email" formControlName="email" class="form-control"placeholder="Email" required>
             </div>
             <div class=" col-md-6">
               <label for="inputPassword4" class="text-white">Password</label>
               <input type="password" formControlName="password" class="form-control" 
-                placeholder="Password">
+                placeholder="Password" required>
+
             </div>
           </div>
           <div class="row">
@@ -105,10 +105,10 @@
           <div class="row">
             <div class=" col-md-6">
               <label for="domain" class="text-white">Availability</label>
-              <input type="text" formControlName="availability" class="form-control " placeholder="availability" />
+              <input type="text" formControlName="availability" class="form-control " placeholder="availability" required />
             </div>
           </div>
-          <input type="submit" class="btn btn-success btn-lg" value="Add-User" />
+          <input type="submit" [disabled]="!newAddUserForm.valid" class="btn btn-success btn-lg" value="Add-User" />
 
         </form>
       </div>

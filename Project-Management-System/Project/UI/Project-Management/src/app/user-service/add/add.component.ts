@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -11,15 +11,15 @@ export class AddComponent implements OnInit {
   newAddUserForm: FormGroup
   constructor() {
     this.newAddUserForm = new FormGroup({
-      username: new FormControl(""),
-      ulocation: new FormControl(""),
-      udomain: new FormControl(""),
-      img: new FormControl(""),
-      email: new FormControl(""),
-      previous_project: new FormControl(""),
-      userType: new FormControl(""),
-      password: new FormControl(""),
-      availability: new FormControl("")
+      username: new FormControl("",[Validators.required]),
+      ulocation: new FormControl("",[Validators.required]),
+      udomain: new FormControl("",[Validators.required]),
+      img: new FormControl("",[Validators.required]),
+      email: new FormControl("",[Validators.email]),
+      previous_project: new FormControl("",[Validators.required]),
+      userType: new FormControl("",[Validators.required]),
+      password: new FormControl("",[Validators.minLength(6)]),
+      availability: new FormControl("",[Validators.required])
 
     })
     this.roles =[{type : "manager"},{type : "user"}];

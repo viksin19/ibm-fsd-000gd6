@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Interfaces/User';
 import { Project } from 'src/app/Interfaces/Project';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { strictEqual } from 'assert';
 @Component({
   selector: 'app-add-task',
@@ -24,11 +24,11 @@ export class AddTaskComponent implements OnInit {
     this.manager = localStorage.getItem("manager");
     console.log(this.manageremail);
     this.newTaskForm = new FormGroup({
-      taskName: new FormControl(""),
-      taskLeader: new FormControl(""),
-      startDate: new FormControl(""),
-      endDate: new FormControl(""),
-      status: new FormControl("")
+      taskName: new FormControl("",[Validators.required]),
+      taskLeader: new FormControl("",[Validators.required]),
+      startDate: new FormControl("",[Validators.required]),
+      endDate: new FormControl("",[Validators.required]),
+      status: new FormControl("",[Validators.required])
     })
   }
 

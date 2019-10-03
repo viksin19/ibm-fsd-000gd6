@@ -23,13 +23,13 @@
                       </li>
                       <li>
                         <a [routerLink]="['/usercomponents/viewtasklist']">
-                          <i class="fa fa-tachometer" aria-hidden="true"></i> Task_Details
+                          <i class="fa fa-tachometer" aria-hidden="true"></i> Task-Details
                         </a>
                       </li>
                       
                       <li>
                         <a [routerLink]="['/usercomponents/viewteamslist']">
-                          <i class="fa fa-users" aria-hidden="true"></i> Teams
+                          <i class="fa fa-users" aria-hidden="true"></i> Project-Team
                         </a>
                       </li>
               
@@ -80,14 +80,8 @@
                       <div class="row">
                           <td><h5>Task-Status:</h5></td> <td><p class="text-center"> {{t.status}}</p></td> 
                       </div>
-                      <div class="row">
-                          <td><h5>Project-Name:</h5></td> <td><p class="text-center"> {{p.pname}} </p></td> 
-                      </div>
                      </td>
-                </div>
-                <div class="row tbody">
-                    <td><button class="btn btn-warning btn-lg text-dark" style="border-radius: 50px;" id="update" (click)="updateForm(t.taskId)"><h4>Update</h4></button></td>
-                  </div>
+                    </div>
                   <br>
                   <div class="row bg-info" style="border-radius: 50px;">
                     <br><br>

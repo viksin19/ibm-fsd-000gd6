@@ -11,13 +11,26 @@ import { Tasks } from 'src/app/Interfaces/Tasks';
 export class ViewTasksComponent implements OnInit {
 
   email: String
-  users: User[]
+  users: User
   user:any
   project:Project
-  task:Tasks
+  task:Tasks[]
 
-  constructor() { }
-
+  constructor() {
+    this.users = {
+      username: "",
+      password: "",
+      ulocation: "",
+      availability: "",
+      email: "",
+      img: "",
+      udomain: "",
+      previous_project: "",
+      userType: "",
+      projectid: "",
+      taskId: ""
+   }
+  }
   ngOnInit() {    
     this.user=localStorage.getItem("user");
     this.email=JSON.parse(window.localStorage.getItem("email"));
@@ -28,24 +41,11 @@ export class ViewTasksComponent implements OnInit {
       headers: {
         "Content-Type": "application/json"
       }
-    })
-      .then(res => res.json())
+    }).then(res => res.json())
       .then(res => {
         this.users = res;
-
-        const _project = `http://localhost:8050`;
-        fetch(_project + `/${this.email}`,{
-          method:"GET",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }).then(res=>res.json())
-          .then(pro=>{
-              
-            this.project=pro;
-
-            const _task = `http://localhost:8001`;
-            fetch(_task+`/${this.project.projectId}`,{
+            const _task = `http://localhost:8021`;
+            fetch(_task+`/getAllTasks/${this.project.projectId}`,{
               method:"GET",
               headers:{
                 "Content-Type":"application/json"
@@ -55,7 +55,7 @@ export class ViewTasksComponent implements OnInit {
                  this.task=ta;
               })
 
-          })
+          
       })
   }
 

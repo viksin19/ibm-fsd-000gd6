@@ -75,7 +75,7 @@
      color:  #00ff00;
     }
     .btn{
-    background: linear-gradient(to bottom right, #3366ff 7%, #ff0066 102%);
+   
     width: 25%;
     height: 50px;
     margin-left: 295px;
@@ -119,3 +119,7 @@
      background-attachment: fixed;
      background-color: #300d0d;
  }       
+ 
+ table{
+   margin-right: 190px;
+ }

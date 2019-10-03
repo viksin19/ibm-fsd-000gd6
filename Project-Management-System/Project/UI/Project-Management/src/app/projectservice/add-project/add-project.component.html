@@ -17,6 +17,11 @@
                         </a>
                     </li>
                     <li>
+                        <a [routerLink]="['/userService/add']">
+                          <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
+                        </a>
+                      </li>
+                    <li>
                       <a  [routerLink]="['/projectService/add']">
                         <i class="fa fa-home" aria-hidden="true"></i> Add-Project
                       </a>
@@ -26,12 +31,6 @@
                       <i class="fa fa-home" aria-hidden="true"></i> Project-List
                   </a>
                   </li>
-                  <li>
-                    <a [routerLink]="['/userService/add']">
-                      <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
-                    </a>
-                  </li>
-                  
                   <li>
                     <a [routerLink]="['/userService/view']">
                       <i class="fa fa-users" aria-hidden="true"></i>User-List
@@ -58,18 +57,18 @@
                 <form [formGroup]="newProjectForm" class="bg-light"  (ngSubmit)="submit()" novalidate>
                     <div class=" row form-group">
                         <div class="col-5">
-                        <input type="text" class="form-control text-dark" formControlName="pname" placeholder="Enter Project Name" /><br />
+                        <input type="text" class="form-control text-dark" formControlName="pname" placeholder="Enter Project Name" required /><br />
                     </div>
                     <div class="col-5 ">
-                        <input type="text" class="form-control text-dark" formControlName="plocation" placeholder="Enter Project Location" /><br />
+                        <input type="text" class="form-control text-dark" formControlName="plocation" placeholder="Enter Project Location" required /><br />
                     </div>
                     </div>
                     <div class="row form-group ">
                         <div class="col-5">
-                        <input type="text" class="form-control text-dark" formControlName="start_date" placeholder="Enter Start Date" /><br />
+                        <input type="text" class="form-control text-dark" formControlName="start_date" placeholder="Enter Start Date" required /><br />
                     </div>
                     <div class="col-5">
-                        <input type="text" class="form-control text-dark" formControlName="end_date" placeholder="Enter End Date" /><br />
+                        <input type="text" class="form-control text-dark" formControlName="end_date" placeholder="Enter End Date" required/><br />
                     </div>
                     </div>
                     <div class=" row form-group">
@@ -83,7 +82,7 @@
                         </div><br>
                     </div>
 
-                    <input type="submit" class="btn btn-success btn-lg" value="Add Project" />
+                    <input type="submit" [disabled]="!newProjectForm.valid" class="btn btn-success btn-lg" value="Add Project" />
 
                 </form>
                 </div>

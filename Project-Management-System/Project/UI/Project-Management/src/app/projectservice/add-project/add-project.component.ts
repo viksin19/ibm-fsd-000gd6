@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Interfaces/User';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-project',
@@ -14,13 +15,13 @@ export class AddProjectComponent implements OnInit {
   uNames: userName[]
   newProjectForm: FormGroup
   admin:string
-  constructor() {
+  constructor(private router:Router) {
     this.role = "manager"
     this.newProjectForm = new FormGroup({
-      pname: new FormControl(""),
-      plocation: new FormControl(""),
-      start_date: new FormControl(""),
-      end_date: new FormControl(""),
+      pname: new FormControl("",[Validators.required]),
+      plocation: new FormControl("",[Validators.required]),
+      start_date: new FormControl("",[Validators.required]),
+      end_date: new FormControl("",[Validators.required]),
       pmanagerEmail: new FormControl("")
     })
   }
@@ -77,6 +78,8 @@ export class AddProjectComponent implements OnInit {
       .then(res => res.json())
       .then(res => {
         console.log(res);
+        alert("Project-Added Successfully !!");
+            this.router.navigate(['projectService/view']);
       });
   }
 }

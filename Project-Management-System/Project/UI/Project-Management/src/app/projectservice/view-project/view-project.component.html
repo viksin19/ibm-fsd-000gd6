@@ -18,6 +18,11 @@
             </a>
           </li>
           <li>
+              <a [routerLink]="['/userService/add']">
+                <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
+              </a>
+            </li>
+          <li>
             <a [routerLink]="['/projectService/add']">
               <i class="fa fa-home" aria-hidden="true"></i> Add-Project
             </a>
@@ -27,12 +32,6 @@
               <i class="fa fa-home" aria-hidden="true"></i> Project-List
             </a>
           </li>
-          <li>
-            <a [routerLink]="['/userService/add']">
-              <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
-            </a>
-          </li>
-
           <li>
             <a [routerLink]="['/userService/view']">
               <i class="fa fa-users" aria-hidden="true"></i>User-List
@@ -57,7 +56,7 @@
 
           <div class="row bg-primary text-center" style="border-radius: 50px;">
             <br>
-            <h2 class="text-white text-center" style="margin-left: 490px;">Project-List</h2>
+            <h2 class="text-white text-center" style="margin-left: 600px;">Project-List</h2>
             <br>
           </div>
           <br>
@@ -190,14 +189,28 @@
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Teams in Project</h5>
+      <div class="modal-header bg-info" style="border-radius: 20px;">
+        <h4 class="modal-title text-center text-white" id="exampleModalLabel" style="margin-left: 130px;">Teams in Project</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <div *ngFor="let team of teams">
+       <legend>
+        <div class="row">
+          <div class="col-5"><h4>Name : </h4>{{team.username}}</div>
+          <div class="col-5"><h4>Email : </h4>{{team.email}}</div>
+        </div>
+        <div class="row">
+            <div class="col-5"><h4>Location : </h4>{{team.ulocation}}</div>
+            <div class="col-5"><h4>Domain : </h4>{{team.udomain}}</div>
+          </div>
+        
 
+       </legend>
+         <div class="row bg-danger" style="border-radius: 40px;"><br></div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" id="teamclose" class="btn btn-secondary" data-dismiss="modal"

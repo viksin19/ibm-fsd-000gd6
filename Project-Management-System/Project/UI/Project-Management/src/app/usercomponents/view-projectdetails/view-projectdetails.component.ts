@@ -15,7 +15,31 @@ export class ViewProjectdetailsComponent implements OnInit {
   projects:Project
   manager:string
 
-  constructor() { }
+  constructor() { 
+    this.users = {
+      username: "",
+      password: "",
+      ulocation: "",
+      avialability: "",
+      email: "",
+      img: "",
+      udomain: "",
+      previous_project: "",
+      userType: "",
+      projectid: "",
+      taskId: ""
+    }
+
+    this.projects = {
+      projectId: 0,
+      pname: "",
+      plocation: "",
+      start_date: "",
+      end_date: "",
+      pmanagerEmail: ""
+    }
+
+  }
 
   ngOnInit() {   
     this.user=localStorage.getItem("user"); 
@@ -34,7 +58,7 @@ export class ViewProjectdetailsComponent implements OnInit {
         console.log(this.users);
           
         const url = `http://b4ibm21.iiht.tech:8010`;
-        fetch(url+`/project/${this.users.projectid}`,{
+        fetch(url+`/findbyid/${this.users.projectid}`,{
           method: "GET",
           headers: {
             "Content-Type":"application/json"

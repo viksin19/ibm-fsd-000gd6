@@ -22,20 +22,21 @@
                       <i class="fa fa-home" aria-hidden="true"></i> Add-Task
                     </a>
                   </li>
+                  <li>
+                      <a [routerLink]="['/teamService/add']">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>Add-Member
+                      </a>
+                    </li>
+                    
                 <li>
                   <a  [routerLink]="['/taskService/view']">
                     <i class="fa fa-home" aria-hidden="true"></i> Task-List
                 </a>
                 </li>
-                <li>
-                  <a [routerLink]="['/teamService/add']">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>Add-TeamMember
-                  </a>
-                </li>
-                
+              
                 <li>
                   <a [routerLink]="['/teamService/view']">
-                    <i class="fa fa-users" aria-hidden="true"></i>TeamMememberList
+                    <i class="fa fa-users" aria-hidden="true"></i>Team-Memember-List
                   </a>
                 </li>
                 <li>
@@ -55,7 +56,7 @@
             <div class="col-9">
 
               <div class="row bg-info" style="border-radius: 40px;"><br>
-                <h1 class="text-center text-white" style="margin-left: 380px">Hello ! {{manager}}</h1>
+                <h1 class="text-center text-white" style="margin-left: 620px">Hello ! {{manager}}</h1>
               </div>
               <br>
                <div class="row">
@@ -66,6 +67,7 @@
                  <div class="col-4"><h5>Location : </h5>{{userData.ulocation}}</div>
                </div>
                <br>
+               <br>
                <div class="row">
                   <div class="col-1">
                   </div>
@@ -73,6 +75,7 @@
                   <div class="col-1"></div>
                   <div class="col-4"><h5>Project-Location : </h5>{{project.plocation}}</div>
                 </div>
+                <br>
                 <br>
                <div class="row">
               
