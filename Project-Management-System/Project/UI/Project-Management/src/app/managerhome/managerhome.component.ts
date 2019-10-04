@@ -97,15 +97,16 @@ export class ManagerhomeComponent implements OnInit {
               .then(tas => {
 
                 this.tasks = tas;
-
+ 
                 this.firstinit();
+                this.pieChart();
 
               })
           })
 
       })
 
-      this.pieChart();
+      
   }
 
   pieChart(){
@@ -119,11 +120,23 @@ fetch(`http://b4ibm21.iiht.tech:8021/getAllTasks/${this.project.projectId}`,{
   .then(data=>{
     let result:Tasks[];
     result=data;
+    console.log(result);
     for(let i =0;i<result.length;i++){
        this.pieLabels.push(result[i].taskName);
-
+       let userlist:User[];
+       fetch(`http://b4ibm21.iiht.tech:8001/getAllTeam/${result[i].taskId}`,{
+         method:"GET",
+         headers:{
+           "Content-Type":"application/json"
+         }
+       }).then(res=>res.json())
+         .then(data=>{
+           userlist=data;
+           this.pieData.push(userlist.length);
+         })
+    
     }
-  })
+  });
 
 
   }

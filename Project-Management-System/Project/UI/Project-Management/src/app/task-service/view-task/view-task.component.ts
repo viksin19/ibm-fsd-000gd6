@@ -43,6 +43,7 @@ export class ViewTaskComponent implements OnInit {
     }).then(resp => resp.json())
       .then(resp => {
         this.projects = resp;
+
         console.log(resp);
         this.proid = this.projects.projectId;
 
@@ -54,7 +55,9 @@ export class ViewTaskComponent implements OnInit {
         })
           .then(res => res.json())
           .then(data => {
+            
             this.tasks = data;
+            console.log(this.tasks);
 
           })
       })
