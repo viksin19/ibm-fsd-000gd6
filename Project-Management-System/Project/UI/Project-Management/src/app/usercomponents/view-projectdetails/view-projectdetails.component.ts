@@ -16,13 +16,13 @@ export class ViewProjectdetailsComponent implements OnInit {
   manager:string
 
   constructor() { 
+
     this.users = {
       username: "",
       password: "",
       ulocation: "",
-      avialability: "",
+      availability: "",
       email: "",
-      img: "",
       udomain: "",
       previous_project: "",
       userType: "",
@@ -42,8 +42,7 @@ export class ViewProjectdetailsComponent implements OnInit {
   }
 
   ngOnInit() {   
-    this.user=localStorage.getItem("user"); 
-    this.email=JSON.parse(window.localStorage.getItem("email"));
+    this.email = localStorage.getItem("email");
     console.log(this.email);
     const _baseUrl = `http://b4ibm21.iiht.tech:8001`;
     fetch(_baseUrl + `/user/${this.email}`, {

@@ -1,138 +1,150 @@
 <div class="image">
-    <div class="row">
-      <div class="col-3">
+  <div class="row">
+    <div class="col-3">
       <div class="sidebar-container">
           <div class="sidebar-img">
               <img src="https://cdn1.iconfinder.com/data/icons/user-avatars-2/300/04-512.png" style="width: 140px; height: 140px; 
               border-radius: 50%; margin-left: 27px; margin-top: 3px;">
-            </div>
-      <div class="sidebar-logo">
-        Hello ! {{user}}
-      </div>
-      <ul class="sidebar-navigation">
-        
-        <li class="header">DashBoard</li>
-        <li><a>
+        </div>
+        <div class="sidebar-logo">
+          Hello {{userRecord.username}}
+        </div>
+        <ul class="sidebar-navigation">
+
+          <li class="header">DashBoard</li>
+          <li><a>
               <i class="fa fa-home" aria-hidden="true"></i> Home
-              </a>
-          </li>
-        <li>
-          <a  [routerLink]="['/usercomponents/viewprojectdetails']">
-            <i class="fa fa-home" aria-hidden="true"></i> Project-Details
-          </a>
-        </li>
-        <li>
-          <a [routerLink]="['/usercomponents/viewtasklist']">
-            <i class="fa fa-tachometer" aria-hidden="true"></i> Task-Details
-          </a>
-        </li>
-        
-        <li>
-          <a [routerLink]="['/usercomponents/viewteamslist']">
-            <i class="fa fa-users" aria-hidden="true"></i> Project-team
-          </a>
-        </li>
-        <li>
-            <a data-toggle="modal" data-target="#updateModal">
-              <i class="fa fa-users" aria-hidden="true"></i>Update_Profile
             </a>
           </li>
           <li>
-              <a [routerLink]="['/home']">
-                <i class="fa fa-users" aria-hidden="true"></i>LogOut
-              </a>
-            </li>
-      </ul>
+            <a [routerLink]="['/usercomponents/viewprojectdetails']">
+              <i class="fa fa-home" aria-hidden="true"></i> Project-Details
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/usercomponents/viewtasklist']">
+              <i class="fa fa-tachometer" aria-hidden="true"></i> Task-Details
+            </a>
+          </li>
+
+          <li>
+            <a [routerLink]="['/usercomponents/viewteamslist']">
+              <i class="fa fa-users" aria-hidden="true"></i> Project-Team
+            </a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target="#updateModal">
+              <i class="fa fa-users" aria-hidden="true"></i>Update-Profile
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/home']">
+              <i class="fa fa-users" aria-hidden="true"></i>LogOut
+            </a>
+          </li>
+        </ul>
       </div>
-      </div>
-    
+    </div>
+
     <div class="col-9">
       <div class="header bg-info" style="border-radius: 40px;"><br>
-        <h3 class="text-white text-center" >Hello ! {{userRecord.username}}</h3>
         <br></div>
       <div class="row">
-       <div class="col-1">&nbsp;</div>
-      <div class="col-4">
-        
-        <div class="row">
-          <div class="col-6">
-          <h3> Developer-Name: </h3>
-        </div>
-        <div class="col-6"><h4>{{userRecord.username}}</h4></div>
-        </div>
-      </div>
-      <div class="col-2"></div>
-      <div class="col-4">
-        
+        <div class="col-1">&nbsp;</div>
+        <div class="col-4">
+
           <div class="row">
             <div class="col-6">
-            <h3> Email: </h3>
+              <h3> Developer-Name: </h3>
+            </div>
+            <div class="col-6">
+              <h4>{{userRecord.username}}</h4>
+            </div>
           </div>
-          <div class="col-6"><h4>{{userRecord.email}}</h4></div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+
+          <div class="row">
+            <div class="col-6">
+              <h3> Email: </h3>
+            </div>
+            <div class="col-6">
+              <h4>{{userRecord.email}}</h4>
+            </div>
           </div>
         </div>
 
 
       </div>
-      <div class="row"><br><br></div>
+      <div class="row"><br></div>
       <div class="row">
         <div class="col-1">&nbsp;</div>
-          <div class="col-4">
-            
-            <div class="row">
-              <div class="col-6">
+        <div class="col-4">
+
+          <div class="row">
+            <div class="col-6">
               <h3> Location : </h3>
             </div>
-            <div class="col-6"><h4>{{userRecord.ulocation}}</h4></div>
+            <div class="col-6">
+              <h4>{{userRecord.ulocation}}</h4>
             </div>
           </div>
-          <div class="col-2"></div>
-          <div class="col-4">
-            
-              <div class="row">
-                <div class="col-6">
-                <h3> Domain : </h3>
-              </div>
-              <div class="col-6"><h4>{{userRecord.udomain}}</h4></div>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
 
-          <div class="row"><br><br></div>
           <div class="row">
-            <div class="col-1">&nbsp;</div>
-              <div class="col-4">
-                
-                <div class="row">
-                  <div class="col-6">
-                  <h3> Availability : </h3>
-                </div>
-                <div class="col-6"><h4>{{userRecord.availability}}</h4></div>
-                </div>
-              </div>
-              <div class="col-2"></div>
-              <div class="col-4">
-                
-                  <div class="row">
-                      <div class="col-6">
-                      <h3> Manager : </h3>
-                    </div>
-                    <div class="col-6"><h4>{{manager.username}}</h4></div>
-                    </div>
-             </div>
+            <div class="col-6">
+              <h3> Domain : </h3>
+            </div>
+            <div class="col-6">
+              <h4>{{userRecord.udomain}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  </div>
+      <div class="row"><br></div>
+      <div class="row">
+        <div class="col-1">&nbsp;</div>
+        <div class="col-4">
 
-  <div class="row"><br><br></div>
+          <div class="row">
+            <div class="col-6">
+              <h3> Availability : </h3>
+            </div>
+            <div class="col-6">
+              <h4>{{userRecord.availability}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+
+          <div class="row">
+            <div class="col-6">
+              <h3> Manager : </h3>
+            </div>
+            <div class="col-6">
+              <h4>{{userProject.pmanagerEmail}}</h4>
+            </div>
+          </div>
+        
+        </div>
+
+      </div>
+  
+  <div class="row"><br></div>
   <div class="row">
     <div class="col-1">&nbsp;</div>
       <div class="col-4">
         
         <div class="row">
           <div class="col-6">
-          <h2> Current-Project : </h2>
+          <h3> Current-Project : </h3>
         </div>
-        <div class="col-6"><h3>{{project.pname}}</h3></div>
+        <div class="col-6"><h4>{{userProject.pname}}</h4></div>
         </div>
       </div>
       <div class="col-2"></div>
@@ -140,9 +152,9 @@
         
           <div class="row">
               <div class="col-6">
-              <h2> Current-Task : </h2>
+              <h3> Current-Task : </h3>
             </div>
-            <div class="col-6"><h3>{{userTask.taskName}}</h3></div>
+            <div class="col-6"><h4>{{userTask.taskName}}</h4></div>
             </div>
      </div>
 
@@ -171,23 +183,17 @@
   </div>
 
 </div>
+  </div>
+  </div>
+  </div>
 
-
-
+      <!-- Update-Profile-Modal -->
   
-  </div>
-  </div>
-  </div>
-
-
-
-  <!-- Update-Profile-Modal -->
-
   <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Update-Task-Status</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -229,14 +235,13 @@
 
 
 
-
     <div class="modal" id="updateModal">
         <div class="modal-dialog">
           <div class="modal-content">
       
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Update</h4>
+              <h4 class="modal-title">Update-Profile</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
       
@@ -248,11 +253,11 @@
                     <div class=" row form-group">
                       <div class="col-4">
                         <input type="text" class="form-control text-dark" name="username" [(ngModel)]="userRecord.username"
-                          placeholder="Enter Name" required/><br />
+                          placeholder="Enter Name" /><br />
                       </div>
                       <div class="col-4 ">
                         <input type="text" class="form-control text-dark" name="password" [(ngModel)]="userRecord.password"
-                          placeholder="Enter Password" required/><br />
+                          placeholder="Enter Password" /><br />
                       </div>
                     </div>
                     <div class="row form-group ">
@@ -262,13 +267,13 @@
                       </div>
                       <div class="col-4">
                         <input type="text" class="form-control text-dark" name="ulocation" [(ngModel)]="userRecord.ulocation"
-                          placeholder="Location" required /><br />
+                          placeholder="Location" /><br />
                       </div>
                     </div>
                     <div class=" row form-group">
                       <div class="col-4">
                         <input type="email" class="form-control text-dark" readonly name="email"
-                          [(ngModel)]="userData.email" placeholder="Email" /><br />
+                          [(ngModel)]="userRecord.email" placeholder="Email" /><br />
                       </div>
                     </div>
         

@@ -12,9 +12,8 @@ export class ViewTasksComponent implements OnInit {
 
   email: String
   users: User
-  user:any
-  project:Project
-  task:Tasks[]
+  project: Project
+  task: Tasks[]
 
   constructor() {
     this.users = {
@@ -23,39 +22,40 @@ export class ViewTasksComponent implements OnInit {
       ulocation: "",
       availability: "",
       email: "",
-      img: "",
       udomain: "",
       previous_project: "",
       userType: "",
       projectid: "",
-      taskId: ""
-   }
+      taskId: "",
+      uStatus:"",
+      uAssigndate:""
+    }
   }
-  ngOnInit() {    
-    this.user=localStorage.getItem("user");
-    this.email=JSON.parse(window.localStorage.getItem("email"));
+
+  ngOnInit() {
+    this.email = localStorage.getItem("email");
     console.log(this.email);
-    const _baseUrl = `http://b4ibm.iiht.tech:8001`;
+    const _baseUrl = `http://b4ibm21.iiht.tech:8001`;
     fetch(_baseUrl + `/user/${this.email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(res => res.json())
+    })
+      .then(res => res.json())
       .then(res => {
         this.users = res;
-            const _task = `http://localhost:8021`;
-            fetch(_task+`/getAllTasks/${this.project.projectId}`,{
-              method:"GET",
-              headers:{
-                "Content-Type":"application/json"
-              }
-            }).then(response=>response.json())
-              .then(ta=>{
-                 this.task=ta;
-              })
+        const _task = `http://b4ibm21.iiht.tech:8021`;
+        fetch(_task + `/getAllTasks/${this.users.projectid}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(response => response.json())
+          .then(ta => {
+            this.task = ta;
+          })
 
-          
       })
   }
 

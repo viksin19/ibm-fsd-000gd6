@@ -26,7 +26,6 @@ export class AddTaskComponent implements OnInit {
     console.log(this.manageremail);
     this.newTaskForm = new FormGroup({
       taskName: new FormControl("",[Validators.required]),
-      
       startDate: new FormControl("",[Validators.required]),
       endDate: new FormControl("",[Validators.required]),
       status: new FormControl("",[Validators.required])

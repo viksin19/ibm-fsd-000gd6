@@ -18,10 +18,10 @@
             </a>
           </li>
           <li>
-              <a [routerLink]="['/userService/add']">
-                <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
-              </a>
-            </li>
+            <a [routerLink]="['/userService/add']">
+              <i class="fa fa-tachometer" aria-hidden="true"></i>Add-User
+            </a>
+          </li>
           <li>
             <a [routerLink]="['/projectService/add']">
               <i class="fa fa-home" aria-hidden="true"></i> Add-Project
@@ -61,14 +61,18 @@
             </div>
             <div class=" col-md-6">
               <label for="city" class="text-white">City</label>
-              <input type="text" formControlName="ulocation" class="form-control" placeholder="City" required>
+              <select formControlName="ulocation" class="form-control" required>
+                <option *ngFor="let c of cities" [ngValue]="c">
+                  {{ c.city }}
+                </option>
+              </select>
             </div>
           </div>
           <div class="row">
             <div class=" col-md-6">
               <label for="age" class="text-white">Previous_Project</label>
-              <input type="text" formControlName="previous_project" class="form-control "
-                placeholder="Previous_Project" required />
+              <input type="text" formControlName="previous_project" class="form-control " placeholder="Previous_Project"
+                required />
             </div>
             <div class=" col-md-6">
               <label for="domain" class="text-white">Domain</label>
@@ -79,33 +83,30 @@
           <div class="row">
             <div class="col-md-6">
               <label for="inputEmail4" class="text-white">Email</label>
-              <input type="email" formControlName="email" class="form-control"placeholder="Email" required>
+              <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
             </div>
             <div class=" col-md-6">
               <label for="inputPassword4" class="text-white">Password</label>
-              <input type="password" formControlName="password" class="form-control" 
-                placeholder="Password" required>
+              <input type="password" formControlName="password" class="form-control" placeholder="Password" required>
 
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-              <label for="inputimage" class="text-white">Image</label>
-              <input type="text" formControlName="img" class="form-control" placeholder="image">
-            </div>
             <div class=" col-md-6">
-              <label for="inputPassword4" class="text-white" aria-placeholder="User-Type">UserType</label>
+              <label class="text-white" aria-placeholder="User-Type">UserType</label>
               <select formControlName="userType" class="form-control">
                 <option *ngFor="let role of roles" [ngValue]="role">
                   {{ role.type }}
                 </option>
               </select>
             </div>
-          </div>
-          <div class="row">
             <div class=" col-md-6">
               <label for="domain" class="text-white">Availability</label>
-              <input type="text" formControlName="availability" class="form-control " placeholder="availability" required />
+              <select formControlName="availability" class="form-control" required>
+                <option *ngFor="let a of available" [ngValue]="a">
+                  {{ a.status }}
+                </option>
+              </select>
             </div>
           </div>
           <input type="submit" [disabled]="!newAddUserForm.valid" class="btn btn-success btn-lg" value="Add-User" />

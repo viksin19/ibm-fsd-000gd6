@@ -10,24 +10,27 @@ import { Project } from '../Interfaces/Project';
   styleUrls: ['./userhome.component.css']
 })
 export class UserhomeComponent implements OnInit {
-userName:any
-email : string
-userRecord: User
-userTask: Tasks
-userProject: Project
-  constructor(private userService :UserService) {
+  userName: any
+  email: string
+  userRecord: User
+  userTask: Tasks
+  userProject: Project
+  completed:number
+  notCompleted:number
+  constructor(private userService: UserService) {
     this.userRecord = {
       username: "",
       password: "",
       ulocation: "",
       availability: "",
       email: "",
-      img: "",
       udomain: "",
       previous_project: "",
       userType: "",
       projectid: "",
-      taskId: ""
+      taskId: "",
+      uStatus:"",
+      uAssigndate:""
     }
 
     this.userProject = {
@@ -46,24 +49,81 @@ userProject: Project
       status: "",
       projectId: 0
     }
-  
-   }
+  }
 
 
   public doughnutLables = ['Task-Completed', 'Reamaining-Task'];
   public doughnutChartType = 'doughnut';
-  public doughnutData = [40, 60];
+  public doughnutData = [, ,];
 
 
   ngOnInit() {
-    this.userName=localStorage.getItem("user");
-     this.email=localStorage.getItem("email");
-    this.userService.getUserByEmail(data =>{
-       this.userRecord = data;
-    },this.email);
-  }
+    this.email = localStorage.getItem("email");
+    console.log(this.email);
+    const userUrl = `http://b4ibm21.iiht.tech:8001`;
+    const taskUrl = `http://b4ibm21.iiht.tech:8021`;
+    const projectUrl = `http://b4ibm21.iiht.tech:8010`;
+    fetch(userUrl + `/user/${this.email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.userRecord = res;
+        console.log(this.userRecord);
+        fetch(projectUrl + `/findbyid/${this.userRecord.projectid}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(res => res.json())
+          .then(res => {
+            this.userProject = res;
+              this.completed=parseInt(this.userRecord.uStatus);
+              this.notCompleted=100-this.completed;
+              this.doughnutData=[this.completed,this.notCompleted];
 
-  updateStatus(){
+            console.log(this.userProject);
+
+            fetch(taskUrl + `/taskById/${this.userRecord.taskId}`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json"
+              }
+            })
+              .then(res => res.json())
+              .then(res => {
+                this.userTask = res;
+                console.log(this.userTask);
+              })
+
+          })
+      })
+  }
+update(){
+
+  const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
+
+  fetch(_baseUrl + `/update/${this.userRecord.email}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(this.userRecord)
+  }).then(res => res.json())
+    .then(data => {
+
+      alert("Profile-Updated");
+
+    })
+  document.getElementById("close").click();
+  document.location.reload();
+
+}
+  updateStatus() {
     const userUrl = `http://b4ibm21.iiht.tech:8001`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;
     const projectUrl = `http://b4ibm21.iiht.tech:8010`;
@@ -80,29 +140,12 @@ userProject: Project
       .then(res => res.json())
       .then(res => {
         console.log(res);
-      })
-    document.getElementById("closeStatus").click();
-      console.log(this.userTask);
-    
+        if(res){
+        alert("Task-Status Updated Successfully !!");}
+      });
+      document.getElementById("closeStatus").click();
+      document.location.reload();
+
   }
-update(){
-
-  const _baseUrl = `http://b4ibm21.iiht.tech:8001/`;
-
-  fetch(_baseUrl+`/update/${this.userRecord.email}`,{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body: JSON.stringify(this.userRecord)
-  }).then(res=>res.json())
-    .then(data=>{
-      
-      alert(`--`+data);
-
-    })
-document.getElementById("close").click();
-}
 
 }
-

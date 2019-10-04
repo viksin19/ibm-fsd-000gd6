@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ import com.example.user.data.User;
 import com.example.user.model.CreateTeamsRequestModel;
 import com.example.user.model.CreateUserRequestModel;
 import com.example.user.model.CreateUserResponseModel;
+import com.example.user.model.PRojectIdTaskIDModel;
 import com.example.user.model.ProjectIdRequestModel;
 import com.example.user.service.UserService;
 import com.example.user.shared.UserDto;
@@ -132,15 +134,38 @@ public class UserController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(new ErrorClass("Deleted"));
 	}
 	
-	@GetMapping("/getAllTeam")
-	public List<?> getAllTeam(Long taskId){
+	@GetMapping("/getAllTeam/{id}")
+	public ResponseEntity<?> getAllTeam(@PathVariable("id") Long taskId){
 		List<?> teams =userService.getAllTeam(taskId);
-		return teams;
+		System.out.println(teams);
+		return ResponseEntity.status(HttpStatus.CREATED).body(teams);
 	}
 	
-	@GetMapping("/deleteTeamMember")
-	public boolean deleteTeamMember(String email) {
+	@GetMapping("/deleteTeamMember/{email}")
+	public boolean deleteTeamMember(@PathVariable String email) {
 		boolean teamMember = userService.deleteTeamMember(email);
 		return true;
 	}
+	
+	@PostMapping("/findUserProjectTask")
+	public ResponseEntity<?> getUserFromPojectIdTaskId(@RequestBody PRojectIdTaskIDModel details) {
+		System.out.println(details.toString());
+		List<User> tmodel=userService.getUserFromPojectIdTaskId(details);
+		return ResponseEntity.status(HttpStatus.CREATED).body(tmodel);
+	}
+	@GetMapping("/user/{email}/{status}")
+	public ResponseEntity<?> getByStatus(@PathVariable("email") String email,@PathVariable("status") String status) {
+		System.out.println("User Email = "+email);
+		boolean userDto = userService.getByStatus(email,status);
+		return ResponseEntity.status(HttpStatus.CREATED).body(userDto);
+
+	}
+	
+	@GetMapping("/findByProjectId/{id}")
+	public ResponseEntity<?> getByProjectId(@PathVariable("id") Long projectId) {
+		boolean userDto = userService.getByProjectId(projectId);
+		return ResponseEntity.status(HttpStatus.CREATED).body(userDto);
+
+	}
+	
 }

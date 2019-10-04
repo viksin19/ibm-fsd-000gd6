@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from 'src/app/Interfaces/Project';
+import { Tasks } from 'src/app/Interfaces/Tasks';
 import { User } from 'src/app/Interfaces/User';
+import { Project } from 'src/app/Interfaces/Project';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-team',
   templateUrl: './view-team.component.html',
   styleUrls: ['./view-team.component.css']
-})
-export class ViewTeamComponent implements OnInit {
-manager:string
-tasks: TasksDetail[]
-task: TasksDetail
-uNames: userName[]
-users: User[]
-proid: Number
+}) export class ViewTeamComponent implements OnInit {
+  tasks: TasksDetail[]
+  task: TasksDetail
+  uNames: userName[]
+  users: User[]
+  proid: Number
+  manager: string
+  projects: Project
+  pname: Project[]
+  id: Number;
+  constructor(private router: Router) {
+    this.task = {
+      taskId: 0,
+      taskName: "",
+      startDate: "",
+      endDate: "",
+      status: ""
+    };
+  }
 
-projects: Project
-pname: Project[]
-id: Number;
-constructor(private router: Router) {
-  this.task = {
-    taskId: 0,
-    taskName: "",
-    startDate: "",
-    endDate: "",
-    status: ""
-  };
-}
   ngOnInit() {
-    this.manager=localStorage.getItem("manager");
+    this.manager = localStorage.getItem("email");
     const url = `http://b4ibm21.iiht.tech:8010/`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;
     fetch(url + `/findbyemail/${this.manager}`, {
@@ -103,6 +103,8 @@ constructor(private router: Router) {
         document.location.reload();
       })
   }
+
+
 }
 
 interface userName {

@@ -14,6 +14,7 @@ project:Project
 uProject:any
 id:Number
 admin:string
+teams:User[]
 
   constructor(private router:Router) { 
     this.project= {  projectId: 0,
@@ -83,15 +84,15 @@ updateForm(id){
   // view team
 team(id){
   console.log(id);
-    let teams:any
-  fetch(`http://b4ibm21.iiht.tech:8001/findbyprojectid/${id}`,{
+    
+  fetch(`http://b4ibm21.iiht.tech:8001/findByProjectId/${id}`,{
     method:"GET",
     headers:{
       "Content-Type":"application/json"
     }
   }).then(res=>res.json())
     .then(data=>{
-      teams=data;
+      this.teams=data;
     })
   document.getElementById("teamtoggle").click();
   window.localStorage.setItem("projectId",id);

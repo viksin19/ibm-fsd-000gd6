@@ -3,6 +3,7 @@ package com.example.user.service;
 import java.util.List;
 import com.example.user.data.User;
 import com.example.user.model.CreateTeamsRequestModel;
+import com.example.user.model.PRojectIdTaskIDModel;
 import com.example.user.model.ProjectIdRequestModel;
 import com.example.user.shared.UserDto;
 
@@ -25,4 +26,7 @@ public interface UserService {
 	public void updateDeletedTaskId(Long taskId);
 	public List<?> getAllTeam(Long taskId);
 	public boolean deleteTeamMember(String email);
+	public List<User> getUserFromPojectIdTaskId(PRojectIdTaskIDModel teamDetail);
+	public boolean getByStatus(String email,String status);
+	public boolean getByProjectId(Long projectId);
 }

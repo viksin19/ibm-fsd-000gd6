@@ -24,4 +24,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	List<User> findByTaskId(Long taskId);
 	
 	List<User> findByUserType(String role);
+	
+	List<User> findAllByProjectidAndTaskIdIn(Long projectId,List<Long> taskId);
+	
+	List<User> findByProjectid(Long projectId);
 }
