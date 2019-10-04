@@ -57,14 +57,14 @@
 
           <tbody class="table table-light">
             <div class="bg-danger" style="border-radius: 50px;"><br>
-              <h3 class="text-center text-white">Task-List</h3>
+              <h3 class="text-center list text-white">Task-List</h3>
               <br>
             </div>
-            <div class="row"><br><br>
+            <div class="row"><br>
             </div>
-            <tr *ngFor="let t of tasks">
+            <tr *ngFor="let t of tasks" >
 
-              <div class="row tbody">
+              <div class="row tbody" style="margin-left: 80px;">
                 <td class="col-4">
                   <div class="row">
                 <td>
@@ -104,11 +104,8 @@
     </div>
     </td>
   </div>
-  <div class="row tbody">
-    <td><button class="btn btn-warning btn-lg text-dark" style="border-radius: 50px;" id="update"
-        (click)="updateForm(t.taskId)">
-        <h4>Update</h4>
-      </button></td>
+  <div class="row tbody" style="margin-left: 80px;">
+
     <td><button class="btn btn-danger btn-lg" style="border-radius: 50px;" (click)="delete(t.taskId)">
         <h4>Delete</h4>
       </button></td>

@@ -55,7 +55,9 @@
       text-decoration: none;
       outline: none;
     }
-    
+    .list{
+      margin-right: 50px;
+    }
     .sidebar-navigation li::before {
       background-color: #2574A9;
       position: absolute;

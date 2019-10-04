@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class ViewTaskComponent implements OnInit {
   tasks: Tasks[]
+  email:string
   task: Taskraedonlyproject
   uNames: userName[]
   users: User[]
@@ -29,10 +30,11 @@ export class ViewTaskComponent implements OnInit {
 
   ngOnInit() {
 
-    this.manager = localStorage.getItem("email");
+    this.manager = localStorage.getItem("manager");
+    this.email= localStorage.getItem("email");
     const url = `http://b4ibm21.iiht.tech:8010/`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;
-    fetch(url + `/findbyemail/${this.manager}`, {
+    fetch(url + `/findbyemail/${this.email}`, {
       method: "GET",
       headers:
       {
@@ -43,6 +45,7 @@ export class ViewTaskComponent implements OnInit {
         this.projects = resp;
         console.log(resp);
         this.proid = this.projects.projectId;
+
         fetch(taskUrl + `/getAllTasks/${this.proid}`, {
           method: "GET",
           headers: {

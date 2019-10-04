@@ -104,8 +104,29 @@ export class ManagerhomeComponent implements OnInit {
           })
 
       })
+
+      this.pieChart();
   }
 
+  pieChart(){
+
+fetch(`http://b4ibm21.iiht.tech:8021/getAllTasks/${this.project.projectId}`,{
+  method:"GET",
+  headers:{
+    "Content-Type":"application/json"
+  }
+}).then(res=>res.json())
+  .then(data=>{
+    let result:Tasks[];
+    result=data;
+    for(let i =0;i<result.length;i++){
+       this.pieLabels.push(result[i].taskName);
+
+    }
+  })
+
+
+  }
   firstinit() {
 
     // doughnut chart
@@ -123,6 +144,8 @@ export class ManagerhomeComponent implements OnInit {
       }
     }
     this.doughnutData = [this.completedCount, this.ongoingCount, this.stuck];
+
+
 
     // pie chart
 

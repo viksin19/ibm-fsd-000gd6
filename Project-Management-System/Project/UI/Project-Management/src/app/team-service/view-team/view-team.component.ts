@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
   projects: Project
   pname: Project[]
   id: Number;
+  email:string
   constructor(private router: Router) {
     this.task = {
       taskId: 0,
@@ -29,10 +30,11 @@ import { Router } from '@angular/router';
   }
 
   ngOnInit() {
-    this.manager = localStorage.getItem("email");
+    this.manager = localStorage.getItem("manager");
+    this.email=localStorage.getItem("email");
     const url = `http://b4ibm21.iiht.tech:8010/`;
     const taskUrl = `http://b4ibm21.iiht.tech:8021`;
-    fetch(url + `/findbyemail/${this.manager}`, {
+    fetch(url + `/findbyemail/${this.email}`, {
       method: "GET",
       headers:
       {

@@ -60,7 +60,7 @@
     padding: 10px 15px 10px 30px;
   }
   .card-body{
-    background-color: #d5d4da
+    background-color: #fbfbfd
   }
   .sidebar-navigation .header::before {
     background-color: transparent;
@@ -77,7 +77,7 @@
      
     }
     .btn{
-    background: linear-gradient(to bottom right, #3366ff 7%, #ff0066 102%);
+   
     width: 43%;
     height: 50px;
     margin-left: 175px;
