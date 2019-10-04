@@ -3,6 +3,7 @@ import { User } from 'src/app/Interfaces/User';
 import { Project } from 'src/app/Interfaces/Project';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { strictEqual } from 'assert';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -17,7 +18,7 @@ export class AddTaskComponent implements OnInit {
   manageremail: string
   uNames: userName[]
   newTaskForm: FormGroup
-  constructor() {
+  constructor(private route : Router) {
 
 
     this.manageremail = localStorage.getItem("email");
@@ -25,7 +26,7 @@ export class AddTaskComponent implements OnInit {
     console.log(this.manageremail);
     this.newTaskForm = new FormGroup({
       taskName: new FormControl("",[Validators.required]),
-      taskLeader: new FormControl("",[Validators.required]),
+      
       startDate: new FormControl("",[Validators.required]),
       endDate: new FormControl("",[Validators.required]),
       status: new FormControl("",[Validators.required])
@@ -94,7 +95,11 @@ export class AddTaskComponent implements OnInit {
       .then(res => res.json())
       .then(res => {
         console.log(res);
+        if(res){
+        alert("Task-Add !!!");
+        }
       });
+      this.route.navigate(['taskService/view']);
   }
 }
 interface userName {

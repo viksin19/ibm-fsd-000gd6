@@ -62,6 +62,9 @@ export class AddComponent implements OnInit {
       .then(res => res.json())
       .then(res => {
         console.log(res);
+        if(res){
+          alert("Added-Successfully !!");
+        }
       })
   }
 
