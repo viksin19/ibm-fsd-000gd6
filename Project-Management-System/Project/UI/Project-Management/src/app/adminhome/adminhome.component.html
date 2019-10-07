@@ -50,7 +50,8 @@
 
     <div class="card">
         <div class="card-header bg-info"><h4 class="text-center text-white">Pie-Chart</h4></div>
-        <div class="card-body"> <canvas baseChart
+        <div class="card-body"> 
+          <canvas baseChart
           [data]="pieData"
           [labels]="pieLabels"
           [chartType]="pieChartType"></canvas>
@@ -65,7 +66,8 @@
 
     <div class="card">
         <div class="card-header bg-primary"><h4 class="text-center text-white"> Doughnut-Chart</h4></div>
-        <div class="card-body"> <canvas baseChart
+        <div class="card-body"> 
+          <canvas baseChart
           [data]="doughnutData"
           [labels]="doughnutLables"
           [chartType]="doughnutChartType">
@@ -83,7 +85,8 @@
 
       <div class="card">
           <div class="card-header bg-danger"><h4 class="  text-white text-center">Bar-Chart</h4></div>
-          <div class="card-body"><canvas baseChart
+          <div class="card-body">
+            <canvas baseChart
             [datasets]="barData"
             [labels]="barLables"
             [options]="barOptions"
