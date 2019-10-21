@@ -1,0 +1,364 @@
+////////////////////SSSSPRING DUMPS/////////////////////////////
+1. VALID SPRING BEAN DEFINING
+
+	ID,CLASS
+	option a,d
+	
+2.STANDARD JAVA INTERFACE
+	A. SERIALIZE
+	B.LONG
+	C.SYSTEM
+	D.COLLECTION
+
+	SERIALIZE
+
+3. BENIFITS OF DI or  ADVANTAGES OF IOC
+	
+	LOOSE COUPLING,EASY TESTING
+
+4.WHICH OF THE BEAN SCOPE ATTRIBUTE THAT FORCES SPRING TO PRODUCE A NEW BEAN INSTANCE EACH TIME?
+	
+	PROTOTYPE
+
+5.TO ENABLE PATTERN AUTOWIRE?
+	
+	AUTOWIRE_PATTERN="TRUE"
+
+6. SET AUTOWIRE IN A BEAN WHAT ATTRIBUTE DO YOU ADD?
+	
+	AUTOWIRE="ON"
+	
+	Default autowire in a bean what attribute do you add?
+	
+	autowire="off"
+
+7.NOT ADDRESSED BY SPRING JDBC?
+	
+	if in question DataSourceAccess, then answer DataSourceAccess 
+	otherwise 
+	DAO
+	
+8.TO USE JAVA.UTIL.LIST, WHAT IS THE SPRING COLLECTION ELEMENT THAT U NEED?
+	
+	<list>
+9.TO USE BEAN DEFINATION TEMPLATE, YOU SHOULD ADD WHAT ATTRIBUTE IN THE BEAN?
+	
+	A. ABSTRACT="TRUE"
+	B. INTERFACE="TRUE"
+	C. PUBLIC ="TRUE"
+	
+	A
+
+10.USER MANAGED TRANSACTION HAS TO BE COMMITED EXPLICITLY?
+	
+	SET AUTOCOMMIT(FALSE)
+
+11. PROGRAMatic TRANSACTION 
+	
+	C
+	
+12. Spring INHERITANCE
+
+	to share common values, properties or configurations.
+	
+13. SPRING RESOLVE
+	
+	AT RUNTIME
+	
+14. JDBC DAO
+	
+	@REPOSITORY
+	
+15. JAVA BASED WHAT WE USE
+
+	@CONFIGURATION
+	
+16. HOLLYWOOD
+	
+	DONT CALL US WE WILL CALL YOU
+	
+17. modes of AUTOWIRING 
+	FIVE
+	
+    types of autowire
+	4
+	
+18. MINIMIZE XML config file
+
+	AUTOWIRING
+	
+19. EACH REQUIREMENT
+	
+	PROTOTYPE
+	
+20. CONTRUCTOR IN PROGRAM 
+	
+	CONTRUCTOR TYPE
+	
+21. SCOPE OF BEAN
+	
+	SESSION, REQUEST, PROTOTYPE, SINGLENTON, GLOBAL SESSION
+	
+22. HOW DO YOU DECLARE MVC ANNOTATION IN BEAN IN XML FILE?
+	
+	<MVC: ANNOTATION-CONFIG/>
+	
+23. ALTERNATIVE OF @AUTOWIRED
+	
+	USING AOP
+	
+24. USE OF DEPENDENCY INJECTION
+	
+	A & C(LOOSE COUPLING AND EASY TESTING)
+	
+25. NON INVASIVE
+
+	AUTOWIRED
+	
+26. Which of the following beans isn’t significant for the WebApplicationContext?
+
+    1. Locale resolver.
+    2. Handler exception resolver.
+    3. Multipart file.
+    4. None of these.
+    5. Resolver. 
+
+	4
+	
+27. Which of the following statements is true for @RequestMapping annotation?
+
+    1. Can be applied to the controller classes.
+    2. Can be applied to the controller methods.
+    3. None of these.
+    4. Used to map web requests onto specific handler methods.
+    5. Used to map web requests onto specific handler classes. 
+
+	3
+	if multiple ans then 4,5
+
+28. which annotation is used for setter method?
+	
+	@autowired
+
+29. SOME PROGRAM
+
+	@AUTOWIRED SOMETHING OBJECT
+	
+30. AUTOWIRING IS AN ALTERNATIVE TO
+	
+	something with aop
+	
+31.ANNOTATION FOR CONFIGURATION
+
+	@CONFIGURATION
+	
+32. BASIC PACKAGES
+
+	org.springframework.context.ApplicationContext;
+	org.springframework.context.support.ClassPathXMLApplicationContext;
+	
+	or
+ 
+//	ORG.SPRINGFRAMEWORK CONTEXT AND ORG.SPRINGFRAMEWORK.APPLICATION
+
+
+33. CODE IN QUESTION regarding HelloWorld
+
+	OPTION WITH PROTOTYPE
+
+	(MAYB OPTION B)
+
+34. PROGRAMTIC TRANSACTION MANAGEment (with the help of normal programming)
+	Declarative TRANSACTION MANAGEMENT(AOP)
+
+35. JAVA-BASED CONFIGURATION
+	a) <Context: annotation-config>
+	b) @Configuration public class HelloWorldConfig{...}
+	c) @Autowired
+	d) ApplicationContext context= new ClassPathXMLApplicationContext("Bean.XML")
+
+	Ans: b)@Configuration public class HelloWorldConfig{...}
+	
+36. TRADITIONAL TRANSACTION MANAGEMENT
+
+USING TEMPLATE CLASS
+
+37. GENERATOR GENERATOR....PROGRAM
+	LOOSE COUPLING
+	TIGHT COUPLING
+	DECOUPLING
+	
+	if new opeartor used--> tight coupling
+	if this. used--> loose coupling
+
+38. DAO ACCESS
+	
+	@REPOSITARY
+	
+39. MYBEAN= NULL
+	A. TRUE
+	B. FALSE
+	C. COMPILATION ERROR
+	D. NULL
+	
+	D.NULL
+
+40. program with spell checker
+
+	SETTER DI
+	Contructor DI
+
+	Setter DI
+	
+*41.what does @ Transactional annotation mean 
+	
+	Transaction = true (option b)
+
+42. current bean for request scope
+
+43. I am object A 
+	null
+
+	<bean id="helloWorld" class="com.tutorialspoint.HelloWorldId" scope="prototype"></bean>
+
+44. class String MyBeans
+{
+	if(MyBeans.equals(MyBean)
+		sop(true);
+	else
+		sop(false)
+}
+	A. TRUE
+	B. FALSE
+	C. NULL POINTER
+	D. CLASS CAST
+
+	c
+45. types of autowire-4
+	diff modes of autowiring=5
+
+46. set map id class
+	id class
+
+47. difference between autowire and autowiring
+
+48. @ autodiscovery
+
+need to eleminate <property> or <constructor tag> (option a)
+
+49. autowire->
+
+50. autowire+auto discovery 
+
+-> reduce java code 
+
+51. Spellchecker 
+
+-> setterDI
+
+52. INNER BEAN? 
+
+-> DEFINED INSIDE CONSTRUCTOR ARG OR PROPERTY TAG
+
+53. public class TextEditor {
+   private SpellChecker spellChecker;
+   
+   public TextEditor(SpellChecker spellChecker) {
+      this.spellChecker = spellChecker;
+   }
+}
+ Which DI?
+ 
+ a.CONTRUCTOR DI
+ b.Getter DI
+ c. Setter DI
+ d. NOne
+ 
+ c
+
+ 54. WHAT BASIC PACKAGES ARE IMPORTED IN JAVA PROG IN SPRING
+ 
+ org.springframework.context.ApplicationContext;
+ org.springframework.context.support.ClassPathXMLApplicationContext;
+ 
+55. Mandatory attribute for bean
+
+id & class
+
+56.what mandatory attribute does aop include?
+	
+	concern
+	float
+	advice
+	pointcut
+	
+	concern mayb
+	
+57.....object myObject;
+	if(myObject==null)
+		sop(true)
+	else
+		(false)
+		
+	true
+	false
+	null
+	compilation error
+	
+	null(mayb)
+	
+58. order of inner bean
+
+ans -->	<constructor-arg> or <property>
+	
+59. programmatic transaction management
+
+		a. pojo based model
+		d. aop
+
+60. auto-discovery
+
+	1st option eleminate<property>
+	
+61. mvc question
+
+	<mvc:annotation-driven>
+	
+62.abstract layer, init layer, dependency check
+
+	long answer
+	
+63. default bean and its functionality
+	
+	singleton and single ioc container
+	
+64. @autowired is used in
+	
+	contructor destructor option
+
+65.What is the purpose of Spring Inheritance?
+
+Ans: to share common values, properties or configurations.
+
+66.How to handle Named Query Parameters?
+
+Ans: NamedParameterJDBCTemplate
+
+67. In the bean configuration file for Hibernate (i.e., beans-hibernate.xml), you have to declare a HibernateTransactionManager instance for this application and enable declarative transaction via:-
+a) tx:annotation
+b) tx:annotationdriven
+c) tx:annotation-driven
+d) none of the mentioned
+
+Ans: c) tx:annotation-driven
+
+68. Which of the below option is not a valid collection type?
+a) list
+b)Set
+c)props
+d)property
+
+Ans: property
+
+	
+-----------------------------------------------------------	 

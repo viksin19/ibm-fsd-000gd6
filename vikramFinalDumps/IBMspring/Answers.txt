@@ -1,0 +1,7 @@
+1-D: postProcessBeforeInitialization( )
+2-A: org.springframework.beans.factory.InitializingBean
+3-C: A and B
+4-B: A data source bean configuration
+5-B: The id of the bean has to be transactionManager
+6-C
+7-C: B,C,D

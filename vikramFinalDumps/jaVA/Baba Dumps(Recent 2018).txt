@@ -1,0 +1,835 @@
+
+
+
+
+
+Copy this link to your browser and it is manadotary to visit this link :-
+
+
+
+https://annatheannoying.wordpress.com/2015/03/11/java-7-certification-exam-sample-questions/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.
+
+        import java.io.*;
+
+        class serialization
+
+        {
+
+            public static void main(String[] args)
+
+            {
+
+                try
+
+                {
+
+    	        Myclass object1 = new Myclass("Hello", -7, 2.1e10);
+
+    	        FileOutputStream fos = new FileOutputStream("serial");
+
+    	        ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+    	        oos.writeObject(object1);
+
+    	        oos.flush();
+
+    	        oos.close();
+
+    	    }
+
+    	    catch(Exception e)
+
+                {
+
+    	        System.out.println("Serialization" + e);
+
+                    System.exit(0);
+
+                }
+
+    	    try
+
+                {
+
+    	        int x;
+
+    	        FileInputStream fis = new FileInputStream("serial");
+
+    	        ObjectInputStream ois = new ObjectInputStream(fis);
+
+    	        x = ois.readInt();
+
+    	        ois.close();
+
+    	        System.out.println(x);		    	
+
+    	    }
+
+    	    catch (Exception e)
+
+                {
+
+                    System.out.print("deserialization");
+
+    	        System.exit(0);
+
+    	    }
+
+            }
+
+        }
+
+        class Myclass implements Serializable
+
+        {
+
+    	String s;
+
+    	int i;
+
+    	double d;
+
+    	Myclass(String s, int i, double d)
+
+            {
+
+    	    this.d = d;
+
+    	    this.i = i;
+
+    	    this.s = s;
+
+    	}
+
+        }
+
+a) -7
+b) Hello
+c) 2.1E10
+d) deserialization
+View Answer
+Answer: d
+
+
+2.        import java.io.*;
+
+        class serialization 
+
+        {
+
+            public static void main(String[] args) 
+
+            {
+
+                try 
+
+                {
+
+                    Myclass object1 = new Myclass("Hello", -7, 2.1e10);
+
+    	        FileOutputStream fos = new FileOutputStream("serial");
+
+    	        ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+                    oos.writeObject(object1);
+
+                    oos.flush();
+
+                    oos.close();
+
+    	    }
+
+    	    catch(Exception e) 
+
+                {
+
+    	        System.out.println("Serialization" + e);
+
+                    System.exit(0);
+
+                }
+
+    	    try  
+
+                {
+
+                    Myclass object2;
+
+    	        FileInputStream fis = new FileInputStream("serial");
+
+    	        ObjectInputStream ois = new ObjectInputStream(fis);
+
+                    object2 = (Myclass)ois.readObject();
+
+                    ois.close();
+
+    	        System.out.println(object2);		    	
+
+    	    }
+
+    	    catch (Exception e) 
+
+                {
+
+                    System.out.print("deserialization" + e);
+
+    	        System.exit(0);
+
+    	    }
+
+            }
+
+        }
+
+        class Myclass implements Serializable 
+
+        {
+
+    	String s;
+
+    	int i;
+
+    	double d;
+
+            Myclass (String s, int i, double d)
+
+            {
+
+    	    this.d = d;
+
+    	    this.i = i;
+
+    	    this.s = s;
+
+    	}
+
+        }
+
+a) s=Hello; i=-7; d=2.1E10
+b) Hello; -7; 2.1E10
+c) s; i; 2.1E10
+d) Serialization
+View Answer
+Answer: a
+
+
+
+3.How to import all package?
+
+Answer : import java.*
+
+4.class Animal
+{
+public String noise()
+{
+return "peep";
+}
+}
+class Dog extends Animal
+{
+public String noice()
+{
+return "bark";
+}
+}
+class cat extends Animal
+{
+public String noise()
+{
+return "meow";
+}
+}
+}.....
+Animal animal = new Dog();
+Cat cat= (Cat)animal;
+SOP(cat.noise());
+Answer : Exception is thrown at the Runtime
+
+5.class output {
+public static void main(String args[]){
+String buffer s1 = new StringBuffer("Hello world")
+s1.insert(6,"Good ");
+SOP(s1);
+}
+}
+Answer: Hello Good world
+
+
+6. SOP (‘1’+new integer (2) +3);
+Answer: 123
+
+
+7. Man dog best friend
+Answer : class man private dog best friend;
+
+8.Assume the following method is properly synchronized and called from a thread A on an object B:
+wait(2000);
+After calling this method, when will the thread A become a candidate to get another turn at the CPU?
+Ans: (A). After thread A is notified, or after two seconds.
+B. After the lock on B is released, or after two seconds.
+C. Two seconds after thread A is notified.
+D. Two seconds after lock B is released.
+
+9.Int x=6;
+Int y = 12;
+If(x>y)
+{
+X++;
+y--;
+
+}
+SOP(....);
+
+Answer: 2
+
+10.declare array of string
+string[]s;
+string s[]
+string []s;b
+
+Answer: ABD
+
+11.int a = 9;
+int b = 14;
+while(a<b) {
+System.out.println("In the loop");
+
+a+=2;
+b-=2;
+}
+answer- In the loop
+In the loop(2 times)
+
+12.public class GenericTest<G> {
+G g;
+GenericTest(G g){
+this.g =g;
+}
+public static void main(String[] args)
+{
+GenericTest<String> arr[] = new GenericTest[5];
+//line 1
+arr[0] = new GenericTest("Java"); //line 2
+arr[1] = new GenericTest(1); //line 3
+arr[2] = (GenericTest<String>)new
+GenericTest(1); //line 4
+arr[3] = (GenericTest<String>)new
+GenericTest<Integer>(1); //line 5
+for(GenericTest o:arr)
+{
+System.out.println(o);
+}
+}
+}
+Answer-- error in line5 
+
+13.What is the output of this program?
+Import java.util.*
+Public static void main(String args[]){
+TreeMap obj = new Treemap();
+Obj.put(“A”, newInteger(1));
+Obj.put(“b”, newInteger(2));
+Obj.put(“c”, newInteger(3));
+SOP(obj.entrySet());
+}
+Answer: [A=1,B=2,C=3]
+
+14.class BabyRaccoon extends Mammal { }
+Which four statements are true? (Choose four.)
+A. Raccoon is-a Mammal.
+B. Raccoon has-a Mammal.
+C. BabyRaccoon is-a Mammal.
+D. BabyRaccoon is-a Raccoon.
+E. BabyRaccoon has-a Mammal.
+F. BabyRaccoon is-a BabyRaccoon.
+Answer: A,B,C,F
+
+15. Which Man class properly represents the
+relationship "Man has a best friend who is a
+Dog"?
+A. class Man extends Dog { }
+B. class Man implements Dog { }
+C. class Man { private BestFriend dog; }
+D. class Man { private Dog bestFriend; }
+E. class Man { private Dog<bestFriend>; }
+F. class Man { private BestFriend<dog>; }
+Answer: D
+
+16.Questions no -4 
+What is the output for the below code ?
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+
+public class Test {
+	public static void main(String... args) {
+        
+		
+		
+		Queue q = new LinkedList();
+		        q.add("newyork");
+		        q.add("ca");
+		        q.add("texas");
+		        show(q);
+		    }
+		
+		    public static void show(Queue q) {
+		        q.add(new Integer(11));
+		        while (!q.isEmpty ( ) )
+		            System.out.print(q.poll() + "  ");
+		    }
+
+
+}
+
+options
+A)Compile error : Integer can't add
+B)newyork  ca  texas  11
+C)newyork  ca  texas
+D)newyork  ca 
+
+Correct answer is : B
+
+
+Q17.-  Which is wrong here ?
+while((i<10)&&(i>24))
+
+options
+A. logical should not be in test condition
+B. The condition is always true
+C. The condition is always false
+
+Correct answer is : C
+
+
+
+Q18.- What is the java file name ?
+public showyourclass{
+	//some code here
+}
+
+options-
+A. showyourclass.java
+B. showyourclass.class
+
+Correct answer is : A
+
+
+Q19.- What code is used to get month of year ?
+Calendar calendar = new GregorianCalendar();
+
+options-
+A. Calender.Month
+B. Calender.MONTH_OF_YEAR
+C. Calender.WEEK_OF_YEAR
+D. Calender.WEEK_OF_MONTH
+
+Correct answer is : A
+
+
+20. String obj = "abc";
+byte b[] = obj.getBytes();
+ByteArrayInputStream obj1 = new Byte
+ArrayInputStream(b);
+for (int i = 0; i < 2; ++ i) {
+int c;
+while ((c = obj1.read()) != -1)
+{
+if (i == 0) {
+System.out.print(Charact
+er((char)c)); }}}}}
+
+Answer: abc  (option is -A)
+
+
+21.output of expression 5.84 + "3,2" ;
+
+Answer: - String "5.843,2"
+
+22.What is the output of this program?
+
+import java.util.*;
+
+class hashtable 
+
+{
+
+public static void main(String args[]) 
+
+{
+
+Hashtable obj = new Hashtable();
+
+obj.put("A", new Integer(3));
+
+obj.put("B", new Integer(2));
+
+obj.put("C", new Integer(8));
+
+obj.remove(new String("A"));
+
+System.out.print(obj);
+
+}
+
+}
+
+a) {C=8, B=2}
+b) [C=8, B=2].
+c) {A=3, C=8, B=2}
+d) [A=3, C=8, B=2].
+View Answer
+Answer: a
+
+23.public class MyLoop {
+public static void main(String[] args) { 
+String[] sa = {"tom ", "jerry "}; 
+for(int x = 0; x < 3; x++) {
+for(String s : sa) {
+System.out.print(x + " " + s);
+if(x == 1) break; 
+}
+}
+}
+}
+Ans:- 0 tom 0 jerry 1 tom 2 tom 2 jerry
+
+24.Interface Rideable {
+String getGait();
+}
+
+
+public class Camel implements Rideable {
+int weight = 2;
+public static void main(String[] args) {
+new Camel().go(8);
+}
+
+void go(int speed) {
+++speed;
+weight++;
+int walkrate = speed * weight;
+System.out.print(walkrate + getGait());
+}
+
+String getGait() {
+return " mph, lope";
+}
+}
+Ans:-Compilation Error 
+
+25.A team of programmers is involved in
+reviewing a proposed design for a new utility
+class. After
+some discussion, they realize that the current
+design allows other classes to access methods
+in
+the utility class that should be accessible only to
+methods within the utility class itself. What
+design
+issue has the team discovered?
+A. Tight coupling
+B. Low cohesion
+C. High cohesion
+D. Loose coupling
+E. Weak encapsulation
+F. Strong encapsulation
+Answer: E
+
+26.interface Jumper { public void jump(); } ...
+ class Animal {} ...
+ class Dog extends Animal {
+ Tail tail; 
+ } ...
+ class Beagle extends Dog implements
+Jumper{
+ public void jump() {}
+ } ...
+ class Cat implements Jumper{
+ public void jump() {}
+ }
+Which three are true?(Choose Three)
+A. Cat is-a Animal
+B. Cat is-a Jumper
+C. Dog is-a Animal
+D. Dog is-a Jumper
+E. Cat has-a Animal
+F. Beagle has-a Tail
+G. Beagle has-a Jumper
+
+Answer: B,C,F
+
+27.10. class One {
+11. void foo() { }
+12. }
+13. class Two extends One {
+14. //insert method here
+15. }
+Which three methods, inserted individually at line 14, will correctly complete class Two? (Choose three.)
+A. int foo() { /* more code here */ }
+B. void foo() { /* more code here */ }
+C. public void foo() { /* more code here */ }
+D. private void foo() { /* more code here */ }
+E. protected void foo() { /* more code here */ }
+
+Answer: B, C, E
+
+28. import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+interface Rideable { String getGait(); }
+public class Camel implements Rideable {
+int weight = 2;
+String getGait() { return " mph, lope"; }
+void go(int speed) {
+++speed; weight++;
+int walkrate = speed * weight;
+System.out.print(walkrate + getGait());
+}
+public static void main(String[] args) {
+new Camel().go(8);
+}
+}
+
+
+Ans:- Compilation error
+
+29. What is the value of the Expression 5.42 + "3,2"?
+
+a)double 8.6
+b)string 5.423
+c)Long 8
+d)String "5.423,2"
+
+Ans:- d) string "5.423,2"
+
+30.What is the output of this program?
+
+import java.io.*;
+
+class Chararrayinput 
+
+{
+
+public static void main(String[] args) 
+
+{
+
+String obj = "abcdef";
+
+int length = obj.length();
+
+char c[] = new char[length];
+
+obj.getChars(0,length,c,0);
+
+CharArrayReader input1 = new CharArrayReader(c);
+
+CharArrayReader input2 = new CharArrayReader(c, 0, 3);
+
+int i;
+
+try 
+
+{
+
+while ((i = input1.read()) != -1) 
+
+{
+
+System.out.print((char)i);
+
+}
+
+} 
+
+catch (IOException e) 
+
+{
+
+// TODO Auto-generated catch block
+
+e.printStackTrace();
+
+}
+
+}
+
+}
+
+a) abc
+b) abcd
+c) abcde
+d) abcdef
+
+Answer: d
+
+31.What is the output of this program?
+
+import java.io.*;
+
+class Chararrayinput 
+
+{
+
+public static void main(String[] args) 
+
+{
+
+String obj = "abcdef";
+
+int length = obj.length();
+
+char c[] = new char[length];
+
+obj.getChars(0, length, c, 0);
+
+CharArrayReader input1 = new CharArrayReader(c);
+
+CharArrayReader input2 = new CharArrayReader(c, 0, 3);
+
+int i;
+
+try 
+
+{
+
+while ((i = input2.read()) != -1) 
+
+{
+
+System.out.print((char)i);
+
+}
+
+} 
+
+catch (IOException e) 
+
+{
+
+// TODO Auto-generated catch block
+
+e.printStackTrace();
+
+}
+
+}
+
+}
+
+a) abc
+b) abcd
+c) abcde
+d) abcdef
+
+Answer: a
+
+32. Given:
+10. class One {
+11. public One foo() { return this; }
+12. }
+13. class Two extends One {
+14. public One foo() { return this; }
+15. }
+16. class Three extends Two {
+17. // insert method here
+18. }
+Which two methods, inserted individually, correctly complete the Three class? (Choose two.)
+A. public void foo() {}
+B. public int foo() { return 3; }
+C. public Two foo() { return this; }
+D. public One foo() { return this; }
+E. public Object foo() { return this; }
+Answer: C, D
+
+
+33.Consider the code 
+int[] x = {5,6,7,8,9};
+int[] y = x;
+y[2] = 10;
+What is the value of x[2]? 
+A.6 
+B.7 
+C.10 
+D.8 
+
+Answer is 10 
+
+34.What is the error in the following class definitions?
+Abstract class xy
+{ 
+abstract sum (int x, int y) { }
+}
+(a) Class header is not defined properly.
+(b) Constructor is not defined.
+(c) Method is not defined properly
+(d) Method is defined properly
+(e) No erro 
+
+Answer is C 
+
+35.Analyze the following code.
+
+Number numberRef = new Integer(0);
+Double doubleRef = (Double)numberRef;
+
+a. There is no such class named Integer. You should use the class Int.
+b. The compiler detects that numberRef is not an instance of Double.
+c. A runtime class casting exception occurs, since numberRef is not an instance of Double.
+d. The program runs fine, since Integer is a subclass of Double.
+e. You can convert an int to double, so you can cast an Integer instance to a Double instance.
+
+Ans : c
+
+36.        class Output 
+
+        {
+
+            public static void main(String args[])
+
+            {
+
+                int arr[] = {1, 2, 3, 4, 5};
+
+                for ( int i = 0; i < arr.length - 2; ++i)
+
+                    System.out.println(arr[i] + " ");
+
+            } 
+
+        }
+
+a) 1 2
+b) 1 2 3
+c) 1 2 3 4
+d) 1 2 3 4 5
+View Answer
+
+
+Answer: b
+
+
+
+
+

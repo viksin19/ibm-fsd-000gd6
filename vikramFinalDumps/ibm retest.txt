@@ -1,0 +1,410 @@
+*********DONT EDIT UNTIL U R 100% SURE ****************
+
+FULL STACK 
+
+1. jenkin pipeline information stored- jenkinfile.
+
+2. which of the following bootstrap style of button creates a default/standard button? - .btn
+
+3. pagers Styling  - .previous & .next
+
+4. Continous Integration -- poll scm -build on every changes  
+
+5. how to set random port in springBoot - application.properties -> Server.port=0
+
+6. set background color width - background-size
+
+7. scope for beans - singlton, prototype, globalSession, session, request
+
+
+
+9. who connect ORM with module - ORM
+
+////10. node V8 options| grep - information display of running processors
+
+11. java based annotation - @Configuration
+
+12. standard interface in java - serializable
+
+13. init method - servletConfig
+
+
+
+15. how to generate component in angular - ng -g component login --spec=false && ng generate component login
+
+16. when we create a new project which file is auto generated - .css and .ts 
+
+17. Transaction in XML - <tx: annotation-driven>
+
+18. for scanning beans in all class - component scan.
+
+19. nested bean - class && id
+
+20. API GATEWAY -zuul
+
+21. zuul filter  - pre, route, post, error
+
+22. eureka naming and descovery - eureka.
+
+//23. XSS attack - escaping, validatingInput, senitizing
+
+24. which pattern SPring follow - MVC
+
+25. package for Initialising bean - org.springFramework. bean.factory.InitialisingBean
+
+26. jquary method for hiding any data - hide()
+
+28. which jQuery function is used to prevent code from running document - $(body).onload()
+
+//29. load remote data using HTTP GET - $.get(url, data, callback, type)
+
+30. which jQuery method is used to perform an Asynchronous HTTP request? - jQuery.ajax()
+
+31. when node Js will throw non 0 exit mode - errorOnly(modify)
+
+32. getPath - relativePath
+
+33. getAbsolutePath - full path from drive
+
+34. classPathXmlApplication - read file from your class path(relative path), fileSystemXmlApplicationContext - read file from absolute path
+
+****35. which is not in reeact life cycle - componentUpdate
+
+36. valid scope of spring - All are valid
+
+//37. default scope of autowiring - off/no
+
+38. default button class - btn-group
+
+39.how to wrap page - All of these.(.div, .container, .class)
+
+40. for looping in angular - forEach
+
+////41. external style should be inside the head tag.
+
+42. annotation for DAO - @Repositery
+
+43. which method invoke when BeanPostProcessor is used - initialization method(by me not sure)
+
+44. which group of annotation supported my spring MVC - Controller, requestMapping , pathVariable, requestParam, modelAttribute, SessionAttribute
+
+//45. parent has no child - empty
+
+46. JSR 250 annotation supported - postConstruct, preDestroy,resources
+
+//47. implementation of JAX-RS - jersey, resteasy, restlet, apache cfx
+
+48. jenkins pluggin for backup - backup pluggin
+
+49. if writing autowire, what will be not used - constructor, property
+
+//50. invoke dynamic(4 methods are there invoke virtual,invoke special,invoke interface,invokwe static ) came in - JAVA-7
+
+51. Onclick of (something function) - Event binding
+
+52.Alternate IOC in spring - ApplicationContext (before we use BeanFactory)
+
+53.console.log(Tom), wait(2000),console.log(Jerry) -- Tom  
+                                                      Jerry 
+                                                      and 
+
+54.valid pipes in angular --DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, and PercentPipe.(ans may be all the above) 
+
+55.json p is a way of getting data from another data from domain using cors -
+
+///56.Look up dependency ask for dependency from which method  -- jndi
+
+57.prototype -- stateful, (stateless-- singleton) 
+
+58.maven with nexus integaration --  pom.xml and setting.xml
+
+59.ngModel(2-way binding)- [(ngModel)] 
+
+60.properties of  bean -- id and class  
+
+61. Hollywood quotes for spring --  dont call us we will call You  
+
+62.how to use list in spring(xml) -- <list> 
+
+*63.Why we use dependency injection -- loose coupling (and easy testing) 
+
+*64.why we use inheritance in bean file -- code resuse
+
+//////////*65.function used in javascript 
+
+/////////*66.clean coding -- is(resign..) 
+
+////////*67. what we use for getting header components --- accept,content-type,option
+
+68. how to use Logging --AOP
+
+69.simple pojo class -- public classname {}
+
+*70.which methods are not idempodent - post and patch
+
+*71.figure captions in tags --<figure><figcaption></figcaption><figure>
+
+*72.Values of parameters is  obtained .             -----Constructor  
+
+73.What is the Context scope of Bean in webAware spring -- globalsession,session,request
+
+///74.loadOnStartUp
+
+75.Bootstrap consists of 12 columns 
+
+*76.Which datatype is supported in JSON -- All of above (null,array,object,number,string)
+
+*77.Supported datatype in typescript -- null,undefined,number,symbol,Boolean,object (enum not supported)
+
+*78. How to get state in react ---  (may be  this.state)
+
+///79. How to invoke  of  re render method in React -- (React DOM render) -- setState and forceUpdate  
+
+80. How to use AutoWire -- autowire="" 
+
+81. Create String object -- @autowire string abc
+
+82.Base package in IOC-  org.springframework.beans and org.springframework.context  
+
+83.what attribute is used to inherit beans -- parent
+
+84. How to implement bootstrap in html -- link tag
+
+*85.inorder to use hystrix we have to use/pass  eureka/ribbon  -- true/false -- 
+
+86. how to prevent from xss attack and security ----- http
+which flag must be included in header to avoid xss attack- httpOnly flag                                      
+
+87.node js single is multithreading ----- true
+
+88.pipes provided by angular----- Lowercase,Uppercase pipe  (not unicode pipe)
+
+89.which is not an embedded container in spring boot------apache    (supported containers-tomcat,jetty,undertow)
+
+90.what is the xml bean declaration for the following code
+   package com.tutorialspoint;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+   public static void main(String[] args) {
+      ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+      HelloWorld objA = (HelloWorld) context.getBean("helloWorld");
+
+      objA.setMessage("I'm object A");
+      objA.getMessage();
+
+      HelloWorld objB = (HelloWorld) context.getBean("helloWorld");
+      objB.getMessage();
+   }
+}
+
+Ans.
+
+   <bean id = "helloWorld" class = "com.tutorialspoint.HelloWorld" scope = "singleton">
+   </bean>
+   
+   (scope is either singleton or prototype)
+
+
+91. upload artifacts to nexus in jenkins----- deploy goal
+
+
+92. What are different types of spring auto-wiring modes---- five (byName,byType,autodetect,constructor,no/off)
+
+93. how to wrap text inside an image------float
+
+
+94.which is an interface not an implementation- MAP(options-string,arraylist,map)
+
+95.definition of advice --- actions performed on joint points
+
+96.correct json format:
+    
+    {
+    
+    "students":[
+    
+    {
+    "Name":"abc",
+    "sub":"math"
+    },
+    
+    {
+    "Name":"xyz",
+    "sub":"sci"
+    }
+   ]
+  }
+  
+  
+97. how do you declare a java based configuration
+
+ans.
+
+@configuration
+public class helloClass{....}
+
+98. how to generate a new project-----ng new projectname
+
+
+99. why do we use inheritance in bean----to inherit the required configuration from the parent beans ---(not sure)-----
+ Ans -- For code reuse 
+
+100. how do you implement destroy method in xml
+
+ans.
+
+<bean id=""  class=""  destroy-method="destroy"> 
+
+101. which module helps in decoupling like logging----AOP 
+
+102. pointcut selects----one or more joinpoints
+
+///103.java lamda expressions follows both sequential and parallel executions.
+    You may omit the braces when the lambda body is a single expression or a void method invocation. 
+
+104.to get maxlength in textfield we use "maxlength" attribute and to get size we use "size" attribute
+
+///105.HTML describes the structure(organize) of Web pages using markup.
+
+106.spring resolves dependecies at runtime.
+
+107.spring end point is "actuator".
+
+108.whiach of following gives exact implementation of interface
+     a.list<integer> li=new list<integer>();
+     b.arraylist<> array=new arraylist<>;
+     c.map<> map=new Hashmap<>;
+     d.String s="something";
+   answer:c
+   
+ 
+109.which annotation is used to retrieve from values query parameters in an url--@Queryparam 
+
+110.constructor injection follows --byconstructor
+ 
+
+
+9.  child , no-child in bootstrap
+4.  what is transaction manager not true,
+answer bean id of transaction manager
+
+* correct css syntax for tag
+ans body{
+color: red;
+}
+
+*for class
+.main{
+color: red;
+}
+
+*for id
+#id{
+color: red;
+}
+
+111.  JSON Header Cache 
+ans  control header chache ,  Have timestamp for lastmodified ,  and age(maxage) wala options
+
+
+
+
+
+
+
+
+
+Some topics for reference -- 
+
+
+
+1.  Plugins required for backup
+2.  package for initializing beans
+3.  scope for beans
+4.  what is transaction manager, bean id of transaction manager
+5.  interface of java 
+6.  pager in bootstrap
+
+8.  for inserting images in text
+9.  child , no-child in bootstrap
+10. who connects ORM with modules
+11. json p
+12. invoke dynamic method
+13. re-rendering in react
+14. content type in rest
+15. how to get the state in react
+16. how to set random port in spring
+17. how to override junit
+18. exit code of nodejs
+19. required packages for bean class
+20. how to use list in spring boot 
+21. spring boot force container less
+22. pipeline and filter
+23.  how to give java based configuration
+24. something related to "revealed"
+25. nodejs is single or multi
+26. lamda expressions final variables
+27. annotations for mvc architecture
+28. clean coding program
+29. Generation generate= new Generation();  --> loose coupling or tight coupling
+30. bootstrap consists of 12 columns , jumbotron
+31. ng v8 - option| greps
+32. compare to float point numbers
+33. management end point spring boot
+34. which type of scheduler used>>  Nebula ,Archias something
+35. when to use DI java based config
+36. bean post processor
+37. style in html
+38. jax rs implementers of jaxrs
+39. rest uses "options" to send the metadata??
+40. where to use css style in html
+41. how insert text in border of css image
+42. how can we wrap up the whole page
+43. jsr 250 
+44. jenkins configuration file.. config.xml or JenkinsFile??
+45. inheritance of inner beans and write format of innerbean
+46. which are idemponent.. put or post or head???
+47. how to write scope request
+48. how to get border for a empty cell
+49. jquery for hiding content
+50. jquery for preventing page from loading... $(document.ready())???
+51. jquery with asynchronous ajax
+52. how to set autowiring
+53. types of autowiring
+54. prototype scope is stateful or stateless??
+55. which of the following is restful type .. content type
+56. restful can done with http and https.. t or f
+57. hollywood principle
+58. how to prevent from xss attack
+59. which is simple pojo class
+60. component scan
+61. tx:annotation driven
+62. init param are set by servlet config or servlet context
+63. who doesnt contain get attrib set attrib
+64. javascript tom and jerry
+65. how to set generate component in angular
+66. how to create new app in angular
+67. what are the filter type in zuul
+68. discovery-- eureka
+69. event binding---- onclick()
+70. for or foreach or repeat in angular???
+71. how to set length .. len or size maxlength or all the above??
+72. .btn-group for grouping
+73. lifecycle of react .. didcatch .. didmount.. render
+74. how to compare the floating points
+75. which is best setter method
+
+77. syntax of angular .. app.module
+78. annotation for dao
+79. batchupdate 
+80. files generated when we create component
+
+
+
+
+
+ 
+ 

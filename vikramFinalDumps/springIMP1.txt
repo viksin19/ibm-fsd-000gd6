@@ -1,0 +1,415 @@
+Q 1 - Which of the following is correct about dependency injection?
+
+A - It helps in decoupling application objects from each other.
+
+B - It helps in deciding the dependencies of objects.
+
+C - It stores objects states in database.
+
+D - It stores object states in file system.
+Answer : A
+
+
+
+Q 2 - Which are the correct implementation classes of ApplicationContext?
+
+A - FileSystemXmlApplicationContext, ClassPathXmlApplicationContext, WebXmlApplicationContext
+
+B - FileSystemApplicationContext, ClassPathApplicationContext, WebApplicationContext
+
+C - AdvancedApplicationContext, FileApplicationContext
+
+D - FileSystemApplicationContext, ClassPathApplicationContext
+Answer : A
+
+
+
+Q 3 - What is true about <set> collection configuration elements?
+
+A - This helps in wiring a list of values, allowing duplicates.
+
+B - This helps in wiring a list of values but without any duplicates.
+
+C - This can be used to inject a collection of name-value pairs where name and value can be of any type.
+
+D - This can be used to inject a collection of name-value pairs where the name and value are both Strings.
+Answer : B
+
+
+
+Q 4 - What is constructor mode of autowiring?
+
+A - Autowiring by property name. Spring tries to match and wire its properties with the beans defined by the same names in the configuration file.
+
+B - Spring first tries to wire using autowire by constructor, if it does not work, Spring tries to autowire by byType.
+
+C - Autowiring by property type. Spring tries to match and wire a property if its type matches with exactly one of the beans name in configuration file.
+
+D - Similar to byType, but type applies to constructor arguments. If there is not exactly one bean of the constructor argument type in the container, a fatal error is raised.
+Answer : D
+
+
+
+Q 5 - What is true about @Autowired annotation?
+
+A - The @Autowired annotation can be used to autowire bean on the setter method.
+
+B - This annotation provides more fine-grained control over where and how autowiring should be accomplished.
+
+C - The @Autowired annotation can be used to autowire bean on the methods with arbitrary names and/or multiple arguments.
+
+D - All of above.
+Answer : B
+
+
+
+Q 6 - What are the different points where weaving can be applied?
+
+A - Compile time, load time
+
+B - Compile time, run time
+
+C - Run time
+
+D - Compile time, load Time, Run time
+Answer : D
+
+
+
+Q 7 - What is Spring MVC framework?
+
+A - Spring MVC framework is Model-Value-Class architecture and used to bind model data with values.
+
+B - The Spring web MVC framework provides model-view-controller architecture and ready components that can be used to develop flexible and loosely coupled web applications.
+
+C - Spring MVC framework is used for Transaction management for Web Applications.
+
+D - Spring MVC framework is used for AOP for Web Applications.
+Answer : B
+
+
+
+Q 8 - By default a bean is lazily loaded.
+
+A - True
+
+B - False
+Answer : B
+
+
+
+Q 9 - What is the scope of bean in portlet context?
+
+A - session
+
+B - global-session
+
+C - prototype
+
+D - request
+Answer : B
+
+
+
+Q 10 - Which of the following class can be used to call Stored Procedures in spring?
+
+A - SPHelper
+
+B - JdbcTemplateCall
+
+C - JdbcTemplate
+
+D - SimpleJdbcCall
+Answer : D
+============================================================================
+
+Q 1 - What is ContextRefreshedEvent event?
+
+A - This event is published when the Servlet Context is either initialized or refreshed.
+
+B - This event is published when the HTTP Request is received.
+
+C - This event is published when the HTTP Response is returned.
+
+D - This event is published when the ApplicationContext is either initialized or refreshed.
+Answer:D
+
+
+
+Q 2 - What is Introduction?
+
+A - An introduction represents a point in your application where you can plug-in AOP aspect.
+
+B - This is used to inject values in objects.
+
+C - This is not invoked during program execution by Spring AOP framework.
+
+D - An introduction allows you to add new methods or attributes to existing classes.
+Answer:D
+
+
+
+Q 3 - What is @Controller annotation?
+
+A - The @Controller annotation indicates that a particular class serves the role of a controller.
+
+B - The @Controller annotation indicates how to control the transaction management.
+
+C - The @Controller annotation indicates how to control the dependency injection.
+
+D - The @Controller annotation indicates how to control the aspect programming.
+Answer:A
+
+
+Q 4 - What is prototype scope?
+
+A - This scopes a single bean definition to have any number of object instances.
+
+B - This scopes the bean definition to a single instance per HTTP Request.
+
+C - This scopes the bean definition to a single instance per HTTP Session.
+
+D - This scopes the bean definition to a single instance per HTTP Application/ Global session.
+Answer:A
+
+Q 5 - What is true about <props> collection configuration elements?
+
+A - This helps in wiring a list of values, allowing duplicates.
+
+B - This helps in wiring a list of values but without any duplicates.
+
+C - This can be used to inject a collection of name-value pairs where name and value can be of any type.
+
+D - This can be used to inject a collection of name-value pairs where the name and value are both Strings
+Answer:A
+
+
+Q 6 - How to handle shut down of IoC container?
+
+A - Using shutdownHook()
+
+B - Using shutdownHandler()
+
+C - Using registerHook()
+
+D - Using registerShutdownHook()
+Answer:D
+
+
+Q 7 - By default a bean is eagerly loaded.
+
+A - False
+
+B - True
+Answer:B
+
+
+Q 8 - What is true about BeanPostProcessor?
+
+A - It is a concrete class.
+
+B - It is an interface.
+
+C - It is an abstract class.
+
+D - None of the above.
+Answer:B
+
+
+Q 9 - How can you inject Java Collection in Spring?
+
+A - Using list, set, map or props tag.
+
+B - Using lit, set, map or collection tag.
+
+C - Using list, set, props or collection tag.
+
+D - Using list, collection, map or props tag.
+Answer:A
+
+
+Q 10 - Which class is used to map a database row to a java object in spring?
+
+A - ResultSet
+
+B - RowMapper
+
+C - RowSetMapper
+
+D - ResultSetMapper
+Answer:B
+
+
+Q 11 - How bean life cycle can be controlled?
+
+A - Using init() only
+
+B - Using InitializingBean class only
+
+C - Using DisposableBean class only
+
+D - Using All of above
+Answer:D
+
+
+Q 12 - What is the scope of bean in portlet context?
+
+A - session
+
+B - global-session
+
+C - prototype
+
+D - request
+Answer:B
+
+Q 13 - What is ContextStoppedEvent event?
+
+A - This event is published when the Servlet Context is either initialized or refreshed.
+
+B - This event is published when the ApplicationContext is stopped using the stop() method on the ConfigurableApplicationContext interface.
+
+C - This event is published when the HTTP Request is received.
+
+D - This event is published when the HTTP Response is returned.
+Answer:B
+
+
+Q 14 - Which ORM Spring supports ?
+
+A - Hibernate
+
+B - iBatis
+
+C - JPA
+
+D - All of above.
+
+E - None of above.
+Answer:D
+
+
+Q 15 - What is true about <map> collection configuration elements?
+
+A - This helps in wiring a list of values, allowing duplicates.
+
+B - This helps in wiring a list of values but without any duplicates.
+
+C - This can be used to inject a collection of name-value pairs where name and value can be of any type.
+
+D - This tag is not supported.
+Answer:C
+
+
+Q 16 - Core container has AOP as one of its module.
+
+A - True
+
+B - False
+Answer:B
+
+
+Q 17-Can you inject null and empty string values in Spring?
+
+A - Yes
+
+B - No
+Answer:A
+
+
+Q 18 - What stands true for spring framework?
+
+A - Spring framework is a light weight framework.
+
+B - Spring framework is a heavy weight framework.
+Answer:A
+
+
+Q 19 - Which class acts as IoC Container?
+
+A - ServletContext
+
+B - DispatcherServlet
+
+C - ApplicationContext
+
+D - None of the above
+Answer:C
+
+
+Q 20 - What is the scope of stateless bean?
+
+A - global-session
+
+B - singleton
+
+C - prototype
+
+D - request
+Answer:B
+====================================================================================
+
+1. Beans defined in spring framework are by default?
+---->singleton
+2. which of the following is not a spring module
+--->HTML/JSP
+3. spring is a?
+---->an open source network
+4. which of the following is true
+--->ApplicationContext extendsBeanFactory
+5. controller in spring is
+---> an interface
+6. what are different autowire types?
+---->byName, byType,constructor and autodetect
+7. types of bean injections?
+-->consttructor and setter
+8. which are different points where weaving can be applied?
+---> compile time,classload time,runtime
+9. IOC or dependent injection is a
+ ----> Design pattern
+10. which exception class is related to all exceptions that are thrown in spring applications?
+--->DataAccessException
+============================================================================
+1. what is stand for spring MVC?
+-->Model view controller
+2.what is the type of proxy in spring framework?
+-->2(sttaic,dynamic)
+3.spring MVC is a request-based framework?
+--->YES
+4.what is the stand of AOP?
+--->aspect oriented programming
+5.how many types of dynamic proxy is available in spring?
+--->2
+6.how many types of injection method  in spring?
+--->2
+===============================================================================
+1.how to auto-inject into a field a bean by its name?
+---> by using both the @autowired and the @qualifier spring annotations
+
+2.given the following spring configuration file,what is correct answer:
+<bean class="com.spring.service.MyServiceImpl">
+<property name="repository" ref="jpaDao"/>
+</bean>
+<bean class="com.spring.repository.JpaDao"/>
+Answer:-->the second declared bean JpaDao is missing an Id must be named as jpaDao
+
+3.how could you externalize constants from a spring configuration file or  aspring annotation into a .properties file?
+--->By using the context:property-placeholder tag
+
+4.what are the main advantages of using intefaces when describing bussiness services?
+---->Mocking or stubbing the service
+
+5.how is named the bean that is defined in the following configuration class?
+---->client repository
+
+6.what statement is not correct in live environment?
+--->All the above
+
+7.what one is not the reight affirmations about the @postconstruct, @resource and the @predestroy notations?
+---->the spring framework embedded those annotation
+
+ 8. what is/are typically case(s) where you usually need to manually instanciatedan applicaton context?
+---->in a standalone application started with a main method
+======================================================================================
+
+

@@ -1,0 +1,215 @@
+\java spring:
+___________________________
+
+1)  @controller(in ques)  
+
+ans:Spring MVC
+
+2)  class(ques) : 
+
+ans: Annotationconfig  appicationcontext
+
+3)  interface rather than implementations: 
+
+map m = new Hashmap();
+
+4) which module provide communication between ORM and core module(ques) : options:  
+a) ORM  
+b) Transaction   
+c) Oxm  
+d)JMS 
+
+Expected ans for 4rth ques are b or d
+
+5) autowiring by default(ques) 
+
+ans:"off"
+
+6) how to inherit beans (ques)  
+
+ans: parent = ""
+
+7) program starting line abstract ="true" 
+
+ans: country = japan , type= 1 ;
+
+8) three basic to create a simple spring application (ques): 
+
+1st option (context, retrieve , work) 
+
+9) default(ques) 
+
+ans:singleton
+
+10) web- aware(ques) 
+
+ans: session , request session , global session
+
+11) modes of autowiring(ques) 
+
+ans: no,bytype , by name , constructor , autodetect
+
+12) Autowiring is an alternative of(ques)  
+
+ans: 3rd option with AOP
+
+13) standard collection : 
+
+serializable
+
+14) dependency look up(ques) 
+
+ans: all the above(factory method , keyword method  , JNDI method)
+
+15) @transactional
+
+16) do we use transaction management in spring (ques) 
+
+ans: yes, with template class
+
+17) how do define destroy method (ques): 
+
+destroy- method ="destroy"
+
+18) (ans)<context: component-scan>
+
+19) (ans)<bean id="helloworld" class="com.Helloworld" destroy-method="destroy"/>
+
+20) (ans) org.springframework.beans.factory.Initializingbean(option a)
+
+21) how to define datasource (ques) 
+
+ans: drivermanager datasource(option a)
+
+22) spring is  a pojo class. which of the following makes it manageble(ques): option 
+a)some extended 
+b) public static myclass extends spring bean implements manageble.....
+c) something extends  
+d) public class Myclas
+
+(expected ans  b or d)
+ 
+23)by default inner bean is(ques)  
+
+ans: prototype
+
+24)In question you will have id name this should match with that if it is case sensitive means ans 
+also case sensitive
+
+ans: context.getBean()
+
+25) in ques they will give progrmme and asks for finding which of the following represents inner bean(ques) 
+
+ans: in the proramme bean id comes after the constructor-arg or property
+
+26)classpath means Relative and file path means absolute
+
+26) (ans)set auto commit(false)
+
+27) by using auto wiring and auto discovery which you can reduce(ques) 
+
+ans: java code(1st option)
+
+28) how to acess instruction in java configuration (ques)
+
+ans : property file and XML file 
+
+29) meta data (ques): 
+
+ans : XML based , Annotation based , java based configuration
+
+30) my bean = "null"
+
+null
+
+31) some program with constructor(ques) 
+
+ans: constructor type
+
+32) some exceptions in autowiring modes (ques): 
+
+b) null pointer exception 
+c) illegal state exception 
+d) none 
+
+(please check expected option c)
+
+34) JSR-250 annotation(ques) 
+
+ans: @postconstruct @ predestroy @ resource 
+
+
+35) advice(def and syntaxes read) 
+
+36) aspect (def and syntaxes read) 
+
+37) point cut (ques) 
+
+ans: one or more join points 
+
+38) java.util.collection.properties (ques) 
+
+ans: props
+
+39)<list> 
+
+allows  dupicates
+
+40) <set>  
+
+doen't allow duplicates
+
+41) result set(ques) 
+
+ans: row mapper
+
+42) <map> 
+
+name value pair of any type
+
+43) <props> 
+
+name value pair of string type
+
+44) @ transactional
+
+45) same instance one in application (ques) 
+
+ans: singleton
+
+46) each instance object creatio (ques) 
+
+ans:prototype
+
+47) spring bean lifecycle(ques)   
+
+ans: before befor after propertieset()
+
+48) JDBC template provides: options 
+a) execute SQL queries 
+b) execute update statements 
+c) execute java programe 
+d) execute stored callprocedures 
+
+ans :(abd)
+
+49) add method (amount, -SRC) add method (amount src) in (ques) 
+
+ans: transfer method();
+
+50) new xml classpath application context(c:/project/config/application.xml) and new Filepathapplicationcontext(config/applict.xml)
+ 
+these ans will be in "a " and "c" options  ans:(a and c) 
+ClassPath--> relative and FilePath--> absolute
+
+
+
+
+
+
+
+
+
+
+ 
+

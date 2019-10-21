@@ -1,0 +1,334 @@
+1.Class used to have full access to the Spring context’s life cycle machinery and dependency injection.
+
+A. DelegatingFilterProxy 
+B. WebApplicationContextUtils.getRequiredWeb() 
+C. WebApplicationUtils.getRequiredWebApplicationContext() 
+D. None of the mentioned
+
+A
+
+2.Element used to specify access attributes for bean’s methods.
+A. security:protect 
+B. security:intercept 
+C. security:intercept-security 
+D. none of the mentioned
+
+A
+
+3. Stated related to Spring Web flows
+A. view 
+B. action 
+C. decision 
+D. all of the mentioned
+
+D
+
+4. To enable Spring security for web flows.
+A. SecurityFlowExecutionListener 
+B. SecurityFlowExecution 
+C. FlowSecurity 
+D. SecurityFlowListener
+
+A
+
+5.  To load root application context at the start up.
+A. ContextListener 
+B. ContextLoader 
+C. ContextLoaderListener 
+D. ContextEventListener
+
+C
+
+6. ActionSupport class provides a method to access spring’s application context.
+A. getWebApplicationContext() 
+B. getWebApplication() 
+C. getApplicationContext() 
+D. contextEventListener()
+
+A
+
+7.  XML element to specify the property values for scripting bean
+A. lang:property 
+B. bean:property 
+C. script:property 
+D. None of the mentioned
+
+A
+
+8. Annotation used to declare an introduction
+A. Before 
+B. After 
+C. @DeclareParents 
+D. None of the mentioned
+
+C
+9. Is the following pointcut expression correct?
+
+execution(* ArithmeticCalculator.*(..))
+A. Yes 
+B. No 
+C. If every target class is in same package 
+D. Depends where target class is located
+
+C
+
+
+10. DAO methods require access to the session factory, which can be injected:-
+A. a setter method 
+B. constructor argument 
+C. none of the mentioned 
+D. all of the mentioned
+
+D
+
+11. Which of the following Java Collection types can you inject in a Spring application?
+
+1.   None of these.
+2.   Using lit, set, map or collection tag.
+3.   Using list, set, props or collection tag.
+4.   Using list, set, map or props tag.
+5.   Using list, collection, map or props tag.
+
+
+D
+
+12.What are the different types of AutoProxying?
+
+a.BeanNameAutoProxyCreator
+b.DefaultAdvisorAutoProxyCreator
+c.Metadata autoproxying
+d. All of the above
+e. none of the above
+
+D
+
+13. What are the various editors used in spring work?
+
+a. PropertyEditor ,URLEditor
+b. ClassEditor, CustomDateEditor, StringTrimmerEditor
+c. FileEditor, LocaleEditor, StringArrayPropertyEditor
+d. All of the above
+
+D
+
+
+14. 1.	How to use <ref> in spring framework?
+a.	<ref> is used with bean id.
+ b.	<ref> is used with string values.
+
+A
+
+15. How to define Inner bean in spring?
+	a.	Use <property/> only
+b.	Use <property/> or <constructor-arg/>.
+
+B
+
+16. Which property is replaced by c-namespace in spring?
+ a.	<property/>
+ b.	<constructor-arg>
+
+B
+
+17. By default a bean is eagerly initialized in spring?
+ a.	True
+b.	False
+
+A
+
+18. By default a bean is not autowired?
+ a.	True
+ b.	False
+
+B
+
+
+19. Can the class which spring container makes subclass be final?
+a.	No
+ b.	Yes
+
+A
+
+20. What is the scope of statefull bean in spring?
+a.	Singleton scope
+ b.	Prototype scope
+
+B
+
+21. In which spring scope is a single bean instance created per IoC container?
+a.Singleton scope
+b.Request scope
+
+A
+
+
+22. In which spring scope can any number of instances of bean be created?
+ a.	Request scope
+ b.	Prototype scope
+
+B
+
+
+23. When a bean has scope limited to only HTTP request, that is called
+ a.	Request scope
+ b.	Session scope
+
+A
+
+
+24. When a bean has scope limited to HTTP session, that is called
+a.	Request scope
+b.	Session scope
+
+B
+
+25. Thread scope bean has been introduced in spring from the version
+a.	Spring 2.5
+b.	Spring 3.0
+
+B
+
+
+26. InitializingBean and DisposableBean is used to customize the nature of bean in spring.
+ a.	Yes
+b.	No
+
+A
+
+
+27. How to shutdown the Spring IoC container gracefully in non-web applications?
+ a.	Using shutdownNow()
+ b.	registerShutdownHook()
+
+B
+
+
+28. Which of the following is correct about dependency injection?
+
+A - It helps in decoupling application objects from each other.
+
+B - It helps in deciding the dependencies of objects.
+
+C - It stores objects states in database.
+
+D - It stores object states in file system.
+
+
+A
+
+
+29. Which are the correct implementation classes of ApplicationContext?
+
+A - FileSystemXmlApplicationContext, ClassPathXmlApplicationContext, WebXmlApplicationContext
+
+B - FileSystemApplicationContext, ClassPathApplicationContext, WebApplicationContext
+
+C - AdvancedApplicationContext, FileApplicationContext
+
+D - FileSystemApplicationContext, ClassPathApplicationContext
+
+A
+
+30. What is Spring MVC framework?
+
+A - Spring MVC framework is Model-Value-Class architecture and used to bind model data with values.
+
+B - The Spring web MVC framework provides model-view-controller architecture and ready components that 
+    can be used to develop flexible and loosely coupled web applications.
+
+C - Spring MVC framework is used for Transaction management for Web Applications.
+
+D - Spring MVC framework is used for AOP for Web Applications.
+
+B
+
+31. How to reload my changes on Spring Boot without having to restart server?
+
+
+a. <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+			</dependency> 
+
+b. <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
+			<optional>true</optional>
+			</dependency> 
+
+c. <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-web</artifactId>
+			<optional>true</optional>
+			</dependency> 
+
+d. <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-jasper</artifactId>
+			<optional>true</optional>
+			</dependency> 
+ 
+
+A
+
+32. Annotation to add security to your spring boot app?
+
+a. @EnableWebSecurity
+b. @EnableSecurity
+c. @EnableSpringSecurity
+
+A
+
+33. What are the different implementations of Spring AOP ?
+A: AspectJ
+B: Spring AOP
+C: JBoss AOP
+D: All
+E: None
+
+D
+
+34. How Spring Batch works?
+
+a. step, ItemReader, ItemProcessor, ItemStreamWriter
+b. step, ItemProcessor, ItemStreamWriter
+c. step, ItemReader,  ItemStreamWriter
+
+A
+
+35. LoggerInterceptor which implements the HandlerInterceptor.The LoggerInterceptor will override the which following methods
+
+a. preHandlerBean(), postHandlerBean(), afterCompletion()
+b.  PreProcessHandler(), PostProcessHandler(), afterCompletion()
+c.  PreHandler(), PostHandler(), afterCompletion()
+d. none
+
+C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
