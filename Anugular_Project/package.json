@@ -1,0 +1,14 @@
+{
+  "name": "anugular_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vikram",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^8.3.19"
+  }
+}
