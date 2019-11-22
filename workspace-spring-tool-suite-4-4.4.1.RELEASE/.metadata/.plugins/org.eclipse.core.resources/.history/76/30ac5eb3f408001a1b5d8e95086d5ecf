@@ -1,0 +1,5 @@
+package com.example.player.Service;
+
+public class PlayerServiceImpl implements PlayerService {
+
+}

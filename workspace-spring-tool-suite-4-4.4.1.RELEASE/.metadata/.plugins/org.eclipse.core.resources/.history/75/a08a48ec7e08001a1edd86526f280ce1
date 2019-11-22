@@ -1,0 +1,8 @@
+package Service;
+
+import Entity.Player;
+
+public interface PlayerService {
+	public void addPlayer(Player pl);
+	public Player showPlayer();
+}

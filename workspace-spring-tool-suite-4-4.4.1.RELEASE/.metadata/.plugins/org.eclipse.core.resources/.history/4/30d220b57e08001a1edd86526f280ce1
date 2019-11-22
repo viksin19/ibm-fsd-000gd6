@@ -1,0 +1,19 @@
+package Service;
+
+import Entity.Player;
+
+public class PlayerServiceImpl implements PlayerService {
+
+	@Override
+	public void addPlayer(Player pl) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Player showPlayer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

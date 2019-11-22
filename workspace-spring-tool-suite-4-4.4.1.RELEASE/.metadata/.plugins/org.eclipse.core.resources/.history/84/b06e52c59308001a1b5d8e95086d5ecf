@@ -1,0 +1,27 @@
+package Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import Entity.Player;
+import Repository.PlayerRepo;
+@Service
+public class PlayerServiceImpl implements PlayerService {
+     @Autowired
+	private List<Player> player;
+	@Override
+	public void addPlayer(Player pl) {
+		// TODO Auto-generated method stub
+		player.add(pl);
+
+	}
+
+	@Override
+	public List<Player> showPlayer() {
+		// TODO Auto-generated method stub
+		return player;
+	}
+
+}

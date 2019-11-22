@@ -1,0 +1,10 @@
+package Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import Entity.Player;
+
+public interface PlayerRepo extends JpaRepository<Player, Integer> {
+public void addPlayer(Player pl);
+public Player showPlayer();
+}
