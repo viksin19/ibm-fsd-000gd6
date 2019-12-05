@@ -1,0 +1,25 @@
+
+<br>
+<div class="container" *ngIf='players'>
+        <table class="table table-striped table-hover" style="margin-top: 20px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name </th>
+                    <th>Runs</th>
+                    <th>Wickets</th>
+                    <th>Matches</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let e of players'>
+                    <td>{{e.name}}</td>
+                    <td>{{e.runs}}</td>
+                    <td>{{e.wickets}}</td>
+                    <td>{{e.matches}}</td>
+                </tr>
+    
+            </tbody>
+        </table>
+    
+        <br>
+    </div>
